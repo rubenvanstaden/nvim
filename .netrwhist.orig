@@ -1,0 +1,44 @@
+let g:netrw_dirhistmax  =10
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/thedon/codes/AnyonTestChipBuilder/src'
+let g:netrw_dirhist_2='/home/thedon/codes/AnyonTestChipBuilder/src/AnyonGDSII'
+let g:netrw_dirhist_3='/home/thedon/codes/AnyonTestChipBuilder'
+=======
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/therealtyler/softwares/TransformCpp'
+let g:netrw_dirhist_3='/home/therealtyler/softwares/TransformCpp/src'
+let g:netrw_dirhist_2='/home/therealtyler/softwares/TransformCpp'
+let g:netrw_dirhist_1='/home/therealtyler/softwares/TransformCpp/src'
+let g:netrw_dirhist_0='/home/therealtyler/softwares/TransformCpp'
+let g:netrw_dirhist_9='/home/therealtyler/softwares/TransformCpp/src'
+let g:netrw_dirhist_8='/home/therealtyler/softwares/TransformCpp'
+let g:netrw_dirhist_7='/home/therealtyler/softwares/TransformCpp/src'
+let g:netrw_dirhist_6='/home/therealtyler/softwares/TransformCpp'
+let g:netrw_dirhist_5='/home/therealtyler/softwares/TransformCpp/src'
+>>>>>>> Stashed changes
+||||||| merged common ancestors
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/therealtyler/Downloads/therealtyler/spira/spira/examples'
+let g:netrw_dirhist_2='/home/therealtyler/Downloads/therealtyler/spira/spira'
+let g:netrw_dirhist_3='/home/therealtyler/Downloads/therealtyler/spira/spira/examples'
+let g:netrw_dirhist_4='/home/therealtyler/Downloads/therealtyler/spira/spira'
+let g:netrw_dirhist_5='/home/therealtyler/Downloads/therealtyler/spira/spira/examples'
+let g:netrw_dirhist_6='/home/therealtyler/Downloads/therealtyler/spira/spira'
+let g:netrw_dirhist_7='/home/therealtyler/Downloads/therealtyler/spira/spira/examples'
+let g:netrw_dirhist_8='/home/therealtyler/Downloads/therealtyler/spira/spira'
+let g:netrw_dirhist_9='/home/therealtyler/Downloads/therealtyler/spira/spira/examples'
+=======
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/therealtyler/softwares/TransformCpp'
+let g:netrw_dirhist_3='/home/therealtyler/softwares/TransformCpp/src'
+let g:netrw_dirhist_2='/home/therealtyler/softwares/TransformCpp'
+let g:netrw_dirhist_1='/home/therealtyler/softwares/TransformCpp/src'
+let g:netrw_dirhist_0='/home/therealtyler/softwares/TransformCpp'
+let g:netrw_dirhist_9='/home/therealtyler/softwares/TransformCpp/src'
+let g:netrw_dirhist_8='/home/therealtyler/softwares/TransformCpp'
+let g:netrw_dirhist_7='/home/therealtyler/softwares/TransformCpp/src'
+let g:netrw_dirhist_6='/home/therealtyler/softwares/TransformCpp'
+let g:netrw_dirhist_5='/home/therealtyler/softwares/TransformCpp/src'
+>>>>>>> Stashed changes

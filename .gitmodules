@@ -1,0 +1,3 @@
+[submodule "ayu-vim"]
+	path = ayu-vim
+	url = https://github.com/ayu-theme/ayu-vim
