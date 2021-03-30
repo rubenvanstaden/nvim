@@ -65,16 +65,17 @@ set nowritebackup                       " This is recommended by coc
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-colorscheme OceanicNext
+" let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+" colorscheme OceanicNext
 
 " let g:one_allow_italics = 1
 " colorscheme one
 
 " colorscheme nord
-" colorscheme onedark
+colorscheme onedark
 " colorscheme palenight
+
 
 " ================ Python Settings ========================
 
@@ -369,6 +370,3 @@ vnoremap > >gv
 
 
 " =================== END =====================
-
-
-
