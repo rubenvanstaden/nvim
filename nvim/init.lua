@@ -1,10 +1,8 @@
 -- require('lua.plugin')
 -- require('lua.core')
 
-
 vim.g.mapleader = " "
 vim.g.auto_save = false
-
 
 --
 -- Packer
@@ -21,13 +19,21 @@ require('packer').startup(
     use 'wbthomason/packer.nvim'
 
     -- Theme
-    use 'monsonjeremy/onedark.nvim'
-    use 'mhartington/oceanic-next'
-    use 'folke/tokyonight.nvim'
+    use {
+      'monsonjeremy/onedark.nvim',
+      config = function()
+          require("onedark").setup()
+      end
+    }
 
-    use "junegunn/gv.vim"
+    -- Git
+    use {
+      "junegunn/gv.vim"
+    }
 
-    use "tpope/vim-fugitive"
+    use {
+      "tpope/vim-fugitive"
+    }
 
     -- Bufferline
     use {
@@ -92,11 +98,6 @@ vim.opt.smartindent = true    -- Insert indents automatically
 vim.opt.termguicolors = true  -- True color support
 vim.opt.wrap = false          -- Disable line wrap
 
--- Theme
--- vim.cmd[[colorscheme OceanicNext]]
--- vim.cmd[[colorscheme tokyonight]]
-require('onedark').setup()
-
 -- Bufferline
 require("bufferline").setup {
     options = {
@@ -127,7 +128,6 @@ require'lualine'.setup {
     theme = 'onedark',
     component_separators = {'', ''},
     --component_separators = {'', ''},
-    --section_separators = {'', ''},
     section_separators = {'', ''},
     disabled_filetypes = {}
   },
@@ -151,12 +151,10 @@ require'lualine'.setup {
   extensions = {}
 }
 
-require('nvim_comment').setup()
+-- require('nvim_comment').setup()
 
 -- 
 -- Mappings
-local opt = {}
-
 local function map(mode, bind, exec, opts)
     local options = { noremap = true, silent = true }
     if opts then
