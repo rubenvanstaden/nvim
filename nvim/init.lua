@@ -15,6 +15,9 @@ opt.smartindent = true    -- Insert indents automatically
 opt.termguicolors = true  -- True color support
 opt.wrap = false          -- Disable line wrap
 
+-- Theme
+cmd[[colorscheme tokyonight]]
+
 -- 
 -- Mappings
 local function map(mode, bind, exec, opts)
@@ -47,18 +50,22 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-return require('packer').startup(function(use)
-  -- Plugins here
-  use 'wbthomason/packer.nvim'
+return require('packer').startup(
+  function(use)
+    -- Plugins here
+    use 'wbthomason/packer.nvim'
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if packer_bootstrap then
+      require('packer').sync()
+    end
+
+    use "junegunn/gv.vim"
+
+    use "tpope/vim-fugitive"
+
+    use 'folke/tokyonight.nvim'
   end
+)
 
-  use "junegunn/gv.vim"
-
-  use "tpope/vim-fugitive"
-
-end)
