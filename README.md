@@ -8,10 +8,10 @@ Use A docker container to test changes before making changes to local machine.
 
 ```shell
 # Build image
-docker build -t nvim-image .
+./build.sh
 
-# Chroot into container instance
-docker run --volume "$PWD/nvim:/root/.config/nvim" -it --rm nvim-image zsh
+# Chroot into container
+./run.sh
 ```
 
 ## TODO:
