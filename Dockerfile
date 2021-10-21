@@ -5,6 +5,8 @@ RUN apk update \
     alpine-sdk \
     tree \
     curl \
+    fd \
+    ripgrep \
     zsh \
     git \
     neovim \

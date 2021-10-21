@@ -1,6 +1,11 @@
 -- require('lua.plugin')
 -- require('lua.core')
 
+
+vim.g.mapleader = " "
+vim.g.auto_save = false
+
+
 --
 -- Packer
 local fn = vim.fn
@@ -11,20 +16,64 @@ end
 
 require('packer').startup(
   function(use)
-    -- Plugins here
+
+    -- Packer
     use 'wbthomason/packer.nvim'
+
+    -- Theme
+    use 'monsonjeremy/onedark.nvim'
+    use 'mhartington/oceanic-next'
+    use 'folke/tokyonight.nvim'
 
     use "junegunn/gv.vim"
 
     use "tpope/vim-fugitive"
 
-    use 'monsonjeremy/onedark.nvim'
+    -- Bufferline
+    use {
+      'akinsho/bufferline.nvim',
+      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
 
-    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-
+    -- Lualine
     use {
       'hoob3rt/lualine.nvim',
       requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+
+    -- use "terrortylor/nvim-comment"
+    -- require('nvim_comment').setup()
+
+    use {
+      "terrortylor/nvim-comment",
+      -- cmd = "CommentToggle",
+      config = function()
+          require("nvim_comment").setup()
+      end
+    }
+
+    -- Telescope
+    use {
+      "nvim-telescope/telescope.nvim",
+      requires = {
+          {"nvim-lua/popup.nvim"},
+          {"nvim-lua/plenary.nvim"}
+      },
+      cmd = "Telescope",
+      config = function()
+        require("plugins.telescope").config()
+      end
+    }
+
+    use {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      run = "make",
+      cmd = "Telescope"
+    }
+
+    use {
+      "nvim-telescope/telescope-media-files.nvim",
+      cmd = "Telescope"
     }
 
     if packer_bootstrap then
@@ -36,11 +85,6 @@ require('packer').startup(
 
 --
 -- Options
-local opt = vim.opt  -- to set options
-local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
-local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
-local g = vim.g      -- a table to access global variables
-
 vim.opt.number = true         -- Display line numbers to the left
 vim.opt.expandtab = true      -- Use spaces instead of tabs
 vim.opt.shiftwidth = 2        -- Number of spaces tabs count for 
@@ -49,32 +93,9 @@ vim.opt.termguicolors = true  -- True color support
 vim.opt.wrap = false          -- Disable line wrap
 
 -- Theme
---cmd[[colorscheme onedark]]
+-- vim.cmd[[colorscheme OceanicNext]]
+-- vim.cmd[[colorscheme tokyonight]]
 require('onedark').setup()
-
--- 
--- Mappings
-local function map(mode, bind, exec, opts)
-    local options = { noremap = true, silent = true }
-    if opts then
-        options = vim.tbl_extend('force', options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, bind, exec, opts)
-end
-
-local opt = {} --empty opt for maps with no extra options
-local M = {}
-
--- Windows
-map("n", "<C-h>", "<C-w>h", opt)
-map("n", "<C-j>", "<C-w>j", opt)
-map("n", "<C-k>", "<C-w>k", opt)
-map("n", "<C-l>", "<C-w>l", opt)
-
--- Dashboard 
-map("n", ";", ":", opt)
-map("n", "J", "10j", opt)
-map("n", "K", "10k", opt)
 
 -- Bufferline
 require("bufferline").setup {
@@ -115,7 +136,7 @@ require'lualine'.setup {
     lualine_b = {'branch'},
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
-    --lualine_y = {'progress'},
+    lualine_y = {'progress'},
     lualine_z = {'location'}
   },
   inactive_sections = {
@@ -129,3 +150,43 @@ require'lualine'.setup {
   tabline = {},
   extensions = {}
 }
+
+require('nvim_comment').setup()
+
+-- 
+-- Mappings
+local opt = {}
+
+local function map(mode, bind, exec, opts)
+    local options = { noremap = true, silent = true }
+    if opts then
+        options = vim.tbl_extend('force', options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, bind, exec, opts)
+end
+
+local opt = {} --empty opt for maps with no extra options
+local M = {}
+
+-- Windows
+map("n", "<C-h>", "<C-w>h", opt)
+map("n", "<C-j>", "<C-w>j", opt)
+map("n", "<C-k>", "<C-w>k", opt)
+map("n", "<C-l>", "<C-w>l", opt)
+
+-- Dashboard 
+map("n", ";", ":", opt)
+map("n", "J", "10j", opt)
+map("n", "K", "10k", opt)
+
+-- Telescope
+map("n", "<Leader>fw", [[<Cmd> Telescope live_grep<CR>]], opt)
+map("n", "<Leader>gt", [[<Cmd> Telescope git_status <CR>]], opt)
+map("n", "<Leader>cm", [[<Cmd> Telescope git_commits <CR>]], opt)
+map("n", "<Leader>ff", [[<Cmd> Telescope find_files <CR>]], opt)
+map("n", "<Leader>fg", [[<Cmd> Telescope live_grep <CR>]], opt)
+map("n", "<Leader>fb", [[<Cmd> Telescope buffers<CR>]], opt)
+
+-- Commenter Keybinding
+map("n", "<leader>/", ":CommentToggle<CR>", opt)
+map("v", "<leader>/", ":CommentToggle<CR>", opt)

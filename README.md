@@ -18,6 +18,7 @@ Use A docker container to test changes before making changes to local machine.
 
 * Copy to host clipboard
 
+* Setup commenter
 * Setup git
 * Setup LSP
 * Setup telescope
