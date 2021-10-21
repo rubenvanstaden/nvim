@@ -11,7 +11,7 @@ Use A docker container to test changes before making changes to local machine.
 docker build -t nvim-image .
 
 # Chroot into container instance
-docker run -w /root -it --rm nvim-image zsh
+docker run --volume "$PWD/nvim:/root/.config/nvim" -it --rm nvim-image zsh
 ```
 
 ## TODO:
