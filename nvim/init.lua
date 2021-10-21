@@ -16,14 +16,13 @@ require('packer').startup(
   function(use)
 
     -- Packer
-    use 'wbthomason/packer.nvim'
+    use {
+      'wbthomason/packer.nvim'
+    }
 
     -- Theme
     use {
-      'monsonjeremy/onedark.nvim',
-      config = function()
-          require("onedark").setup()
-      end
+      'monsonjeremy/onedark.nvim'
     }
 
     -- Git
@@ -51,11 +50,7 @@ require('packer').startup(
     -- require('nvim_comment').setup()
 
     use {
-      "terrortylor/nvim-comment",
-      -- cmd = "CommentToggle",
-      config = function()
-          require("nvim_comment").setup()
-      end
+      "terrortylor/nvim-comment"
     }
 
     -- Telescope
@@ -82,12 +77,40 @@ require('packer').startup(
       cmd = "Telescope"
     }
 
+    -- Treesitter
+    -- use {
+    --     "nvim-treesitter/nvim-treesitter",
+    --     event = "BufRead",
+    --     config = function()
+    --         require("plugins.treesitter").setup()
+    --     end
+    -- }
+
+    use {
+      'kyazdani42/nvim-tree.lua',
+      requires = 'kyazdani42/nvim-web-devicons',
+      config = function()
+        require'nvim-tree'.setup {}
+      end
+    }
+
+    -- use {
+    --   "kyazdani42/nvim-tree.lua",
+    --   -- cmd = "NvimTreeToggle",
+    --   config = function()
+    --       require("plugins.nvim-tree").setup()
+    --   end
+    -- }
+
     if packer_bootstrap then
       require('packer').sync()
     end
 
   end
 )
+
+require("onedark").setup()
+require("nvim_comment").setup()
 
 --
 -- Options
@@ -188,3 +211,6 @@ map("n", "<Leader>fb", [[<Cmd> Telescope buffers<CR>]], opt)
 -- Commenter Keybinding
 map("n", "<leader>/", ":CommentToggle<CR>", opt)
 map("v", "<leader>/", ":CommentToggle<CR>", opt)
+
+-- Treesitter
+map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
