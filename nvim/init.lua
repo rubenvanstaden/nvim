@@ -94,6 +94,42 @@ require('packer').startup(
       end
     }
 
+    use {
+      "kabouzeid/nvim-lspinstall",
+      event = "BufRead"
+    }
+
+    use {
+      "neovim/nvim-lspconfig",
+      after = "nvim-lspinstall",
+      config = function()
+          require("plugins.lspconfig").setup()
+      end
+    }
+
+    use {
+      "hrsh7th/nvim-compe",
+      event = "InsertEnter",
+      config = function()
+        require("plugins.compe").config()
+      end,
+      wants = {"LuaSnip"},
+      requires = {
+        {
+          "L3MON4D3/LuaSnip",
+          wants = "friendly-snippets",
+          event = "InsertCharPre",
+          config = function()
+              require("plugins.compe").snippets()
+          end
+        },
+        {
+          "rafamadriz/friendly-snippets",
+          event = "InsertCharPre"
+        }
+      }
+    }
+
     -- use {
     --   "kyazdani42/nvim-tree.lua",
     --   -- cmd = "NvimTreeToggle",
