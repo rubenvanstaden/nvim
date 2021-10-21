@@ -13,3 +13,15 @@ docker build -t nvim-image .
 # Chroot into container instance
 docker run -w /root -it --rm nvim-image zsh
 ```
+
+## TODO:
+
+Configuration setup
+
+* Copy to host clipboard
+* Add a customized theme
+
+Plugins setup
+
+* Setup git
+* Setup telescope
