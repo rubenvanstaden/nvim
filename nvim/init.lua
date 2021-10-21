@@ -14,17 +14,11 @@ require('packer').startup(
     -- Plugins here
     use 'wbthomason/packer.nvim'
 
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if packer_bootstrap then
-      require('packer').sync()
-    end
-
     use "junegunn/gv.vim"
 
     use "tpope/vim-fugitive"
 
-    use 'folke/tokyonight.nvim'
+    use 'monsonjeremy/onedark.nvim'
 
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
@@ -32,6 +26,11 @@ require('packer').startup(
       'hoob3rt/lualine.nvim',
       requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
+
+    if packer_bootstrap then
+      require('packer').sync()
+    end
+
   end
 )
 
@@ -42,15 +41,16 @@ local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g      -- a table to access global variables
 
-opt.number = true         -- Display line numbers to the left
-opt.expandtab = true      -- Use spaces instead of tabs
-opt.shiftwidth = 2        -- Number of spaces tabs count for 
-opt.smartindent = true    -- Insert indents automatically
-opt.termguicolors = true  -- True color support
-opt.wrap = false          -- Disable line wrap
+vim.opt.number = true         -- Display line numbers to the left
+vim.opt.expandtab = true      -- Use spaces instead of tabs
+vim.opt.shiftwidth = 2        -- Number of spaces tabs count for 
+vim.opt.smartindent = true    -- Insert indents automatically
+vim.opt.termguicolors = true  -- True color support
+vim.opt.wrap = false          -- Disable line wrap
 
 -- Theme
-cmd[[colorscheme tokyonight]]
+--cmd[[colorscheme onedark]]
+require('onedark').setup()
 
 -- 
 -- Mappings
@@ -103,8 +103,10 @@ require("bufferline").setup {
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'tokyonight',
-    component_separators = {'', ''},
+    theme = 'onedark',
+    component_separators = {'', ''},
+    --component_separators = {'', ''},
+    --section_separators = {'', ''},
     section_separators = {'', ''},
     disabled_filetypes = {}
   },
@@ -113,7 +115,7 @@ require'lualine'.setup {
     lualine_b = {'branch'},
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
+    --lualine_y = {'progress'},
     lualine_z = {'location'}
   },
   inactive_sections = {
