@@ -2,6 +2,40 @@
 -- require('lua.core')
 
 --
+-- Packer
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
+require('packer').startup(
+  function(use)
+    -- Plugins here
+    use 'wbthomason/packer.nvim'
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if packer_bootstrap then
+      require('packer').sync()
+    end
+
+    use "junegunn/gv.vim"
+
+    use "tpope/vim-fugitive"
+
+    use 'folke/tokyonight.nvim'
+
+    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+
+    use {
+      'hoob3rt/lualine.nvim',
+      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+  end
+)
+
+--
 -- Options
 local opt = vim.opt  -- to set options
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
@@ -93,37 +127,3 @@ require'lualine'.setup {
   tabline = {},
   extensions = {}
 }
-
---
--- Packer
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
-
-require('packer').startup(
-  function(use)
-    -- Plugins here
-    use 'wbthomason/packer.nvim'
-
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if packer_bootstrap then
-      require('packer').sync()
-    end
-
-    use "junegunn/gv.vim"
-
-    use "tpope/vim-fugitive"
-
-    use 'folke/tokyonight.nvim'
-
-    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-
-    use {
-      'hoob3rt/lualine.nvim',
-      requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    }
-  end
-)
