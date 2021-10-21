@@ -42,6 +42,29 @@ map("n", ";", ":", opt)
 map("n", "J", "10j", opt)
 map("n", "K", "10k", opt)
 
+-- Bufferline
+require("bufferline").setup {
+    options = {
+        offsets = {{filetype = "NvimTree", text = "", padding = 1}},
+
+        modified_icon = '●',
+        --indicator_icon = '',
+        --buffer_close_icon = '',
+        --close_icon = '',
+        --left_trunc_marker = '|',
+        --right_trunc_marker = '',
+
+        max_name_length = 14,
+        max_prefix_length = 13,
+        tab_size = 20,
+        show_tab_indicators = true,
+        enforce_regular_tabs = false,
+        view = "multiwindow",
+        show_buffer_close_icons = true,
+        separator_style = "thin"
+    }
+}
+
 --
 -- Packer
 local fn = vim.fn
@@ -50,7 +73,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-return require('packer').startup(
+require('packer').startup(
   function(use)
     -- Plugins here
     use 'wbthomason/packer.nvim'
@@ -66,6 +89,7 @@ return require('packer').startup(
     use "tpope/vim-fugitive"
 
     use 'folke/tokyonight.nvim'
+
+    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   end
 )
-
