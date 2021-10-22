@@ -223,15 +223,16 @@ local lsp = require 'lspconfig'
 --local lspfuzzy = require 'lspfuzzy'
 
 -- We use the default settings for ccls and pylsp: the option table can stay empty
-lsp.pylsp.setup {}
+-- lsp.pylsp.setup {}
+lsp.pyright.setup {}
 lsp.clangd.setup {}
 -- lsp.sumneko_lua.setup{}
 --lspfuzzy.setup {}  -- Make the LSP client use FZF instead of the quickfix list
 
+map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
 map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opt)
 map('n', '<space>;', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opt)
 map('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
-map('n', '<space>d', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
 map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
 map('n', '<space>h', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
 map('n', '<space>m', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)

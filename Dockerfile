@@ -26,10 +26,13 @@ RUN apk add \
 
 # Setup Python LSP
 RUN apk add \
-  python3-dev
-  # python3 \
-  # py3-pip \
-RUN pip install 'python-lsp-server[all]' --user
+  python3-dev \
+  py3-pip \
+  npm
+
+RUN npm i -g pyright
+
+# RUN pip install 'python-lsp-server[all]' --user
 # RUN pip install -U setuptools
 
 WORKDIR /root/.config/nvim
