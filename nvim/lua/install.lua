@@ -79,10 +79,6 @@ return packer.startup(
     use {
       "hrsh7th/nvim-compe"
     }
--- 
---     if packer_bootstrap then
---       require('packer').sync()
---     end
 
   end
 )
