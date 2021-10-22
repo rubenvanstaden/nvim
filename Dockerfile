@@ -38,4 +38,3 @@ RUN npm i -g pyright
 WORKDIR /root/.config/nvim
 
 COPY nvim .
-

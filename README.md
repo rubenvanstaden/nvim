@@ -33,3 +33,7 @@ Use A docker container to test changes before making changes to local machine.
 * Setup packer
 * Setup bufferline
 * Setup lualine
+
+## Issues in Docker
+
+* Sync scrolling cannot be disbaled. Maybe test with a different terminal.
