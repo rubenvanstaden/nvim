@@ -11,4 +11,8 @@
 
 set -ex
 
-docker run --volume "$PWD/nvim:/root/.config/nvim" -it --rm nvim-image zsh
+docker run \
+  --volume "$PWD/nvim:/root/.config/nvim" \
+  --volume "$PWD/test:/opt/test" \
+  -it --rm nvim-image \
+  zsh
