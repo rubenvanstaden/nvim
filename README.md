@@ -16,10 +16,9 @@ Use A docker container to test changes before making changes to local machine.
 
 ## TODO:
 
+* Create LSP examples: C++, Python, Lua
 * Copy to host clipboard
-
 * Setup git
-* Setup lspconfig
 * Setup compe
 
 # Done

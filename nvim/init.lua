@@ -21,8 +21,11 @@ require('packer').startup(
     }
 
     -- Theme
+    -- use {
+    --   'monsonjeremy/onedark.nvim'
+    -- }
     use {
-      'monsonjeremy/onedark.nvim'
+      'shaunsingh/nord.nvim'
     }
 
     -- Git
@@ -94,49 +97,12 @@ require('packer').startup(
       end
     }
 
-    use {
-      "kabouzeid/nvim-lspinstall",
-      event = "BufRead"
-    }
+	use('neovim/nvim-lspconfig')
+	use('onsails/lspkind-nvim')
 
     use {
-      "neovim/nvim-lspconfig",
-      after = "nvim-lspinstall",
-      config = function()
-          require("plugins.lspconfig").setup()
-      end
+      "hrsh7th/nvim-compe"
     }
-
-    use {
-      "hrsh7th/nvim-compe",
-      event = "InsertEnter",
-      config = function()
-        require("plugins.compe").config()
-      end,
-      wants = {"LuaSnip"},
-      requires = {
-        {
-          "L3MON4D3/LuaSnip",
-          wants = "friendly-snippets",
-          event = "InsertCharPre",
-          config = function()
-              require("plugins.compe").snippets()
-          end
-        },
-        {
-          "rafamadriz/friendly-snippets",
-          event = "InsertCharPre"
-        }
-      }
-    }
-
-    -- use {
-    --   "kyazdani42/nvim-tree.lua",
-    --   -- cmd = "NvimTreeToggle",
-    --   config = function()
-    --       require("plugins.nvim-tree").setup()
-    --   end
-    -- }
 
     if packer_bootstrap then
       require('packer').sync()
@@ -145,8 +111,11 @@ require('packer').startup(
   end
 )
 
-require("onedark").setup()
 require("nvim_comment").setup()
+
+-- require("onedark").setup()
+
+vim.cmd[[colorscheme nord]]
 
 --
 -- Options
@@ -184,7 +153,7 @@ require("bufferline").setup {
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'onedark',
+    theme = 'nord',
     component_separators = {'', ''},
     --component_separators = {'', ''},
     section_separators = {'', ''},
@@ -209,8 +178,6 @@ require'lualine'.setup {
   tabline = {},
   extensions = {}
 }
-
--- require('nvim_comment').setup()
 
 -- 
 -- Mappings
@@ -250,3 +217,25 @@ map("v", "<leader>/", ":CommentToggle<CR>", opt)
 
 -- Treesitter
 map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
+
+-- LSP config
+local lsp = require 'lspconfig'
+--local lspfuzzy = require 'lspfuzzy'
+
+-- We use the default settings for ccls and pylsp: the option table can stay empty
+lsp.pylsp.setup {}
+lsp.clangd.setup {}
+-- lsp.sumneko_lua.setup{}
+--lspfuzzy.setup {}  -- Make the LSP client use FZF instead of the quickfix list
+
+map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opt)
+map('n', '<space>;', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opt)
+map('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
+map('n', '<space>d', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
+map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
+map('n', '<space>h', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
+map('n', '<space>m', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
+map('n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
+map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opt)
+
+
