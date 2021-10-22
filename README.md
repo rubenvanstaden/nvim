@@ -16,13 +16,15 @@ Use A docker container to test changes before making changes to local machine.
 
 ## TODO:
 
-* Create LSP examples: C++, Python, Lua
+* Create LSP examples: C++, Lua
 * Copy to host clipboard
 * Setup git
 * Setup compe
+* Add zshrc to container
 
 # Done
 
+* LSP for Python
 * Setup telescope
 * Setup commenter
 * Setup options

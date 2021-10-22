@@ -1,5 +1,6 @@
 FROM alpine:edge
 
+# Install dependencies
 RUN apk update \
   && apk add \
     alpine-sdk \
@@ -21,19 +22,18 @@ RUN git clone --depth 1 https://github.com/wbthomason/packer.nvim \
 # Setup C++ LSP
 RUN apk add \
   build-base \
-  clang
-  # clang-dev \
+  clang-dev \
+  clang \
+  --update
 
 # Setup Python LSP
 RUN apk add \
   python3-dev \
   py3-pip \
-  npm
+  npm \
+  --update
 
 RUN npm i -g pyright
-
-# RUN pip install 'python-lsp-server[all]' --user
-# RUN pip install -U setuptools
 
 WORKDIR /root/.config/nvim
 

@@ -220,14 +220,9 @@ map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
 
 -- LSP config
 local lsp = require 'lspconfig'
---local lspfuzzy = require 'lspfuzzy'
 
--- We use the default settings for ccls and pylsp: the option table can stay empty
--- lsp.pylsp.setup {}
 lsp.pyright.setup {}
 lsp.clangd.setup {}
--- lsp.sumneko_lua.setup{}
---lspfuzzy.setup {}  -- Make the LSP client use FZF instead of the quickfix list
 
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
 map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opt)
@@ -238,5 +233,36 @@ map('n', '<space>h', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
 map('n', '<space>m', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
 map('n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
 map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opt)
+
+--
+-- Compe
+vim.o.completeopt = "menuone,noselect"
+
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  resolve_timeout = 800;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
+  source = {
+    path = true;
+    buffer = true;
+    calc = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+  };
+}
+
+
+
+
 
 
