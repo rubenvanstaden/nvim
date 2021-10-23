@@ -48,9 +48,18 @@ map("n", ";", ":", opt)
 map("n", "J", "10j", opt)
 map("n", "K", "10k", opt)
 
+-- Terminals
+map("n", "<C-v>", [[<Cmd>vnew term://zsh <CR>]], opt) -- term over right
+map("n", "<C-x>", [[<Cmd> split term://zsh | resize 10 <CR>]], opt) --  term bottom
+map("n", "<C-t>", [[<Cmd> tabnew | term <CR>]], opt) -- term newtab
+
 -- Commenter Keybinding
 map("n", "<leader>/", ":CommentToggle<CR>", opt)
 map("v", "<leader>/", ":CommentToggle<CR>", opt)
+
+-- Bufferline tab
+map("n", "<S-t>", ":tabnew<CR>", opt) -- new tab
+map("n", "<S-x>", ":bd!<CR>", opt) -- close tab
 
 -- Treesitter
 map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
@@ -79,4 +88,8 @@ map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 map("i", "<CR>", "compe#confirm({ 'keys': '<CR>', 'select': v:true })", { expr = true })
+
+-- Move between tabs
+map("n", "<TAB>", [[<Cmd>BufferLineCycleNext<CR>]], opt)
+map("n", "<S-TAB>", [[<Cmd>BufferLineCyclePrev<CR>]], opt)
 
