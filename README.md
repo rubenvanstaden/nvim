@@ -21,6 +21,7 @@ Use A docker container to test changes before making changes to local machine.
 * Setup git
 * Setup compe
 * Add zshrc to container
+* Add LuaSnip
 
 # Done
 
