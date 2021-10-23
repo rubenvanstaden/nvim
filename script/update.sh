@@ -4,4 +4,5 @@
 
 set -ex
 
-cp -R ~/.config/nvim/* nvim/*
+rm -rf nvim
+cp -R ~/.config/nvim .

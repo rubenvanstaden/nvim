@@ -31,26 +31,13 @@ return packer.startup(
 
     -- Telescope
     use {
-      "nvim-telescope/telescope.nvim",
-      requires = {
-          {"nvim-lua/popup.nvim"},
-          {"nvim-lua/plenary.nvim"}
-      },
-      cmd = "Telescope",
-      config = function()
-        require("telescope").config()
-      end
-    }
+      'nvim-telescope/telescope.nvim',
+      requires = { {'nvim-lua/plenary.nvim'} }
+    } 
 
     use {
       "nvim-telescope/telescope-fzf-native.nvim",
-      run = "make",
-      cmd = "Telescope"
-    }
-
-    use {
-      "nvim-telescope/telescope-media-files.nvim",
-      cmd = "Telescope"
+      run = "make"
     }
 
     use {
@@ -67,12 +54,6 @@ return packer.startup(
     use {
       "hrsh7th/nvim-compe"
     }
-
-    -- -- Telescope
-    -- use {
-    --   'nvim-telescope/telescope.nvim',
-    --   requires = { {'nvim-lua/plenary.nvim'} }
-    -- }
 
     -- -- Lualine
     -- use {
