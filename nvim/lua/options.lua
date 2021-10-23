@@ -1,10 +1,11 @@
 -- Locals
-vim.opt.number = true         -- Display line numbers to the left
-vim.opt.expandtab = true      -- Use spaces instead of tabs
-vim.opt.shiftwidth = 2        -- Number of spaces tabs count for 
-vim.opt.smartindent = true    -- Insert indents automatically
-vim.opt.termguicolors = true  -- True color support
-vim.opt.wrap = false          -- Disable line wrap
+vim.opt.number = true             -- Display line numbers to the left
+vim.opt.expandtab = true          -- Use spaces instead of tabs
+vim.opt.shiftwidth = 2            -- Number of spaces tabs count for 
+vim.opt.smartindent = true        -- Insert indents automatically
+vim.opt.termguicolors = true      -- True color support
+vim.opt.wrap = false              -- Disable line wrap
+vim.opt.clipboard = "unnamedplus" -- Always use clipboard for all operations
 
 -- Globals
 vim.g.mapleader = " "
