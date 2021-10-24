@@ -7,6 +7,9 @@ My godlike neovim configuration in lua lang.
 Use A docker container to test changes before making changes to local machine.
 
 ```shell
+# Installation
+* [nvim](https://github.com/neovim/neovim)
+
 # Build image
 ./build.sh
 
@@ -16,15 +19,19 @@ Use A docker container to test changes before making changes to local machine.
 
 ## TODO:
 
-* Create LSP examples: C++, Lua
-* Copy to host clipboard
+* LSP for Go
+* LSP for Lua
+* LSP for Bash
+* Add auto-bracket closing support
 * Setup git
-* Setup compe
 * Add zshrc to container
 * Add LuaSnip
 
 # Done
 
+* Copy to host clipboard
+* Setup compe
+* LSP for C++
 * LSP for Python
 * Setup telescope
 * Setup commenter
