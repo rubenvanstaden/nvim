@@ -19,20 +19,12 @@ return packer.startup(
       "terrortylor/nvim-comment"
     }
 
-    use {
-      'kaRb94/neoscroll.nvim'
-    }
-
-    -- Bufferline
-    use {
-      'akinsho/bufferline.nvim',
-      requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    }
-
     -- Telescope
     use {
       'nvim-telescope/telescope.nvim',
-      requires = { {'nvim-lua/plenary.nvim'} }
+      requires = {
+        {'nvim-lua/plenary.nvim'}
+      }
     } 
 
     use {
@@ -40,32 +32,23 @@ return packer.startup(
       run = "make"
     }
 
+    -- Navigation Tree
     use {
       'kyazdani42/nvim-tree.lua',
       requires = 'kyazdani42/nvim-web-devicons',
       config = function() require'nvim-tree'.setup {} end
     }
 
+    -- LSP Config
     use {
       'neovim/nvim-lspconfig',
       'onsails/lspkind-nvim'
     }
 
+    -- Compe
     use {
       "hrsh7th/nvim-compe"
     }
-
-    -- -- Lualine
-    -- use {
-    --   'hoob3rt/lualine.nvim',
-    --   requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    -- }
-
-    -- -- Git
-    -- use {
-    --   "junegunn/gv.vim"
-    --   "tpope/vim-fugitive"
-    -- }
 
   end
 )
