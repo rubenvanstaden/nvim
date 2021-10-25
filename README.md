@@ -19,6 +19,8 @@ Use A docker container to test changes before making changes to local machine.
 
 ## TODO:
 
+* Set nvim-tree default to hide dotfiles.
+* Move search bar in telescope to the top.
 * LSP for Go
 * LSP for Lua
 * LSP for Bash
@@ -27,7 +29,7 @@ Use A docker container to test changes before making changes to local machine.
 * Add zshrc to container
 * Add LuaSnip
 
-# Done
+## Done
 
 * Copy to host clipboard
 * Setup compe
