@@ -35,8 +35,10 @@ return packer.startup(
     -- Navigation Tree
     use {
       'kyazdani42/nvim-tree.lua',
-      requires = 'kyazdani42/nvim-web-devicons',
-      config = function() require'nvim-tree'.setup {} end
+      requires = 'kyazdani42/nvim-web-devicons'
+      --config = function()
+        --require("plugins.nvim-tree").setup()
+      --end
     }
 
     -- LSP Config
