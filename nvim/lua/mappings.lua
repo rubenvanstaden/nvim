@@ -37,6 +37,10 @@ _G.s_tab_complete = function()
   end
 end
 
+-- Keep visual mode when indenting
+map("v", "<", "<gv", opt)
+map("v", ">", ">gv", opt)
+
 -- Windows
 map("n", "<C-h>", "<C-w>h", opt)
 map("n", "<C-j>", "<C-w>j", opt)
