@@ -14,6 +14,14 @@ return packer.startup(
       'shaunsingh/nord.nvim'
     }
 
+    -- Colorizer
+    use {
+      'norcalli/nvim-colorizer.lua',
+      config = function()
+        require("colorizer").setup()
+      end
+    }
+
     -- Commenter
     use {
       "terrortylor/nvim-comment"

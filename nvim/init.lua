@@ -2,6 +2,8 @@
 -- NVim Configuration
 ---------------------
 
+require "install-packer"
+
 require "install"
 require "options"
 require "theme"
