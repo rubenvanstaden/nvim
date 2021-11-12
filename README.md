@@ -4,17 +4,33 @@ My godlike neovim configuration in lua lang.
 
 ## Developers
 
-Use A docker container to test changes before making changes to local machine.
+* Download [nvim](https://github.com/neovim/neovim)
 
 ```shell
 # Installation
-* [nvim](https://github.com/neovim/neovim)
 
+# Clean local system
+./script/clean.sh
+
+# Install on local
+./script/install.sh
+
+# Compare changes between local and repo
+./script/compare.sh
+```
+
+* Use a docker container to test changes before making changes to local machine.
+
+```shell
 # Build image
-./build.sh
+docker build -t nvim-image .
 
 # Chroot into container
-./run.sh
+docker run \
+  --volume "$PWD/nvim:/root/.config/nvim" \
+  --volume "$PWD/test:/opt/test" \
+  -it --rm nvim-image \
+  zsh
 ```
 
 ## TODO:
