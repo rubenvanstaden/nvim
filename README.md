@@ -1,12 +1,13 @@
 # NeoVIM
 
-* Download [nvim v0.5.1](https://github.com/neovim/neovim)
+* Installation
 
 ```shell
-# Installation
-cd ~/package
+mkdir -p nvim/0.5.1
+cd nvim/0.5.1
+wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod u+x nvim.appimage
-sudo ln -s "$HOME/package/nvim.appimage" "/usr/local/bin/nvim"
+sudo ln -s "$HOME/package/nvim/0.5.1/nvim.appimage" "/usr/local/bin/nvim"
 ```
 
 * Setup configuration
