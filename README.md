@@ -1,10 +1,6 @@
 # NeoVIM
 
-My godlike neovim configuration in lua lang.
-
-## Developers
-
-* Download [nvim](https://github.com/neovim/neovim)
+* Download [nvim v0.5.1](https://github.com/neovim/neovim) package
 
 ```shell
 # Installation
@@ -35,8 +31,6 @@ docker run \
 
 ## TODO:
 
-* Set nvim-tree default to hide dotfiles.
-* Move search bar in telescope to the top.
 * LSP for Go
 * LSP for Lua
 * LSP for Bash
@@ -47,6 +41,8 @@ docker run \
 
 ## Done
 
+* Move search bar in telescope to the top.
+* Set nvim-tree default to hide dotfiles.
 * Copy to host clipboard
 * Setup compe
 * LSP for C++
