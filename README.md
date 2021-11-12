@@ -22,20 +22,6 @@ sudo ln -s "$HOME/package/nvim.appimage" "/usr/local/bin/nvim"
 ./script/compare.sh
 ```
 
-* Use a docker container to test changes before making changes to local machine.
-
-```shell
-# Build image
-docker build -t nvim-image .
-
-# Chroot into container
-docker run \
-  --volume "$PWD/nvim:/root/.config/nvim" \
-  --volume "$PWD/test:/opt/test" \
-  -it --rm nvim-image \
-  zsh
-```
-
 ## TODO:
 
 * LSP for Go
