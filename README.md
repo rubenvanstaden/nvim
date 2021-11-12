@@ -4,6 +4,9 @@
 
 ```shell
 # Installation
+cd ~/package
+chmod u+x nvim.appimage
+sudo ln -s "$HOME/package/nvim.appimage" "/usr/local/bin/nvim"
 
 # Clean local system
 ./script/clean.sh
