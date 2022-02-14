@@ -6,14 +6,11 @@ vim.opt.smartindent = true        -- Insert indents automatically
 vim.opt.termguicolors = true      -- True color support
 vim.opt.wrap = false              -- Disable line wrap
 vim.opt.clipboard = "unnamedplus" -- Always use clipboard for all operations
+vim.opt.tabstop = 4               -- Always use clipboard for all operations
 
 -- Globals
+vim.g.foldmethod=indent
+vim.g.foldlevel=1
+vim.g.foldclose=all
 vim.g.mapleader = " "
 vim.g.auto_save = false
-
--- TODO
--- opt.wildmode = {'list', 'longest'}  -- Command-line completion mode
--- opt.numberwidth = 2  -- Number width
--- opt.tabstop = 4      -- Number of spaces tabs count for
--- opt.splitbelow = true               -- Put new windows below current
--- opt.splitright = true               -- Put new windows right of current

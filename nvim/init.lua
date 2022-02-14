@@ -1,9 +1,3 @@
----------------------
--- NVim Configuration
----------------------
-
--- require "install-packer"
-
 require "install"
 require "options"
 require "theme"
@@ -13,5 +7,6 @@ require "plugins.nvim-tree"
 require "plugins.lspconfig"
 require "plugins.nvim-compe"
 require "plugins.telescope"
+require "plugins.gitsigns"
 
 require "mappings"
