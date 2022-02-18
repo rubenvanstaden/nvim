@@ -10,17 +10,17 @@ return packer.startup(
 
     -- Theme
     use {
-      'kdheepak/monochrome.nvim',
-      'ful1e5/onedark.nvim',
-      'ldelossa/vimdark',
+    --   'kdheepak/monochrome.nvim',
+      -- 'ful1e5/onedark.nvim',
+    --   'ldelossa/vimdark',
       'mhartington/oceanic-next',
-      'ishan9299/nvim-solarized-lua',
-      'huyvohcmc/atlas.vim',
-      "axvr/photon.vim",
-      "kadekillary/skull-vim",
-      "davidosomething/vim-colors-meh",
-      "rebelot/kanagawa.nvim",
-      'monsonjeremy/onedark.nvim',
+      'shaunsingh/nord.nvim',
+    --   'huyvohcmc/atlas.vim',
+    --   "axvr/photon.vim",
+    --   "kadekillary/skull-vim",
+    --   "davidosomething/vim-colors-meh",
+    --   "rebelot/kanagawa.nvim",
+    --   'monsonjeremy/onedark.nvim',
       'folke/tokyonight.nvim',
       'EdenEast/nightfox.nvim',
     }
