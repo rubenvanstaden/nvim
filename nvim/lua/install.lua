@@ -11,10 +11,14 @@ return packer.startup(
     -- Theme
     use {
     --   'kdheepak/monochrome.nvim',
-      -- 'ful1e5/onedark.nvim',
+      'ful1e5/onedark.nvim',
     --   'ldelossa/vimdark',
       'mhartington/oceanic-next',
       'shaunsingh/nord.nvim',
+      'marko-cerovac/material.nvim',
+      'kyazdani42/blue-moon',
+      'Mofiqul/dracula.nvim',
+      'frenzyexists/aquarium-vim',
     --   'huyvohcmc/atlas.vim',
     --   "axvr/photon.vim",
     --   "kadekillary/skull-vim",
