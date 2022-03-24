@@ -8,24 +8,25 @@ return packer.startup(
       'wbthomason/packer.nvim'
     }
 
+    -- Installation
+    use {
+      'L3MON4D3/LuaSnip',
+      'hrsh7th/nvim-cmp',
+      'hrsh7th/cmp-nvim-lsp',
+      'saadparwaiz1/cmp_luasnip',
+      "rafamadriz/friendly-snippets",
+    }
+
     -- Theme
     use {
     --   'kdheepak/monochrome.nvim',
-      'ful1e5/onedark.nvim',
     --   'ldelossa/vimdark',
+      'ful1e5/onedark.nvim',
       'mhartington/oceanic-next',
       'shaunsingh/nord.nvim',
       'marko-cerovac/material.nvim',
-      'kyazdani42/blue-moon',
-      'Mofiqul/dracula.nvim',
       'frenzyexists/aquarium-vim',
-    --   'huyvohcmc/atlas.vim',
-    --   "axvr/photon.vim",
-    --   "kadekillary/skull-vim",
-    --   "davidosomething/vim-colors-meh",
-    --   "rebelot/kanagawa.nvim",
-    --   'monsonjeremy/onedark.nvim',
-      'folke/tokyonight.nvim',
+      "rebelot/kanagawa.nvim",
       'EdenEast/nightfox.nvim',
     }
 
