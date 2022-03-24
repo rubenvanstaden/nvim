@@ -1,9 +1,11 @@
-require("onedark").setup({
-  hide_inactive_statusline = true,
-  dark_sidebar = false,
-  dark_float = false
+-- require("onedark").setup({
+  --hide_inactive_statusline = true,
+  --dark_sidebar = false,
+  --dark_float = false
   -- ... your onedark config
-})
+--})
+
+vim.cmd[[colorscheme onedark]]
 
 -- vim.g.aqua_bold = 1
 -- -- vim.g.aqua_transparency = 1

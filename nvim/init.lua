@@ -1,5 +1,6 @@
 require "install"
 require "options"
+-- require "onedark"
 require "theme"
 
 require "plugins.comment"

@@ -21,7 +21,7 @@ return packer.startup(
     use {
     --   'kdheepak/monochrome.nvim',
     --   'ldelossa/vimdark',
-      'ful1e5/onedark.nvim',
+      -- 'ful1e5/onedark.nvim',
       'mhartington/oceanic-next',
       'shaunsingh/nord.nvim',
       'marko-cerovac/material.nvim',
