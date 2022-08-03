@@ -60,23 +60,20 @@ map("v", "<leader>/", ":CommentToggle<CR>", opt)
 map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
 
 -- Telescope
-map("n", "<Leader>fb", [[<Cmd> Telescope buffers<CR>]], opt)
-map("n", "<Leader>fg", [[<Cmd> Telescope live_grep <CR>]], opt)
-map("n", "<Leader>ff", [[<Cmd> Telescope find_files <CR>]], opt)
-map("n", "<Leader>lr", [[<Cmd> lua require('telescope.builtin').lsp_references()<CR>]], opt)
--- map("n", "<Leader>gt", [[<Cmd> Telescope git_status <CR>]], opt)
--- map("n", "<Leader>cm", [[<Cmd> Telescope git_commits <CR>]], opt)
+map("n", "<Leader>fb", [[<Cmd> lua require('telescope.builtin').buffers() <CR>]], opt)
+map("n", "<Leader>fg", [[<Cmd> lua require('telescope.builtin').live_grep() <CR>]], opt)
+map("n", "<Leader>ff", [[<Cmd> lua require('telescope.builtin').find_files() <CR>]], opt)
+map("n", "<Leader>lr", [[<Cmd> lua require('telescope.builtin').lsp_references() <CR>]], opt)
+map("n", "<Leader>gt", [[<Cmd> lua require('telescope.builtin').git_status() <CR>]], opt)
 
 -- LSP
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
 --map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opt)
 --map('n', '<space>;', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opt)
---map('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
---map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
---map('n', '<space>h', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
---map('n', '<space>m', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
---map('n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
---map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opt)
+map('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
+map('n', '<space>h', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
+map('n', '<space>m', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
+-- map('n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
 
 -- Compe mappings
 map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
