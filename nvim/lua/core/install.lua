@@ -19,10 +19,6 @@ return packer.startup(
 
     -- Theme
     use {
-    --   'kdheepak/monochrome.nvim',
-    --   'ldelossa/vimdark',
-      -- 'ful1e5/onedark.nvim',
-      'mhartington/oceanic-next',
       'shaunsingh/nord.nvim',
       'marko-cerovac/material.nvim',
       'frenzyexists/aquarium-vim',
@@ -51,15 +47,15 @@ return packer.startup(
       }
     }
 
-    use {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      run = "make"
-    }
+    -- use {
+    --   "nvim-telescope/telescope-fzf-native.nvim",
+    --   run = "make"
+    -- }
 
     -- Navigation Tree
     use {
       'kyazdani42/nvim-tree.lua',
-      requires = 'kyazdani42/nvim-web-devicons'
+      -- requires = 'kyazdani42/nvim-web-devicons'
     }
 
     -- LSP Config
@@ -88,4 +84,3 @@ return packer.startup(
 
   end
 )
-
