@@ -8,10 +8,22 @@ return packer.startup(
       'wbthomason/packer.nvim'
     }
 
+    -- Installation
+    use {
+      'L3MON4D3/LuaSnip',
+      'hrsh7th/nvim-cmp',
+      'hrsh7th/cmp-nvim-lsp',
+      -- 'saadparwaiz1/cmp_luasnip',
+      -- "rafamadriz/friendly-snippets",
+    }
+
     -- Theme
     use {
-      'monsonjeremy/onedark.nvim',
-      'shaunsingh/nord.nvim'
+      'shaunsingh/nord.nvim',
+      'marko-cerovac/material.nvim',
+      'frenzyexists/aquarium-vim',
+      "rebelot/kanagawa.nvim",
+      'EdenEast/nightfox.nvim',
     }
 
     -- Colorizer
@@ -33,20 +45,17 @@ return packer.startup(
       requires = {
         {'nvim-lua/plenary.nvim'}
       }
-    } 
-
-    use {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      run = "make"
     }
+
+    -- use {
+    --   "nvim-telescope/telescope-fzf-native.nvim",
+    --   run = "make"
+    -- }
 
     -- Navigation Tree
     use {
       'kyazdani42/nvim-tree.lua',
-      requires = 'kyazdani42/nvim-web-devicons'
-      --config = function()
-        --require("plugins.nvim-tree").setup()
-      --end
+      -- requires = 'kyazdani42/nvim-web-devicons'
     }
 
     -- LSP Config
@@ -60,6 +69,18 @@ return packer.startup(
       "hrsh7th/nvim-compe"
     }
 
+    -- Julia
+    use {
+      'JuliaEditorSupport/julia-vim'
+    }
+
+    -- Git
+    use {
+      'lewis6991/gitsigns.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim'
+      },
+    }
+
   end
 )
-
