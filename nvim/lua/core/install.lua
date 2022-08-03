@@ -8,24 +8,21 @@ return packer.startup(
       'wbthomason/packer.nvim'
     }
 
+    -- Installation
+    use {
+      'L3MON4D3/LuaSnip',
+      'hrsh7th/nvim-cmp',
+      'hrsh7th/cmp-nvim-lsp',
+      -- 'saadparwaiz1/cmp_luasnip',
+      -- "rafamadriz/friendly-snippets",
+    }
+
     -- Theme
     use {
-    --   'kdheepak/monochrome.nvim',
-      'ful1e5/onedark.nvim',
-    --   'ldelossa/vimdark',
-      'mhartington/oceanic-next',
       'shaunsingh/nord.nvim',
       'marko-cerovac/material.nvim',
-      'kyazdani42/blue-moon',
-      'Mofiqul/dracula.nvim',
       'frenzyexists/aquarium-vim',
-    --   'huyvohcmc/atlas.vim',
-    --   "axvr/photon.vim",
-    --   "kadekillary/skull-vim",
-    --   "davidosomething/vim-colors-meh",
-    --   "rebelot/kanagawa.nvim",
-    --   'monsonjeremy/onedark.nvim',
-      'folke/tokyonight.nvim',
+      "rebelot/kanagawa.nvim",
       'EdenEast/nightfox.nvim',
     }
 
@@ -50,15 +47,15 @@ return packer.startup(
       }
     }
 
-    use {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      run = "make"
-    }
+    -- use {
+    --   "nvim-telescope/telescope-fzf-native.nvim",
+    --   run = "make"
+    -- }
 
     -- Navigation Tree
     use {
       'kyazdani42/nvim-tree.lua',
-      requires = 'kyazdani42/nvim-web-devicons'
+      -- requires = 'kyazdani42/nvim-web-devicons'
     }
 
     -- LSP Config
@@ -87,4 +84,3 @@ return packer.startup(
 
   end
 )
-
