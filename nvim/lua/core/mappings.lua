@@ -52,11 +52,6 @@ map("n", ";", ":", opt)
 map("n", "J", "10j", opt)
 map("n", "K", "10k", opt)
 
--- Terminals
-map("n", "<C-v>", [[<Cmd>vnew term://zsh <CR>]], opt) -- term over right
-map("n", "<C-x>", [[<Cmd> split term://zsh | resize 10 <CR>]], opt) --  term bottom
-map("n", "<C-t>", [[<Cmd> tabnew | term <CR>]], opt) -- term newtab
-
 -- Commenter Keybinding
 map("n", "<leader>/", ":CommentToggle<CR>", opt)
 map("v", "<leader>/", ":CommentToggle<CR>", opt)
