@@ -1,5 +1,14 @@
 require("telescope").setup {
     defaults = {
+        mappings = {
+          i = {
+            -- map actions.which_key to <C-h> (default: <C-/>)
+            -- actions.which_key shows the mappings for your picker,
+            -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+            ["<C-h>"] = "which_key",
+            ["<C-o>"] = require('telescope.builtin').lsp_references,
+          }
+        },
         vimgrep_arguments = {
             "rg",
             "--color=never",
@@ -9,7 +18,7 @@ require("telescope").setup {
             "--column",
             "--smart-case"
         },
-        prompt_prefix = "   ",
+        prompt_prefix = "  ",
         selection_caret = "  ",
         entry_prefix = "  ",
         initial_mode = "insert",

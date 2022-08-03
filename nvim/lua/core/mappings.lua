@@ -47,7 +47,7 @@ map("n", "<C-j>", "<C-w>j", opt)
 map("n", "<C-k>", "<C-w>k", opt)
 map("n", "<C-l>", "<C-w>l", opt)
 
--- Dashboard 
+-- Dashboard
 map("n", ";", ":", opt)
 map("n", "J", "10j", opt)
 map("n", "K", "10k", opt)
@@ -68,6 +68,7 @@ map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
 map("n", "<Leader>fb", [[<Cmd> Telescope buffers<CR>]], opt)
 map("n", "<Leader>fg", [[<Cmd> Telescope live_grep <CR>]], opt)
 map("n", "<Leader>ff", [[<Cmd> Telescope find_files <CR>]], opt)
+map("n", "<Leader>lr", [[<Cmd> lua require('telescope.builtin').lsp_references()<CR>]], opt)
 -- map("n", "<Leader>gt", [[<Cmd> Telescope git_status <CR>]], opt)
 -- map("n", "<Leader>cm", [[<Cmd> Telescope git_commits <CR>]], opt)
 
