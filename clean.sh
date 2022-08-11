@@ -2,6 +2,8 @@
 
 set -ex
 
-rm -rf "$HOME/.config/nvim"
+# Remove nvim config
+rm -rf $HOME/.config/nvim
 
-rm -rf "$HOME/.config/local"
+# Remove packer install
+rm -rf $HOME/.local/share/nvim
