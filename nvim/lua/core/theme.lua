@@ -1,9 +1,7 @@
 vim.cmd[[colorscheme onedark]]
 
--- require('nightfox').load('dayfox')
-
 -- vim.g.aqua_bold = 1
--- -- vim.g.aqua_transparency = 1
+-- vim.g.aqua_transparency = 1
 -- vim.g.aquarium_style="dark"
 -- vim.cmd[[colorscheme aquarium]]
 

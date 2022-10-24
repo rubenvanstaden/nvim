@@ -2,6 +2,7 @@ require "core.install"
 require "core.theme"
 
 -- Locals
+vim.opt.relativenumber = true     -- Display line numbers to the left
 vim.opt.number = true             -- Display line numbers to the left
 vim.opt.expandtab = true          -- Use spaces instead of tabs
 vim.opt.shiftwidth = 4            -- Number of spaces tabs count for 
