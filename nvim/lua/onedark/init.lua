@@ -107,7 +107,7 @@ local highlights = {
   { hg = 'MatchParen',       fg = colors.blue, gui = 'underline', cterm = 'underline' }, --The character under the cursor or just before it, if it is a paired bracket, and its match.
 
   { hg = 'QuickFixLine',     fg = colors.black,      bg = colors.yellow       }, --Current quickfix item in the quickfix window.
-  { hg = 'Search',           fg = colors.black,      bg = colors.yellow       }, --Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+  { hg = 'Search',           fg = colors.white,      bg = colors.comment_grey       }, --Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
   { hg = 'Terminal',         fg = colors.white,      bg = colors.black        }, --terminal window (see terminal-size-color)
   { hg = 'WildMenu',         fg = colors.black,      bg = colors.blue         }, --current match in 'wildmenu' completion
   { hg = 'IncSearch',        fg = colors.yellow,     bg = colors.comment_grey }, --'incsearch' highlighting; also used for the text replaced with ":s///c"
