@@ -19,15 +19,33 @@ lsp.pyright.setup {
     capabilities = capabilities,
 }
 
--- https://github.com/JohnnyMorganz/luau-lsp
-lsp.luau_lsp.setup {
+-- https://github.com/sumneko/lua-language-server
+lsp.sumneko_lua.setup {
     capabilities = capabilities,
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim'},
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
 }
 
 -- https://github.com/golang/tools/tree/master/gopls
 lsp.gopls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
     cmd = {"gopls", "serve"},
     filetypes = {"go", "gomod"},
     settings = {

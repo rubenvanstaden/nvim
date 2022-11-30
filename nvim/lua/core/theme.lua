@@ -1,4 +1,7 @@
-vim.cmd[[colorscheme onedark]]
+vim.cmd[[colorscheme dune]]
+
+-- vim.cmd("colorscheme kanagawa")
+-- vim.cmd[[colorscheme onedark]]
 
 -- require('nightfox').load('dayfox')
 
