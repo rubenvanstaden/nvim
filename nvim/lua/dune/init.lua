@@ -28,26 +28,26 @@ local highlights = {
 
   -- Syntax Groups (descriptions and ordering from `:h w18`)
   { hg = 'Constant',       fg = colors.foreground         }, -- any constant
-  { hg = 'String',         fg = colors.string        }, -- a string constant: "this is a string"
+  { hg = 'String',         fg = colors.string,         }, -- a string constant: "this is a string"
   { hg = 'Character',      fg = colors.foreground        }, -- a character constant: 'c', '\n'
   { hg = 'Number',         fg = colors.numbers  }, -- a number constant: 234, 0xff
   { hg = 'Boolean',        fg = colors.numbers  }, -- a boolean constant: TRUE, false
   { hg = 'Float',          fg = colors.numbers  }, -- a floating point constant: 2.3e10
   { hg = 'Identifier',     fg = colors.foreground          }, -- any variable name
-  { hg = 'Function',       fg = colors.foreground         }, -- function name (also: methods for classes)
+  { hg = 'Function',       fg = colors.foreground, gui = 'bold'         }, -- function name (also: methods for classes)
   { hg = 'Statement',      fg = colors.foreground       }, -- any statement
-  { hg = 'Conditional',    fg = colors.foreground       }, -- if, then, else, endif, switch, etc.
-  { hg = 'Repeat',         fg = colors.foreground       }, -- for, do, while, etc.
+  { hg = 'Conditional',    fg = colors.foreground, gui = 'italic'     }, -- if, then, else, endif, switch, etc.
+  { hg = 'Repeat',         fg = colors.foreground, gui = 'italic'       }, -- for, do, while, etc.
   { hg = 'Label',          fg = colors.foreground       }, -- case, default, etc.
   { hg = 'Operator',       fg = colors.foreground       }, -- sizeof", "+", "*", etc.
-  { hg = 'Keyword',        fg = colors.foreground         }, -- any other keyword
+  { hg = 'Keyword',        fg = colors.foreground,  gui = 'bold'         }, -- any other keyword
   { hg = 'Exception',      fg = colors.foreground       }, -- try, catch, throw
   { hg = 'PreProc',        fg = colors.foreground       }, -- generic Preprocessor
   { hg = 'Include',        fg = colors.foreground         }, -- preprocessor #include
   { hg = 'Define',         fg = colors.foreground       }, -- preprocessor #define
   { hg = 'Macro',          fg = colors.foreground       }, -- same as Define
   { hg = 'PreCondit',      fg = colors.foreground       }, -- preprocessor #if, #else, #endif, etc.
-  { hg = 'Type',           fg = colors.foreground       }, -- int, long, char, etc.
+  { hg = 'Type',           fg = colors.foreground, gui = 'bold'        }, -- int, long, char, etc.
   { hg = 'StorageClass',   fg = colors.foreground       }, -- static, register, volatile, etc.
   { hg = 'Structure',      fg = colors.foreground       }, -- struct, union, enum, etc.
   { hg = 'Typedef',        fg = colors.foreground       }, -- A typedef
@@ -117,15 +117,15 @@ local highlights = {
   { hg = 'FoldColumn' }, --'foldcolumn'
   { hg = 'SignColumn' }, --column where signs are displayed
 
-  -- -- Diagnostics
-  -- { hg = 'DiagnosticError',          fg = colors.red    },
-  -- { hg = 'DiagnosticWarn',           fg = colors.yellow },
-  -- { hg = 'DiagnosticInfo',           fg = colors.blue   },
-  -- { hg = 'DiagnosticHint',           fg = colors.cyan   },
-  -- { hg = 'DiagnosticUnderlineError', fg = colors.red,    gui = 'underline', cterm = 'underline' },
-  -- { hg = 'DiagnosticUnderlineWarn',  fg = colors.yellow, gui = 'underline', cterm = 'underline' },
-  -- { hg = 'DiagnosticUnderlineInfo',  fg = colors.blue,   gui = 'underline', cterm = 'underline' },
-  -- { hg = 'DiagnosticUnderlineHint',  fg = colors.cyan,   gui = 'underline', cterm = 'underline' },
+  -- Diagnostics
+  { hg = 'DiagnosticError',          fg = colors.red    },
+  { hg = 'DiagnosticWarn',           fg = colors.yellow },
+  { hg = 'DiagnosticInfo',           fg = colors.blue   },
+  { hg = 'DiagnosticHint',           fg = colors.cyan   },
+  { hg = 'DiagnosticUnderlineError', fg = colors.red,    gui = 'underline', cterm = 'underline' },
+  { hg = 'DiagnosticUnderlineWarn',  fg = colors.yellow, gui = 'underline', cterm = 'underline' },
+  { hg = 'DiagnosticUnderlineInfo',  fg = colors.blue,   gui = 'underline', cterm = 'underline' },
+  { hg = 'DiagnosticUnderlineHint',  fg = colors.cyan,   gui = 'underline', cterm = 'underline' },
 
   -- Neovim's built-in language server client
   { hg = 'LspReferenceWrite',           fg = colors.blue,   gui='underline' },

@@ -1,5 +1,5 @@
 require "core.install"
-require "core.theme"
+-- require "core.theme"
 
 -- Locals
 vim.opt.number = true             -- Display line numbers to the left
@@ -27,3 +27,15 @@ require "plugins.gitsigns"
 require "plugins.luasnip"
 
 require "core.mappings"
+
+vim.g.nord_contrast = true
+vim.g.nord_borders = false
+vim.g.nord_disable_background = false
+vim.g.nord_italic = false
+vim.g.nord_uniform_diff_background = true
+vim.g.nord_bold = false
+
+vim.cmd[[colorscheme dune]]
+-- vim.cmd[[colorscheme onedark]]
+-- vim.cmd[[colorscheme kanagawa]]
+-- vim.cmd[[colorscheme tokyonight-storm]]
