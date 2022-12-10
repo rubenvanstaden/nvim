@@ -20,19 +20,23 @@ local colors = {
   menu_grey      = '#3E4452',
   special_grey   = '#3B4048',
   vertsplit      = '#3E4452',
+  gray = '#746C70',
+  gunmetal = '#738580',
+  blue_grey = '#647C90',
   string = '#957FB8',
   numbers = '#D27E99',
+  tealgreen = '#7AA880',
 }
 
 local highlights = {
 
   -- Syntax Groups (descriptions and ordering from `:h w18`)
   { hg = 'Constant',       fg = colors.foreground         }, -- any constant
-  { hg = 'String',         fg = colors.string,         }, -- a string constant: "this is a string"
+  { hg = 'String',         fg = colors.gunmetal, gui = 'italic'         }, -- a string constant: "this is a string"
   { hg = 'Character',      fg = colors.foreground        }, -- a character constant: 'c', '\n'
-  { hg = 'Number',         fg = colors.numbers  }, -- a number constant: 234, 0xff
-  { hg = 'Boolean',        fg = colors.numbers  }, -- a boolean constant: TRUE, false
-  { hg = 'Float',          fg = colors.numbers  }, -- a floating point constant: 2.3e10
+  { hg = 'Number',         fg = colors.gunmetal, gui = 'bold'  }, -- a number constant: 234, 0xff
+  { hg = 'Boolean',        fg = colors.gunmetal, gui = 'bold'  }, -- a boolean constant: TRUE, false
+  { hg = 'Float',          fg = colors.gunmetal, gui = 'bold'  }, -- a floating point constant: 2.3e10
   { hg = 'Identifier',     fg = colors.foreground          }, -- any variable name
   { hg = 'Function',       fg = colors.foreground, gui = 'bold'         }, -- function name (also: methods for classes)
   { hg = 'Statement',      fg = colors.foreground       }, -- any statement
