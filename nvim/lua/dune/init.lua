@@ -12,12 +12,8 @@ local colors = {
     foreground     = "#ABB2BF",
     background     = "#282C34",
     comment_grey   = "#5C6370",
-    gutter_fg_grey = "#4B5263",
-    cursor_grey    = "#2C323C",
+    statusline_grey    = "#2C323C",
     visual_grey    = "#3E4452",
-    menu_grey      = "#3E4452",
-    special_grey   = "#3B4048",
-    vertsplit      = "#3E4452",
     gunmetal       = "#738580",
     blue_grey      = "#647C90",
     string         = "#658594",
@@ -28,6 +24,9 @@ local colors = {
 }
 
 local highlights = {
+
+    -- Code
+    --
     -- Syntax Groups (descriptions and ordering from `:h w18`)
     {hg = "Constant", fg = colors.foreground},
     -- any string
@@ -86,6 +85,12 @@ local highlights = {
     {hg = "Comment", fg = colors.comment_grey, gui = "italic", cterm = "italic"},
     --text that stands out, HTML links
     {hg = "Underlined", gui = "underline", cterm = "underline"},
+
+    --Popup menu: normal item.
+    {hg = "Pmenu", fg = colors.white, bg = colors.visual_grey},
+    --Popup menu: selected item.
+    {hg = "PmenuSel", fg = colors.visual_grey, bg = colors.blue},
+
     --diff mode: Added line
     {hg = "DiffAdd", fg = colors.black, bg = colors.green},
     --diff mode: Deleted line
@@ -94,14 +99,13 @@ local highlights = {
     {hg = "DiffText", fg = colors.black, bg = colors.yellow},
     --diff mode: Changed line
     {hg = "DiffChange", fg = colors.yellow, gui = "underline", cterm = "underline"},
-    --Popup menu: normal item.
-    {hg = "Pmenu", fg = colors.white, bg = colors.menu_grey},
-    --Popup menu: selected item.
-    {hg = "PmenuSel", fg = colors.cursor_grey, bg = colors.blue},
+
+    -- Status Line
+    --
     --status line of current window
-    {hg = "StatusLine", fg = colors.white, bg = colors.cursor_grey},
+    {hg = "StatusLine", fg = colors.white, bg = colors.statusline_grey},
     --status line of current :terminal window
-    {hg = "StatusLineTerm", fg = colors.white, bg = colors.cursor_grey},
+    {hg = "StatusLineTerm", fg = colors.white, bg = colors.statusline_grey},
     --status lines of not-current windows Note = if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     {hg = "StatusLineNC", fg = colors.comment_grey},
     --status line of non-current  =terminal window
@@ -112,19 +116,19 @@ local highlights = {
     --hit-enter prompt and yes/no questions
     {hg = "Question", fg = colors.purple},
     --Meta and special keys listed with " =map", also for text used to show unprintable characters in the text, 'listchars'. Generally: text that is displayed differently from what it really is.
-    {hg = "SpecialKey", fg = colors.special_grey},
+    {hg = "SpecialKey", fg = colors.visual_grey},
     --directory names (and other special names in listings)
     {hg = "Directory", fg = colors.gunmetal, gui = "bold"},
     --error messages on the command line
     {hg = "ErrorMsg", fg = colors.red},
     --the column separating vertically split windows
-    {hg = "VertSplit", fg = colors.vertsplit},
+    {hg = "VertSplit", fg = colors.visual_grey},
     --line used for closed folds
     {hg = "Folded", fg = colors.comment_grey},
     --Line number for " =number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    {hg = "LineNr", fg = colors.gutter_fg_grey},
+    {hg = "LineNr", fg = colors.comment_grey},
     --'~' and '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).
-    {hg = "NonText", fg = colors.special_grey},
+    {hg = "NonText", fg = colors.visual_grey},
     --titles for output from " =set all", ":autocmd" etc.
     {hg = "Title", fg = colors.green},
     --Visual mode selection
@@ -157,13 +161,22 @@ local highlights = {
     {hg = "FoldColumn"},
     --column where signs are displayed
     {hg = "SignColumn"},
+
+    -- Diagnostics
+    --
     {hg = "DiagnosticError", fg = colors.red},
     {hg = "DiagnosticWarn", fg = colors.yellow},
     {hg = "DiagnosticInfo", fg = colors.blue},
     {hg = "DiagnosticHint", fg = colors.cyan},
+
+    -- Git
+    --
     {hg = "GitSignsAdd", fg = colors.green},
     {hg = "GitSignsChange", fg = colors.yellow},
     {hg = "GitSignsDelete", fg = colors.red},
+
+    -- Nvim Tree
+    --
     {hg = "NvimTreeRootFolder", fg = colors.comment_grey},
     {hg = "NvimTreeGitDirty", fg = colors.foreground},
     {hg = "NvimTreeGitNew", fg = colors.foreground},
