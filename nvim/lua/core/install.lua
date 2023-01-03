@@ -19,6 +19,7 @@ return packer.startup(
 
     -- Theme
     use {
+        "rebelot/kanagawa.nvim",
         'marko-cerovac/material.nvim',
         'folke/tokyonight.nvim',
         'frenzyexists/aquarium-vim',

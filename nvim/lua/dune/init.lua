@@ -16,10 +16,10 @@ local colors = {
     visual_grey    = "#3E4452",
     gunmetal       = "#738580",
     blue_grey      = "#647C90",
-    string         = "#658594",
     numbers        = "#D27E99",
-    tealgreen      = "#7AA880"
-    -- string      = '#957FB8',
+    tealgreen      = "#7AA880",
+    string      = "#957FB8",
+    -- string         = "#658594",
     -- gray        = "#746C70",
 }
 
@@ -118,7 +118,7 @@ local highlights = {
     --Meta and special keys listed with " =map", also for text used to show unprintable characters in the text, 'listchars'. Generally: text that is displayed differently from what it really is.
     {hg = "SpecialKey", fg = colors.visual_grey},
     --directory names (and other special names in listings)
-    {hg = "Directory", fg = colors.gunmetal, gui = "bold"},
+    {hg = "Directory", fg = colors.white, gui = "bold"},
     --error messages on the command line
     {hg = "ErrorMsg", fg = colors.red},
     --the column separating vertically split windows

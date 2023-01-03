@@ -57,6 +57,7 @@ map("n", "<leader>/", ":CommentToggle<CR>", opt)
 map("v", "<leader>/", ":CommentToggle<CR>", opt)
 
 -- Treesitter
+-- map("n", "<C-n>", ":Vexplore<CR>", opt)
 map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
 
 -- Telescope
