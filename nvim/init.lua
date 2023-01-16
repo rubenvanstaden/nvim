@@ -1,4 +1,4 @@
-require "core.install"
+require "install"
 
 -- Locals
 vim.opt.number = true             -- Display line numbers to the left
@@ -25,17 +25,13 @@ require "plugins.telescope"
 require "plugins.gitsigns"
 require "plugins.luasnip"
 
-require "core.mappings"
+require "mappings"
 
 -- vim.cmd("colorscheme aquarium")
 -- vim.g.aquarium_style = "dark"
---
--- vim.cmd("colorscheme kanagawa")
--- vim.cmd[[colorscheme oceanic]]
-vim.cmd[[colorscheme dune]]
--- vim.cmd[[colorscheme onedark]]
--- vim.cmd[[colorscheme tokyonight-storm]]
---
+--vim.cmd[[colorscheme dune]]
+vim.cmd[[colorscheme onedark]]
+
 -- Window width
 vim.g.netrw_winsize = 20
 -- Hide banner
