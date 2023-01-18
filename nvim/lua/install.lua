@@ -17,10 +17,15 @@ return packer.startup(
         "rafamadriz/friendly-snippets",
     }
 
+    use { "ellisonleao/gruvbox.nvim" }
+
+    use { "catppuccin/nvim", as = "catppuccin" }
+
     -- Theme
     use {
+        "shaunsingh/nord.nvim",
         "rebelot/kanagawa.nvim",
-        'marko-cerovac/material.nvim',
+        "sainnhe/everforest",
         'folke/tokyonight.nvim',
         'frenzyexists/aquarium-vim',
         'EdenEast/nightfox.nvim',

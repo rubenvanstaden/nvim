@@ -1,23 +1,7 @@
 local lsp = require("lspconfig")
 
--- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
--- https://github.com/rust-lang/rust-analyzer
-lsp.rust_analyzer.setup {
-    capabilities = capabilities,
-}
-
--- https://clangd.llvm.org/installation.html
-lsp.clangd.setup {
-    capabilities = capabilities,
-}
-
--- https://github.com/emacs-lsp/lsp-pyright
-lsp.pyright.setup {
-    capabilities = capabilities,
-}
 
 -- https://github.com/sumneko/lua-language-server
 lsp.sumneko_lua.setup {
@@ -46,6 +30,7 @@ lsp.sumneko_lua.setup {
 
 -- https://github.com/golang/tools/tree/master/gopls
 lsp.gopls.setup {
+    capabilities = capabilities,
     cmd = {"gopls", "serve"},
     filetypes = {"go", "gomod"},
     settings = {
@@ -62,4 +47,19 @@ lsp.gopls.setup {
             },
         },
     },
+}
+
+-- https://github.com/rust-lang/rust-analyzer
+lsp.rust_analyzer.setup {
+    capabilities = capabilities,
+}
+
+-- https://clangd.llvm.org/installation.html
+lsp.clangd.setup {
+    capabilities = capabilities,
+}
+
+-- https://github.com/emacs-lsp/lsp-pyright
+lsp.pyright.setup {
+    capabilities = capabilities,
 }

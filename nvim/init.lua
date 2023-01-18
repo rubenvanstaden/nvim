@@ -1,37 +1,39 @@
 require "install"
 
--- Locals
-vim.opt.number = true             -- Display line numbers to the left
-vim.opt.expandtab = true          -- Use spaces instead of tabs
-vim.opt.shiftwidth = 4            -- Number of spaces tabs count for 
-vim.opt.smartindent = true        -- Insert indents automatically
-vim.opt.termguicolors = true      -- True color support
-vim.opt.wrap = false              -- Disable line wrap
-vim.opt.clipboard = "unnamedplus" -- Always use clipboard for all operations
-vim.opt.tabstop = 4               -- Always use clipboard for all operations
-
 -- Globals
-vim.g.foldmethod=indent
-vim.g.foldlevel=1
-vim.g.foldclose=all
+--
+-- Map leader to spacebar
 vim.g.mapleader = " "
+-- Disable auto save
 vim.g.auto_save = false
+-- enable folding
+vim.g.foldmethod = indent
+-- Only fold 1 level deep
+vim.g.foldlevel = 1
+-- Enable fold closing
+vim.g.foldclose = all
 
-require "plugins.comment"
-require "plugins.nvim-cmp"
-require "plugins.nvim-tree"
-require "plugins.lspconfig"
-require "plugins.telescope"
-require "plugins.gitsigns"
-require "plugins.luasnip"
+-- Locals
+--
+-- Display line numbers to the left
+vim.opt.number = true
+-- Use spaces instead of tabs
+vim.opt.expandtab = true
+-- Number of spaces tabs count for 
+vim.opt.shiftwidth = 4
+-- Insert indents automatically
+vim.opt.smartindent = true
+-- True color support
+vim.opt.termguicolors = true
+-- Disable line wrap
+vim.opt.wrap = false
+-- Always use clipboard for all operations
+vim.opt.clipboard = "unnamedplus"
+-- Always use clipboard for all operations
+vim.opt.tabstop = 4
 
-require "mappings"
-
--- vim.cmd("colorscheme aquarium")
--- vim.g.aquarium_style = "dark"
---vim.cmd[[colorscheme dune]]
-vim.cmd[[colorscheme onedark]]
-
+-- Netwr options
+--
 -- Window width
 vim.g.netrw_winsize = 20
 -- Hide banner
@@ -42,3 +44,16 @@ vim.g.netrw_liststyle = 3
 vim.g.netrw_browse_split = 4
 -- Open with right splitting
 vim.g.netrw_altv = 1
+
+-- -- Plugin configs
+require "plugin.comment"
+require "plugin.nvim-cmp"
+require "plugin.gitsigns"
+require "plugin.nvim-tree"
+require "plugin.telescope"
+require "plugin.luasnip"
+require "plugin.lspconfig"
+
+require "mappings"
+
+vim.cmd[[colorscheme dune]]
