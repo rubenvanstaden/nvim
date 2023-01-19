@@ -89,7 +89,7 @@ local highlights = {
     --Popup menu: normal item.
     {hg = "Pmenu", fg = colors.white, bg = colors.visual_grey},
     --Popup menu: selected item.
-    {hg = "PmenuSel", fg = colors.visual_grey, bg = colors.blue},
+    {hg = "PmenuSel", fg = colors.visual_grey, bg = colors.white},
 
     --diff mode: Added line
     {hg = "DiffAdd", fg = colors.black, bg = colors.green},
