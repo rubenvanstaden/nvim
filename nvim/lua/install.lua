@@ -5,7 +5,8 @@ return packer.startup(
 
     -- Packer
     use {
-        'wbthomason/packer.nvim'
+        'wbthomason/packer.nvim',
+        'ledger/vim-ledger',
     }
 
     -- Installation
@@ -15,20 +16,6 @@ return packer.startup(
         'hrsh7th/cmp-nvim-lsp',
         'saadparwaiz1/cmp_luasnip',
         "rafamadriz/friendly-snippets",
-    }
-
-    use { "ellisonleao/gruvbox.nvim" }
-
-    use { "catppuccin/nvim", as = "catppuccin" }
-
-    -- Theme
-    use {
-        "shaunsingh/nord.nvim",
-        "rebelot/kanagawa.nvim",
-        "sainnhe/everforest",
-        'folke/tokyonight.nvim',
-        'frenzyexists/aquarium-vim',
-        'EdenEast/nightfox.nvim',
     }
 
     -- Colorizer
@@ -51,11 +38,6 @@ return packer.startup(
             {'nvim-lua/plenary.nvim'}
         }
     }
-
-    -- use {
-    --   "nvim-telescope/telescope-fzf-native.nvim",
-    --   run = "make"
-    -- }
 
     -- Navigation Tree
     use {

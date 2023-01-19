@@ -19,8 +19,6 @@ local colors = {
     numbers        = "#D27E99",
     tealgreen      = "#7AA880",
     string      = "#957FB8",
-    -- string         = "#658594",
-    -- gray        = "#746C70",
 }
 
 local highlights = {
@@ -34,11 +32,11 @@ local highlights = {
     -- a character constant: 'c', '\n'
     {hg = "Character", fg = colors.foreground},
     -- a number constant: 234, 0xff
-    {hg = "Number", fg = colors.numbers, gui = "bold"},
+    {hg = "Number", fg = colors.numbers, gui = "italic"},
     -- a boolean constant: TRUE, false
-    {hg = "Boolean", fg = colors.numbers, gui = "bold"},
+    {hg = "Boolean", fg = colors.numbers, gui = "italic"},
     -- a floating point constant: 2.3e10
-    {hg = "Float", fg = colors.number, gui = "bold"},
+    {hg = "Float", fg = colors.number, gui = "italic"},
     -- any variable name
     {hg = "Identifier", fg = colors.foreground},
     -- function name (also: methods for classes)

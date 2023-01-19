@@ -1,17 +1,14 @@
 require "install"
 
+vim.g.ledger_maxwidth = 80
+vim.g.ledger_fillstring = '    -'
+
 -- Globals
 --
 -- Map leader to spacebar
 vim.g.mapleader = " "
 -- Disable auto save
 vim.g.auto_save = false
--- enable folding
-vim.g.foldmethod = indent
--- Only fold 1 level deep
-vim.g.foldlevel = 1
--- Enable fold closing
-vim.g.foldclose = all
 
 -- Locals
 --

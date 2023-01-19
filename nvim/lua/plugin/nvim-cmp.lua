@@ -24,6 +24,7 @@ cmp.setup({
             select = true,
         },
 
+        -- Toggles over all LuaSnip options.
         ['<Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
