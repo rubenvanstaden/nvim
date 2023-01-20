@@ -52,12 +52,15 @@ map("n", ";", ":", opt)
 map("n", "J", "10j", opt)
 map("n", "K", "10k", opt)
 
--- Commenter Keybinding
-map("n", "<leader>/", ":CommentToggle<CR>", opt)
-map("v", "<leader>/", ":CommentToggle<CR>", opt)
+-- -- Commenter Keybinding
+-- map("n", "<leader>/", ":CommentToggle<CR>", opt)
+-- map("v", "<leader>/", ":CommentToggle<CR>", opt)
 
--- Treesitter
-map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
+-- -- Treesitter
+-- map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
+
+-- netrw
+map("n", "<C-n>", ":Lexplore<CR>", opt)
 
 -- Telescope
 map("n", "<Leader>fb", [[<Cmd> lua require('telescope.builtin').buffers() <CR>]], opt)

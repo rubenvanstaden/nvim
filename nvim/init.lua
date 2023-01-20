@@ -1,5 +1,3 @@
-require "install"
-
 local o = vim.opt
 local g = vim.g
 
@@ -12,6 +10,11 @@ g.ledger_maxwidth = 80
 g.mapleader = " "
 -- Disable auto save
 g.auto_save = false
+
+-- netrw
+--
+-- https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/
+--
 -- Window width
 g.netrw_winsize = 20
 -- Hide banner
@@ -22,6 +25,9 @@ g.netrw_liststyle = 3
 g.netrw_browse_split = 4
 -- Open with right splitting
 g.netrw_altv = 1
+
+-- Toggle hidden files
+-- gh
 
 ------------- Local -------------
 
@@ -44,13 +50,14 @@ o.tabstop = 4
 
 ------------- Plugins -------------
 
-require "plugin.colorizer"
-require "plugin.comment"
-require "plugin.nvim-cmp"
-require "plugin.gitsigns"
-require "plugin.nvim-tree"
-require "plugin.telescope"
-require "plugin.luasnip"
 require "plugin.lspconfig"
+require "plugin.telescope"
+require "plugin.gitsigns"
+require "plugin.nvim-cmp"
+require "plugin.luasnip"
+
+-- require "plugin.colorizer"
+-- require "plugin.comment"
+-- require "plugin.nvim-tree"
 
 require "mappings"
