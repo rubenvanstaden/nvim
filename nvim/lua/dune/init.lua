@@ -32,11 +32,11 @@ local highlights = {
     -- a character constant: 'c', '\n'
     {hg = "Character", fg = colors.foreground},
     -- a number constant: 234, 0xff
-    {hg = "Number", fg = colors.numbers, gui = "italic"},
+    {hg = "Number", fg = colors.numbers, gui = "bold"},
     -- a boolean constant: TRUE, false
-    {hg = "Boolean", fg = colors.numbers, gui = "italic"},
+    {hg = "Boolean", fg = colors.numbers, gui = "bold"},
     -- a floating point constant: 2.3e10
-    {hg = "Float", fg = colors.number, gui = "italic"},
+    {hg = "Float", fg = colors.number, gui = "bold"},
     -- any variable name
     {hg = "Identifier", fg = colors.foreground},
     -- function name (also: methods for classes)
