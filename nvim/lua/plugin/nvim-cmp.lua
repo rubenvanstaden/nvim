@@ -10,8 +10,18 @@ cmp.setup({
     },
 
     mapping = {
+        -- Do nothing when tab is pressed.
+        ['<Tab>'] = function() end,
+
+        -- Move up or down in snippet popup.
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
+
+        -- Confirm and insert selected snipped.
+        ['<CR>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        },
     },
 
     sources = {
