@@ -2,41 +2,22 @@ require("telescope").setup {
 
     defaults = {
 
-        -- vimgrep_arguments = {
-        --     "rg",
-        --     "--color=never",
-        --     "--no-heading",
-        --     "--with-filename",
-        --     "--line-number",
-        --     "--column",
-        --     "--smart-case"
-        -- },
-
         prompt_prefix = "  ",
         selection_caret = "  ",
         entry_prefix = "  ",
         initial_mode = "insert",
 
-        selection_strategy = "reset",
-        sorting_strategy = "descending",
-        layout_strategy = "horizontal",
-
         layout_config = {
             horizontal = {
+                -- Place search bar at top.
                 prompt_position = "top",
+                -- Make preview 50% of popup window.
                 preview_width = 0.5,
-                results_width = 0.8
             },
-            vertical = {
-                mirror = false
-            },
-            width = 0.80,
-            height = 0.80,
-            preview_cutoff = 120
         },
 
-        file_sorter = require "telescope.sorters".get_fuzzy_file,
         file_ignore_patterns = {},
+        file_sorter = require "telescope.sorters".get_fuzzy_file,
         generic_sorter = require "telescope.sorters".get_generic_fuzzy_sorter,
         path_display = "shorten",
         winblend = 0,

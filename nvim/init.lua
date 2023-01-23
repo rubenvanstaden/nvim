@@ -41,8 +41,4 @@ require "plugin.gitsigns"
 require "plugin.nvim-cmp"
 require "plugin.luasnip"
 
--- require "plugin.colorizer"
--- require "plugin.comment"
--- require "plugin.nvim-tree"
-
 require "mappings"

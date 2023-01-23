@@ -1,8 +1,40 @@
 local lsp = require("lspconfig")
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
---local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+-- https://clangd.llvm.org/installation.html
+lsp.clangd.setup {
+    capabilities = capabilities,
+    cmd = {"clangd", "--background-index", "--clang-tidy"},
+    filetypes = {"c", "cpp"},
+    root_dir = lsp.util.root_pattern('.git', '.clangd', '.clang-tidy', '.clang-format', 'compile_commands.json'),
+}
+
+-- https://github.com/rust-lang/rust-analyzer
+lsp.rust_analyzer.setup {
+    capabilities = capabilities,
+}
+
+-- https://github.com/golang/tools/tree/master/gopls
+lsp.gopls.setup {
+    capabilities = capabilities,
+    cmd = {"gopls", "serve"},
+    filetypes = {"go", "gomod"},
+    settings = {
+        gopls = {
+            staticcheck = true,
+            analyses = {
+                unusedparams = true,
+                fieldalignment = true,
+                nilness = true,
+                shadow = true,
+                unusedwrite = true,
+                useany = true,
+                unusedvariable = true,
+            },
+        },
+    },
+}
 
 -- https://github.com/sumneko/lua-language-server
 lsp.sumneko_lua.setup {
@@ -29,41 +61,8 @@ lsp.sumneko_lua.setup {
     },
 }
 
--- https://github.com/golang/tools/tree/master/gopls
-lsp.gopls.setup {
-    capabilities = capabilities,
-    cmd = {"gopls", "serve"},
-    filetypes = {"go", "gomod"},
-    settings = {
-        gopls = {
-            staticcheck = true,
-            analyses = {
-                unusedparams = true,
-                fieldalignment = true,
-                nilness = true,
-                shadow = true,
-                unusedwrite = true,
-                useany = true,
-                unusedvariable = true,
-            },
-        },
-    },
-}
-
--- https://github.com/rust-lang/rust-analyzer
-lsp.rust_analyzer.setup {
-    capabilities = capabilities,
-}
-
--- https://clangd.llvm.org/installation.html
-lsp.clangd.setup {
-    capabilities = capabilities,
-    cmd = {"clangd", "--background-index"},
-    filetypes = {"c", "cpp"},
-    root_dir = lsp.util.root_pattern('.git', '.clangd', '.clang-tidy', '.clang-format', 'compile_commands.json'),
-}
-
 -- https://github.com/emacs-lsp/lsp-pyright
 lsp.pyright.setup {
     capabilities = capabilities,
 }
+

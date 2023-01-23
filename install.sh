@@ -15,6 +15,9 @@ cp -R nvim ~/.config
 TMP_PATH="/tmp"
 INSTALL_PATH="${HOME}/.local/share/nvim/site/pack/packer/start/"
 
+rm -rf ${INSTALL_PATH}
+mkdir -p ${INSTALL_PATH}
+
 cd ${TMP_PATH}
 
 # --- plenary.nvim
