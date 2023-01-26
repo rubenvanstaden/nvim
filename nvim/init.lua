@@ -1,44 +1,40 @@
-require "install"
+local o = vim.opt
+local g = vim.g
 
--- Locals
-vim.opt.number = true             -- Display line numbers to the left
-vim.opt.expandtab = true          -- Use spaces instead of tabs
-vim.opt.shiftwidth = 4            -- Number of spaces tabs count for 
-vim.opt.smartindent = true        -- Insert indents automatically
-vim.opt.termguicolors = true      -- True color support
-vim.opt.wrap = false              -- Disable line wrap
-vim.opt.clipboard = "unnamedplus" -- Always use clipboard for all operations
-vim.opt.tabstop = 4               -- Always use clipboard for all operations
+vim.cmd[[colorscheme dune]]
 
--- Globals
-vim.g.foldmethod=indent
-vim.g.foldlevel=1
-vim.g.foldclose=all
-vim.g.mapleader = " "
-vim.g.auto_save = false
+------------- Global -------------
 
-require "plugins.comment"
-require "plugins.nvim-cmp"
-require "plugins.nvim-tree"
-require "plugins.lspconfig"
-require "plugins.telescope"
-require "plugins.gitsigns"
-require "plugins.luasnip"
+g.ledger_maxwidth = 80
+-- Map leader to spacebar
+g.mapleader = " "
+-- Disable auto save
+g.auto_save = false
+-- Disable netrw
+g.loaded_netrw = 1
+-- Disable netrw
+g.loaded_netrwPlugin = 1
 
+------------- Local -------------
+
+-- Display line numbers to the left
+o.number = true
+-- Use spaces instead of tabs
+o.expandtab = true
+-- Number of spaces tabs count for 
+o.shiftwidth = 4
+-- Insert indents automatically
+o.smartindent = true
+-- True color support
+o.termguicolors = true
+-- Disable line wrap
+o.wrap = false
+-- Always use clipboard for all operations
+o.clipboard = "unnamedplus"
+-- Always use clipboard for all operations
+o.tabstop = 4
+
+------------- Plugins -------------
+
+require "plugin"
 require "mappings"
-
--- vim.cmd("colorscheme aquarium")
--- vim.g.aquarium_style = "dark"
---vim.cmd[[colorscheme dune]]
-vim.cmd[[colorscheme onedark]]
-
--- Window width
-vim.g.netrw_winsize = 20
--- Hide banner
-vim.g.netrw_banner = 0
--- Tree-style view
-vim.g.netrw_liststyle = 3
--- Open in previous window
-vim.g.netrw_browse_split = 4
--- Open with right splitting
-vim.g.netrw_altv = 1
