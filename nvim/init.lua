@@ -12,6 +12,7 @@ g.mapleader = " "
 g.auto_save = false
 -- Disable netrw
 g.loaded_netrw = 1
+-- Disable netrw
 g.loaded_netrwPlugin = 1
 
 ------------- Local -------------
@@ -35,10 +36,5 @@ o.tabstop = 4
 
 ------------- Plugins -------------
 
-require "plugin.lspconfig"
-require "plugin.telescope"
-require "plugin.gitsigns"
-require "plugin.nvim-cmp"
-require "plugin.luasnip"
-
+require "plugin"
 require "mappings"
