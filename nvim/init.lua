@@ -1,7 +1,7 @@
+vim.cmd("colorscheme dune")
+
 local o = vim.opt
 local g = vim.g
-
-vim.cmd[[colorscheme dune]]
 
 ------------- Global -------------
 
@@ -17,6 +17,8 @@ g.loaded_netrwPlugin = 1
 
 ------------- Local -------------
 
+-- Ignore specified files and folders
+o.wildignore = { '*.o', '*.a', '__pycache__' }
 -- Display line numbers to the left
 o.number = true
 -- Use spaces instead of tabs
@@ -36,5 +38,5 @@ o.tabstop = 4
 
 ------------- Plugins -------------
 
-require "plugin"
-require "mappings"
+require("plugin")
+require("mappings")

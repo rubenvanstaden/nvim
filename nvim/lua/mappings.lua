@@ -45,10 +45,10 @@ end
 -- luasnip
 map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-map("i", "<C-E>", "<Plug>luasnip-next-choice", {})
-map("s", "<C-E>", "<Plug>luasnip-next-choice", {})
+--map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+--map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+--map("i", "<C-E>", "<Plug>luasnip-next-choice", {})
+--map("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 
 -- Keep visual mode when indenting
 map("v", "<", "<gv", opt)
@@ -61,30 +61,20 @@ map("n", "<C-k>", "<C-w>k", opt)
 map("n", "<C-l>", "<C-w>l", opt)
 
 -- Dashboard
-map("n", ";", ":", opt)
+map("n", ";", ":",   opt)
 map("n", "J", "10j", opt)
 map("n", "K", "10k", opt)
 
 -- Telescope
-map("n", "<Leader>fb", [[<Cmd> lua require('telescope.builtin').buffers() <CR>]], opt)
-map("n", "<Leader>fg", [[<Cmd> lua require('telescope.builtin').live_grep() <CR>]], opt)
-map("n", "<Leader>ff", [[<Cmd> lua require('telescope.builtin').find_files() <CR>]], opt)
-map("n", "<Leader>lr", [[<Cmd> lua require('telescope.builtin').lsp_references() <CR>]], opt)
-map("n", "<Leader>gt", [[<Cmd> lua require('telescope.builtin').git_status() <CR>]], opt)
+map("n", "<Leader>fb", "<cmd> lua require('telescope.builtin').buffers() <cr>",        opt)
+map("n", "<Leader>fg", "<cmd> lua require('telescope.builtin').live_grep() <cr>",      opt)
+map("n", "<Leader>ff", "<cmd> lua require('telescope.builtin').find_files() <cr>",     opt)
+map("n", "<Leader>lr", "<cmd> lua require('telescope.builtin').lsp_references() <cr>", opt)
+map("n", "<Leader>gt", "<cmd> lua require('telescope.builtin').git_status() <cr>",     opt)
 
 -- LSP
-map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
-map('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
-map('n', '<space>h', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
-map('n', '<space>m', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
--- map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opt)
--- map('n', '<space>;', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opt)
--- map('n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
-
--- Compe mappings
--- map("i", "<Tab>", "<C-x><C-o>", opt)
--- map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
--- map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
--- map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
--- map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
--- map("i", "<CR>", "compe#confirm({ 'keys': '<CR>', 'select': v:true })", { expr = true })
+map('n', 'gd',        "<cmd> lua vim.lsp.buf.definition() <cr>",  opt)
+map('n', '<Leader>a', "<cmd> lua vim.lsp.buf.code_action() <cr>", opt)
+map('n', '<Leader>h', "<cmd> lua vim.lsp.buf.hover() <cr>",       opt)
+map('n', '<Leader>m', "<cmd> lua vim.lsp.buf.rename() <cr>",      opt)
+map('n', '<Leader>r', "<cmd> lua vim.lsp.buf.references() <cr>",  opt)

@@ -172,13 +172,6 @@ local highlights = {
     {hg = "GitSignsAdd", fg = colors.green},
     {hg = "GitSignsChange", fg = colors.yellow},
     {hg = "GitSignsDelete", fg = colors.red},
-
-    -- Nvim Tree
-    --
-    {hg = "NvimTreeRootFolder", fg = colors.comment_grey},
-    {hg = "NvimTreeGitDirty", fg = colors.foreground},
-    {hg = "NvimTreeGitNew", fg = colors.foreground},
-    {hg = "NvimTreeExecFile", fg = colors.foreground, gui = "italic"}
 }
 
 M.colorscheme = function()
