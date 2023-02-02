@@ -70,6 +70,9 @@ git clone https://github.com/rafamadriz/friendly-snippets.git
 # --- cmp-luasnip
 git clone https://github.com/saadparwaiz1/cmp_luasnip.git
 
+# --- nord-theme
+git clone https://github.com/shaunsingh/nord.nvim.git
+
 # --- fzy-native
 # 
 # Required to properly sort and filter search.
