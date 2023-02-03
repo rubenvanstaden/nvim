@@ -58,6 +58,8 @@ rm -rf cmp-nvim-lsp friendly-snippets cmp_luasnip
 
 git clone https://github.com/ishan9299/nvim-solarized-lua.git
 
+git clone https://github.com/folke/tokyonight.nvim.git
+
 # --- vim-ledger
 git clone https://github.com/ledger/vim-ledger.git
 

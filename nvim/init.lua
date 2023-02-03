@@ -16,10 +16,12 @@ g.loaded_netrwPlugin = 1
 
 ------------- Local -------------
 
--- Ignore specified files and folders
-o.wildignore = { '*.o', '*.a', '__pycache__' }
 -- Display line numbers to the left
 o.number = true
+-- Display relative numbers.
+o.relativenumber = true
+-- Ignore specified files and folders
+o.wildignore = { '*.o', '*.a', '__pycache__' }
 -- Use spaces instead of tabs
 o.expandtab = true
 -- Number of spaces tabs count for 
@@ -39,8 +41,3 @@ o.tabstop = 4
 
 require("plugin")
 require("mappings")
-
-g.ledger_detailed_first = 1
-g.ledger_maxwidth = 80
-g.ledger_fillstring = '    -'
-
