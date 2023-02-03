@@ -5,7 +5,6 @@ local g = vim.g
 
 ------------- Global -------------
 
-g.ledger_maxwidth = 80
 -- Map leader to spacebar
 g.mapleader = " "
 -- Disable auto save
@@ -40,3 +39,8 @@ o.tabstop = 4
 
 require("plugin")
 require("mappings")
+
+g.ledger_detailed_first = 1
+g.ledger_maxwidth = 80
+g.ledger_fillstring = '    -'
+

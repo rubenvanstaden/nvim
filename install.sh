@@ -35,11 +35,6 @@ VERSION="1.1.0"
 wget "https://github.com/L3MON4D3/LuaSnip/archive/refs/tags/v${VERSION}.tar.gz"
 tar xvzf "v${VERSION}.tar.gz" -C ${INSTALL_PATH}
 
-# --- vim-ledger
-VERSION="1.2.0"
-wget "https://github.com/ledger/vim-ledger/archive/refs/tags/v${VERSION}.tar.gz"
-tar xvzf "v${VERSION}.tar.gz" -C ${INSTALL_PATH}
-
 # --- nvim-cmp
 VERSION="0.0.1"
 wget "https://github.com/hrsh7th/nvim-cmp/archive/refs/tags/v${VERSION}.tar.gz"
@@ -60,6 +55,11 @@ tar xvzf "${VERSION}.tar.gz" -C ${INSTALL_PATH}
 cd ${INSTALL_PATH}
 
 rm -rf cmp-nvim-lsp friendly-snippets cmp_luasnip
+
+git clone https://github.com/ishan9299/nvim-solarized-lua.git
+
+# --- vim-ledger
+git clone https://github.com/ledger/vim-ledger.git
 
 # --- cmp-nvim-lsp
 git clone https://github.com/hrsh7th/cmp-nvim-lsp.git

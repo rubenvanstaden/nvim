@@ -1,5 +1,104 @@
 
 
+-- https://sbulav.github.io/vim/neovim-setting-up-luasnip/
+--
+local ls = require("luasnip")
+
+-- some shorthands...
+local snip = ls.snippet
+local f = ls.function_node
+local t = ls.text_node
+local i = ls.insert_node
+local node = ls.snippet_node
+local choice = ls.choice_node
+local dynamicn = ls.dynamic_node
+
+local date = function() return {os.date('%Y/%m/%d')} end
+
+ls.config.set_config({
+    store_selection_keys = '<c-s>',
+})
+
+ls.add_snippets(nil, {
+    all = {
+        snip({
+            trig = "date",
+            name = "Date",
+            dscr = "Date in the form of YYYY-MM-DD",
+        }, {
+            f(date, {}),
+        }),
+
+        snip({
+            trig = "ec",
+            name = "Entry",
+            dscr = "Entry to ledger journal"
+        },
+        {
+            f(date, {}), t({" * "}), i(1, "<name>"),
+            t({"", "    Expenses:"}), i(2, "<expense>"), t({"  "}), i(3, "<value>"),
+            t({"", "    Assets:"}),   i(4, "<bank>"),    t({":Checking"}),
+        }),
+
+        snip({
+            trig = "coffee",
+            namr = "Coffee",
+            dscr = "Coffee entry to ledger journal"
+        },
+        {
+            f(date, {}), t({" * "}), i(1, "_shop"),
+            t({"", "    Expenses:Food:Coffee  "}), i(2, "_value"),
+            t({"", "    Assets:Checking"}),
+        }),
+
+        snip({
+            trig = "groceries",
+            namr = "Groceries",
+            dscr = "Groceries entry to ledger journal"
+        },
+        {
+            f(date, {}), t({" * "}), i(1, "_shop"),
+            t({"", "    Expenses:Food:Groceries  "}), i(2, "_value"),
+            t({"", "    Assets:Checking"}),
+        }),
+
+        snip({
+            trig = "meta",
+            namr = "Metadata",
+            dscr = "Yaml metadata format for markdown"
+        },
+        {
+            t({"---",
+            "title: "}), i(1, "note_title"), t({"",
+            "author: "}), i(2, "author"), t({"",
+            "date: "}), f(date, {}), t({"",
+            "categories: ["}), i(3, ""), t({"]",
+            "lastmod: "}), f(date, {}), t({"",
+            "tags: ["}), i(4), t({"]",
+            "comments: true",
+            "---", ""}),
+            i(0)
+        }),
+
+        snip({
+          trig = "link",
+          namr = "markdown_link",
+          dscr = "Create markdown link [txt](url)"
+        },
+        {
+          t('['),
+          i(1),
+          t(']('),
+          f(function(_, snip)
+            return snip.env.TM_SELECTED_TEXT[1] or {}
+          end, {}),
+          t(')'),
+          i(0),
+        }),
+    },
+})
+
+
 ------------------------------------- nvim-lsp ------------------------------------------------
 
 
