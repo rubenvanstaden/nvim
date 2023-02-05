@@ -1,4 +1,4 @@
-vim.cmd("colorscheme dune")
+vim.cmd("colorscheme warlock")
 
 local o = vim.opt
 local g = vim.g

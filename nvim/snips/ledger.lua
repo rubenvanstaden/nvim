@@ -23,7 +23,7 @@ local entry = snip({
 },
 {
     f(date, {}), t({" * "}), i(1, "<name>"),
-    t({"", "    Expenses:"}), i(2, "<expense>"), t({"  "}), i(3, "<value>"),
+    t({"", "    Expenses:"}), i(2, "<expense>"), t({"  "}), i(3, "<value> CAD"),
     t({"", "    Assets:"}),   i(4, "<bank>"),    t({":Checking"}),
 })
 
