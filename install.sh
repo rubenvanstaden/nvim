@@ -63,7 +63,7 @@ git clone https://github.com/ntk148v/komau.vim.git
 git clone https://github.com/huyvohcmc/atlas.vim.git
 git clone https://github.com/davidosomething/vim-colors-meh.git
 git clone https://github.com/folke/tokyonight.nvim.git
-git clone https://github.com/hardselius/warlock.git
+#git clone https://github.com/hardselius/warlock.git
 git clone https://github.com/nikolvs/vim-sunbather.git
 git clone https://github.com/kadekillary/skull-vim.git
 git clone https://github.com/axvr/photon.vim.git

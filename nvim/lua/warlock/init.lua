@@ -1,6 +1,9 @@
 local M = {}
 
 local colors = {
+    gr = "#9E9E9E",
+    c0 = "#262626",
+    fg_normal = "#bcbcbc",
     red            = "#E06C75",
     green          = "#98C379",
     yellow         = "#E5C07B",
@@ -24,18 +27,21 @@ local colors = {
 
 local highlights = {
 
+    --normal text
+    {hg = "Normal", fg = colors.fg_normal, bg = colors.c0},
+
     -- Code
     --
     -- Syntax Groups (descriptions and ordering from `:h w18`)
-    {hg = "Constant", fg = colors.foreground},
+    {hg = "Constant", fg = colors.g0},
     -- any string
-    {hg = "String", fg = colors.ggrey, gui = "italic"},
+    {hg = "String", fg = colors.gr, gui = "italic"},
     -- a character constant: 'c', '\n'
-    {hg = "Character", fg = colors.foreground},
+    {hg = "Character", fg = colors.g0},
     -- a number constant: 234, 0xff
-    {hg = "Number", fg = colors.numbers},
+    {hg = "Number", fg = colors.g0},
     -- a boolean constant: TRUE, false
-    {hg = "Boolean", fg = colors.numbers},
+    {hg = "Boolean", fg = colors.g0},
     -- a floating point constant: 2.3e10
     {hg = "Float", fg = colors.number},
     -- any variable name
@@ -146,8 +152,6 @@ local highlights = {
     {hg = "WildMenu", fg = colors.black, bg = colors.blue},
     --'incsearch' highlighting; also used for the text replaced with ":s///c"
     {hg = "IncSearch", fg = colors.yellow, bg = colors.comment_grey},
-    --normal text
-    {hg = "Normal", fg = colors.foreground, bg = colors.background},
     --tab pages line, where there are no labels
     {hg = "TabLineFill"},
     --Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
