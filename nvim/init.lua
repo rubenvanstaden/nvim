@@ -62,11 +62,13 @@ local colors = {
     c11 = "#808080",
     c12 = "#303030",
     c13 = "#949494",
-    n0 = "#d27e99",
+    pink = "#d27e99",
     n1 = "#5c6370",
     red = "#e06c75",
+    cyan           = "#56B6C2",
     green          = "#98C379",
     yellow         = "#E5C07B",
+    mauve = "#cba6f7",
 }
 
 -- Constants
@@ -74,10 +76,11 @@ local colors = {
 vim.api.nvim_set_hl(0, "Normal", { bg = colors.c1, fg = colors.c2 })
 vim.api.nvim_set_hl(0, "String", { bg = colors.none, fg = colors.c0 })
 vim.api.nvim_set_hl(0, "Constant", { bg = colors.none, fg = colors.c0 })
-vim.api.nvim_set_hl(0, 'Number', { bg = colors.none, fg = colors.n0 })
+vim.api.nvim_set_hl(0, 'Number', { bg = colors.none, fg = colors.pink })
 vim.api.nvim_set_hl(0, "LineNr", { bg = colors.c1, fg = colors.c4 })
 vim.api.nvim_set_hl(0, "Function", { fg = colors.c6, bg = colors.none })
 vim.api.nvim_set_hl(0, "Todo", { fg = colors.red, bg = colors.none })
+vim.api.nvim_set_hl(0, "MatchParen", { bg = colors.none, fg = colors.pink, bold = true })
 
 -- Go
 --   func, const, type, struct, import, package, for, range
@@ -94,12 +97,12 @@ vim.api.nvim_set_hl(0, "Label", { fg = colors.c7, bg = colors.none, bold = true 
 
 --vim.api.nvim_set_hl(0, "Typedef", { fg = colors.c7, bg = colors.none, bold = false })
 
-vim.api.nvim_set_hl(0, "Error", { fg = colors.c5, bg = colors.none })
+vim.api.nvim_set_hl(0, "Error", { bg = colors.none , fg = colors.red })
 vim.api.nvim_set_hl(0, "PreProc", { fg = colors.c5, bg = colors.none })
 
 -- Go
 --   Placeholder inside a string (%s, %v, %d, etc)
-vim.api.nvim_set_hl(0, "Special", { fg = colors.c5, bg = colors.none })
+vim.api.nvim_set_hl(0, "Special", { fg = colors.pink, bg = colors.none, bold = true })
 -- Go
 --   make, panic
 vim.api.nvim_set_hl(0, "Identifier", { fg = colors.c11, bg = colors.none, bold = false })
@@ -141,7 +144,10 @@ vim.api.nvim_set_hl(0, "Boolean", { link = "Contant" })
 vim.api.nvim_set_hl(0, "Character", { link = "Contant" })
 vim.api.nvim_set_hl(0, "Float", { link = "Number" })
 vim.api.nvim_set_hl(0, "Keyword", { link = "Statement" })
---vim.api.nvim_set_hl(0, "Conditional", { link = "Statement" })
+vim.api.nvim_set_hl(0, "ErrorMsg", { link = "Error" })
+
+vim.api.nvim_set_hl(0, "DiagnosticError", { link = "Error" })
+--vim.api.nvim_set_hl(0, "Conditional", { link = "Statement", bold = false, italic = true })
 --vim.api.nvim_set_hl(0, "Label", { link = "Statement" })
 --vim.api.nvim_set_hl(0, "Operator", { link = "Statement" })
 --vim.api.nvim_set_hl(0, "Repeat", { link = "Statement" })
@@ -152,6 +158,7 @@ vim.api.nvim_set_hl(0, "Include", { link = "PreProc" })
 vim.api.nvim_set_hl(0, "Macro", { link = "PreProc" })
 vim.api.nvim_set_hl(0, "Define", { link = "PreProc" })
 
+vim.api.nvim_set_hl(0, "SpecialKey", { link = "Special" })
 --vim.api.nvim_set_hl(0, "SpecialChar", { link = "Special" })
 --vim.api.nvim_set_hl(0, "SpecialComment", { link = "Special" })
 --vim.api.nvim_set_hl(0, "Tag", { link = "Special" })
