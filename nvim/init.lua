@@ -102,7 +102,7 @@ vim.api.nvim_set_hl(0, "PreProc", { fg = colors.c5, bg = colors.none })
 
 -- Go
 --   Placeholder inside a string (%s, %v, %d, etc)
-vim.api.nvim_set_hl(0, "Special", { fg = colors.pink, bg = colors.none, bold = true })
+vim.api.nvim_set_hl(0, "Special", { fg = colors.n1, bg = colors.none })
 -- Go
 --   make, panic
 vim.api.nvim_set_hl(0, "Identifier", { fg = colors.c11, bg = colors.none, bold = false })
