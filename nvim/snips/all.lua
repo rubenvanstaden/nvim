@@ -28,15 +28,15 @@ local function bash(_, _, command)
     return res
 end
 
-local br = snip({
-    trig = "{",
-    name = "Date",
-    dscr = "Date in the form of YYYY/MM/DD",
-}, {
-    t"{",
-    i(0),
-    t"}",
-})
+--local br = snip({
+  --  trig = "{",
+   -- name = "Date",
+    --dscr = "Date in the form of YYYY/MM/DD",
+--}, {
+  --  t"{",
+   -- i(0),
+   -- t"}",
+--})
 
 local mdata = snip({
     trig = "date",

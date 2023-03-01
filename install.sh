@@ -76,6 +76,9 @@ git clone https://github.com/kvrohit/rasmus.nvim.git
 git clone https://github.com/cocopon/iceberg.vim.git
 git clone https://github.com/catppuccin/nvim.git
 
+
+git clone https://github.com/windwp/nvim-autopairs.git
+
 # --- vim-ledger
 git clone https://github.com/ledger/vim-ledger.git
 

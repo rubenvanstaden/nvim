@@ -14,7 +14,6 @@ ls.config.set_config({
 
 ------------------------------------- nvim-lsp ------------------------------------------------
 
-
 local lsp = require("lspconfig")
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -37,20 +36,20 @@ lsp.gopls.setup {
     capabilities = capabilities,
     cmd = {"gopls", "serve"},
     filetypes = {"go", "gomod"},
-    settings = {
-        gopls = {
-            staticcheck = true,
-            analyses = {
-                unusedparams = true,
-                fieldalignment = true,
-                nilness = true,
-                shadow = true,
-                unusedwrite = true,
-                useany = true,
-                unusedvariable = true,
-            },
-        },
-    },
+    settings = {
+        gopls = {
+            staticcheck = true,
+            analyses = {
+                unusedparams = true,
+                fieldalignment = true,
+                nilness = true,
+                shadow = true,
+                unusedwrite = true,
+                useany = true,
+                unusedvariable = true,
+            },
+        },
+    },
 }
 
 -- https://github.com/sumneko/lua-language-server
@@ -83,7 +82,6 @@ lsp.pyright.setup {
     capabilities = capabilities,
 }
 
-
 ------------------------------------- gitsigns ------------------------------------------------
 
 require("gitsigns").setup{
@@ -112,9 +110,7 @@ require("gitsigns").setup{
     max_file_length = 40000,
 }
 
-
 ------------------------------------- telescope ------------------------------------------------
-
 
 require("telescope").setup {
 
@@ -153,9 +149,7 @@ require("telescope").setup {
 
 require('telescope').load_extension('fzy_native')
 
-
 ------------------------------------- nvim-cmp ------------------------------------------------
-
 
 local luasnip = require("luasnip")
 local cmp = require("cmp")
@@ -188,3 +182,18 @@ cmp.setup({
         { name = 'luasnip' },
     },
 })
+
+------------------------------------- nvim-cmp ------------------------------------------------
+
+local npairs = require('nvim-autopairs')
+
+--local Rule = require("nvim-autopairs.rule")
+--npairs.add_rule(Rule("$$","$$","tex"))
+
+--local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+--cmp.event:on(
+ -- 'confirm_done',
+  --cmp_autopairs.on_confirm_done()
+--)
+
+npairs.setup({})
