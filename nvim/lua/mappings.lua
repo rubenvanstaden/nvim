@@ -62,8 +62,8 @@ map("n", "<C-l>", "<C-w>l", opt)
 
 -- Dashboard
 map("n", ";", ":",   opt)
-map("n", "J", "10j", opt)
-map("n", "K", "10k", opt)
+--map("n", "J", "10j", opt)
+--map("n", "K", "10k", opt)
 
 -- Telescope
 map("n", "<Leader>fb", "<cmd> lua require('telescope.builtin').buffers() <cr>",        opt)
@@ -85,6 +85,3 @@ keymap("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
 keymap("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
 keymap("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 keymap("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-
-
-

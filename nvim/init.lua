@@ -18,6 +18,7 @@ g.loaded_netrwPlugin = 1
 
 -- Display line numbers to the left
 o.number = true
+o.cursorline = true
 -- Display relative numbers.
 o.relativenumber = true
 -- Ignore specified files and folders
@@ -49,6 +50,7 @@ require("mappings")
 local colors = {
     none = "NONE",
     c0 = "#9e9e9e",
+    c00 = "#333333",
     c1 = "#262626",
     c2 = "#bcbcbc",
     c3 = "#1c1c1c",
@@ -69,6 +71,18 @@ local colors = {
     green          = "#98C379",
     yellow         = "#E5C07B",
     mauve = "#cba6f7",
+    nord_green = "#A3BE8C",
+    nord_cyan = "#88C0D0",
+    nord_blue =    "#81A1C1",
+    nord_yellow =   '#B48EAD',
+    nord_pink = "#EBCB8B",
+    rosewater =   '#f2d5cf',
+    flamingo = "#eebebe",
+    peach = "#ef9f76",
+    teal = "#81c8be",
+    overlay = "#737994",
+    laverder = "#babbf1",
+    surface = "#414559",
 }
 
 -- Constants
@@ -78,13 +92,25 @@ vim.api.nvim_set_hl(0, "String", { bg = colors.none, fg = colors.c0 })
 vim.api.nvim_set_hl(0, "Constant", { bg = colors.none, fg = colors.c0 })
 vim.api.nvim_set_hl(0, 'Number', { bg = colors.none, fg = colors.pink })
 vim.api.nvim_set_hl(0, "LineNr", { bg = colors.c1, fg = colors.c4 })
-vim.api.nvim_set_hl(0, "Function", { fg = colors.c6, bg = colors.none })
+vim.api.nvim_set_hl(0, "Function", { fg = colors.c7, bg = colors.none, bold = false, italic = true })
 vim.api.nvim_set_hl(0, "Todo", { fg = colors.red, bg = colors.none })
-vim.api.nvim_set_hl(0, "MatchParen", { bg = colors.none, fg = colors.pink, bold = true })
+vim.api.nvim_set_hl(0, "MatchParen", { bg = colors.none, fg = colors.nord_pink, bold = true })
+vim.api.nvim_set_hl(0, "CursorLine", { bg = colors.c00, fg = colors.none, bold = false })
+vim.api.nvim_set_hl(0, "CursorLineNr", { bg = colors.c1, fg = colors.nord_yellow, bold = false })
 
 -- Go
---   func, const, type, struct, import, package, for, range
-vim.api.nvim_set_hl(0, "Statement", { fg = colors.c7, bg = colors.none, bold = true })
+--   import, package, for, range
+-- Lua
+--   local
+vim.api.nvim_set_hl(0, "Statement", { fg = colors.c7, bg = colors.none, bold = false })
+vim.api.nvim_set_hl(0, "Operator", { fg = colors.c7, bg = colors.none, bold = true })
+vim.api.nvim_set_hl(0, "Structure", { fg = colors.c7, bg = colors.none, bold = true })
+
+vim.api.nvim_set_hl(0, "Title", { fg = colors.c7, bg = colors.none, bold = true })
+
+-- Go
+--   func, const, type, struct
+vim.api.nvim_set_hl(0, "Keyword", { fg = colors.c7, bg = colors.none, bold = true })
 -- Go
 --   for, while
 vim.api.nvim_set_hl(0, "Repeat", { fg = colors.c7, bg = colors.none, italic = true })
@@ -102,7 +128,7 @@ vim.api.nvim_set_hl(0, "PreProc", { fg = colors.c5, bg = colors.none })
 
 -- Go
 --   Placeholder inside a string (%s, %v, %d, etc)
-vim.api.nvim_set_hl(0, "Special", { fg = colors.n1, bg = colors.none })
+vim.api.nvim_set_hl(0, "Special", { fg = colors.c2, bg = colors.none })
 -- Go
 --   make, panic
 vim.api.nvim_set_hl(0, "Identifier", { fg = colors.c11, bg = colors.none, bold = false })
@@ -133,8 +159,8 @@ vim.api.nvim_set_hl(0, "StatusLine", { fg = colors.c1, bg = colors.c11 })
 
 -- Gitsigns
 vim.api.nvim_set_hl(0, "SignColumn", { bg = colors.c1, fg = colors.c4 })
-vim.api.nvim_set_hl(0, "GitSignsAdd", { bg = colors.c1, fg = colors.green })
-vim.api.nvim_set_hl(0, "GitSignsChange", { bg = colors.c1, fg = colors.yellow })
+vim.api.nvim_set_hl(0, "GitSignsAdd", { bg = colors.c1, fg = colors.nord_green })
+vim.api.nvim_set_hl(0, "GitSignsChange", { bg = colors.c1, fg = colors.nord_yellow })
 vim.api.nvim_set_hl(0, "GitSignsDelete", { bg = colors.c1, fg = colors.red })
 
 -- Linking
@@ -143,16 +169,11 @@ vim.api.nvim_set_hl(0, "GitSignsDelete", { bg = colors.c1, fg = colors.red })
 vim.api.nvim_set_hl(0, "Boolean", { link = "Contant" })
 vim.api.nvim_set_hl(0, "Character", { link = "Contant" })
 vim.api.nvim_set_hl(0, "Float", { link = "Number" })
-vim.api.nvim_set_hl(0, "Keyword", { link = "Statement" })
+--vim.api.nvim_set_hl(0, "Keyword", { link = "Statement" })
 vim.api.nvim_set_hl(0, "ErrorMsg", { link = "Error" })
 
 vim.api.nvim_set_hl(0, "DiagnosticError", { link = "Error" })
---vim.api.nvim_set_hl(0, "Conditional", { link = "Statement", bold = false, italic = true })
---vim.api.nvim_set_hl(0, "Label", { link = "Statement" })
---vim.api.nvim_set_hl(0, "Operator", { link = "Statement" })
---vim.api.nvim_set_hl(0, "Repeat", { link = "Statement" })
---vim.api.nvim_set_hl(0, "Structure", { link = "Type" })
---vim.api.nvim_set_hl(0, "Typedef", { link = "Type" })
+vim.api.nvim_set_hl(0, "Typedef", { link = "Type" })
 --
 vim.api.nvim_set_hl(0, "Include", { link = "PreProc" })
 vim.api.nvim_set_hl(0, "Macro", { link = "PreProc" })
@@ -162,3 +183,13 @@ vim.api.nvim_set_hl(0, "SpecialKey", { link = "Special" })
 --vim.api.nvim_set_hl(0, "SpecialChar", { link = "Special" })
 --vim.api.nvim_set_hl(0, "SpecialComment", { link = "Special" })
 --vim.api.nvim_set_hl(0, "Tag", { link = "Special" })
+
+-- Example config in lua
+vim.g.nord_contrast = true
+vim.g.nord_borders = true
+vim.g.nord_italic = false
+vim.g.nord_uniform_diff_background = true
+vim.g.nord_bold = false
+
+-- Load the colorscheme
+require('nord').set()
