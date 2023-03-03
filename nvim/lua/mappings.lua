@@ -62,8 +62,8 @@ map("n", "<C-l>", "<C-w>l", opt)
 
 -- Dashboard
 map("n", ";", ":",   opt)
-map("n", "J", "10j", opt)
-map("n", "K", "10k", opt)
+--map("n", "J", "10j", opt)
+--map("n", "K", "10k", opt)
 
 -- Telescope
 map("n", "<Leader>fb", "<cmd> lua require('telescope.builtin').buffers() <cr>",        opt)
@@ -78,3 +78,10 @@ map('n', '<Leader>a', "<cmd> lua vim.lsp.buf.code_action() <cr>", opt)
 map('n', '<Leader>h', "<cmd> lua vim.lsp.buf.hover() <cr>",       opt)
 map('n', '<Leader>m', "<cmd> lua vim.lsp.buf.rename() <cr>",      opt)
 map('n', '<Leader>r', "<cmd> lua vim.lsp.buf.references() <cr>",  opt)
+
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+keymap("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+keymap("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+keymap("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+keymap("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)

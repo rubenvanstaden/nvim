@@ -35,11 +35,6 @@ VERSION="1.1.0"
 wget "https://github.com/L3MON4D3/LuaSnip/archive/refs/tags/v${VERSION}.tar.gz"
 tar xvzf "v${VERSION}.tar.gz" -C ${INSTALL_PATH}
 
-# --- vim-ledger
-VERSION="1.2.0"
-wget "https://github.com/ledger/vim-ledger/archive/refs/tags/v${VERSION}.tar.gz"
-tar xvzf "v${VERSION}.tar.gz" -C ${INSTALL_PATH}
-
 # --- nvim-cmp
 VERSION="0.0.1"
 wget "https://github.com/hrsh7th/nvim-cmp/archive/refs/tags/v${VERSION}.tar.gz"
@@ -61,17 +56,21 @@ cd ${INSTALL_PATH}
 
 rm -rf cmp-nvim-lsp friendly-snippets cmp_luasnip
 
-# --- cmp-nvim-lsp
-git clone https://github.com/hrsh7th/cmp-nvim-lsp.git
+# Themes
 
-# --- friendly-snippets
-git clone https://github.com/rafamadriz/friendly-snippets.git
-
-# --- cmp-luasnip
-git clone https://github.com/saadparwaiz1/cmp_luasnip.git
-
-# --- nord-theme
 git clone https://github.com/shaunsingh/nord.nvim.git
+git clone https://github.com/rebelot/kanagawa.nvim.git
+git clone https://github.com/cocopon/iceberg.vim.git
+git clone https://github.com/catppuccin/nvim.git
+git clone https://github.com/kadekillary/skull-vim.git
+
+# Packages
+
+git clone https://github.com/windwp/nvim-autopairs.git
+git clone https://github.com/ledger/vim-ledger.git
+git clone https://github.com/hrsh7th/cmp-nvim-lsp.git
+git clone https://github.com/rafamadriz/friendly-snippets.git
+git clone https://github.com/saadparwaiz1/cmp_luasnip.git
 
 # --- fzy-native
 # 

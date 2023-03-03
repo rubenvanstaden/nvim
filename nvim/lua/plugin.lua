@@ -1,7 +1,18 @@
+local ls = require("luasnip") --{{{
 
+-- require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snips/" })
+require("luasnip.loaders.from_vscode").lazy_load()
+
+-- Virtual Text{{{
+ls.config.set_config({
+    store_selection_keys = '<c-s>',
+	--history = true, --keep around last snippet local to jump back
+    --updateevents = "TextChanged,TextChangedI", --update changes as you type
+	--enable_autosnippets = true,
+}) --}}}
 
 ------------------------------------- nvim-lsp ------------------------------------------------
-
 
 local lsp = require("lspconfig")
 
@@ -25,20 +36,20 @@ lsp.gopls.setup {
     capabilities = capabilities,
     cmd = {"gopls", "serve"},
     filetypes = {"go", "gomod"},
-    settings = {
-        gopls = {
-            staticcheck = true,
-            analyses = {
-                unusedparams = true,
-                fieldalignment = true,
-                nilness = true,
-                shadow = true,
-                unusedwrite = true,
-                useany = true,
-                unusedvariable = true,
-            },
-        },
-    },
+    settings = {
+        gopls = {
+            staticcheck = true,
+            analyses = {
+                unusedparams = true,
+                fieldalignment = true,
+                nilness = true,
+                shadow = true,
+                unusedwrite = true,
+                useany = true,
+                unusedvariable = true,
+            },
+        },
+    },
 }
 
 -- https://github.com/sumneko/lua-language-server
@@ -71,11 +82,7 @@ lsp.pyright.setup {
     capabilities = capabilities,
 }
 
-
 ------------------------------------- gitsigns ------------------------------------------------
-
-
-require("luasnip.loaders.from_vscode").lazy_load()
 
 require("gitsigns").setup{
 
@@ -103,9 +110,7 @@ require("gitsigns").setup{
     max_file_length = 40000,
 }
 
-
 ------------------------------------- telescope ------------------------------------------------
-
 
 require("telescope").setup {
 
@@ -144,9 +149,7 @@ require("telescope").setup {
 
 require('telescope').load_extension('fzy_native')
 
-
 ------------------------------------- nvim-cmp ------------------------------------------------
-
 
 local luasnip = require("luasnip")
 local cmp = require("cmp")
@@ -179,3 +182,18 @@ cmp.setup({
         { name = 'luasnip' },
     },
 })
+
+------------------------------------- nvim-cmp ------------------------------------------------
+
+local npairs = require('nvim-autopairs')
+
+--local Rule = require("nvim-autopairs.rule")
+--npairs.add_rule(Rule("$$","$$","tex"))
+
+--local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+--cmp.event:on(
+ -- 'confirm_done',
+  --cmp_autopairs.on_confirm_done()
+--)
+
+npairs.setup({})
