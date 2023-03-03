@@ -56,39 +56,21 @@ cd ${INSTALL_PATH}
 
 rm -rf cmp-nvim-lsp friendly-snippets cmp_luasnip
 
-git clone https://github.com/ishan9299/nvim-solarized-lua.git
-git clone https://github.com/rktjmp/lush.nvim.git
-git clone https://github.com/mcchrish/zenbones.nvim.git
-git clone https://github.com/ntk148v/komau.vim.git
-git clone https://github.com/huyvohcmc/atlas.vim.git
-git clone https://github.com/davidosomething/vim-colors-meh.git
-git clone https://github.com/folke/tokyonight.nvim.git
-git clone https://github.com/hardselius/warlock.git
-git clone https://github.com/nikolvs/vim-sunbather.git
-git clone https://github.com/kadekillary/skull-vim.git
-git clone https://github.com/axvr/photon.vim.git
-git clone https://github.com/widatama/vim-phoenix.git
-git clone https://github.com/robertmeta/nofrils.git
-git clone https://github.com/fxn/vim-monochrome.git
-git clone https://github.com/jaredgorski/fogbell.vim.git
-git clone https://github.com/karoliskoncevicius/distilled-vim.git
-git clone https://github.com/kvrohit/rasmus.nvim.git
-git clone https://github.com/cocopon/iceberg.vim.git
+# Themes
 
-# --- vim-ledger
-git clone https://github.com/ledger/vim-ledger.git
-
-# --- cmp-nvim-lsp
-git clone https://github.com/hrsh7th/cmp-nvim-lsp.git
-
-# --- friendly-snippets
-git clone https://github.com/rafamadriz/friendly-snippets.git
-
-# --- cmp-luasnip
-git clone https://github.com/saadparwaiz1/cmp_luasnip.git
-
-# --- nord-theme
 git clone https://github.com/shaunsingh/nord.nvim.git
+git clone https://github.com/rebelot/kanagawa.nvim.git
+git clone https://github.com/cocopon/iceberg.vim.git
+git clone https://github.com/catppuccin/nvim.git
+git clone https://github.com/kadekillary/skull-vim.git
+
+# Packages
+
+git clone https://github.com/windwp/nvim-autopairs.git
+git clone https://github.com/ledger/vim-ledger.git
+git clone https://github.com/hrsh7th/cmp-nvim-lsp.git
+git clone https://github.com/rafamadriz/friendly-snippets.git
+git clone https://github.com/saadparwaiz1/cmp_luasnip.git
 
 # --- fzy-native
 # 
