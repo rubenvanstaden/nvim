@@ -199,10 +199,3 @@ local npairs = require('nvim-autopairs')
 npairs.setup({})
 
 ------------------------------------- heirline ------------------------------------------------
-
-require("heirline").setup({
-    statusline = {...},
-    winbar = {...},
-    tabline = {...},
-    statuscolumn = {...},
-})
