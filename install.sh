@@ -63,6 +63,7 @@ git clone https://github.com/rebelot/kanagawa.nvim.git
 git clone https://github.com/cocopon/iceberg.vim.git
 git clone https://github.com/catppuccin/nvim.git
 git clone https://github.com/kadekillary/skull-vim.git
+git clone https://github.com/rebelot/heirline.nvim.git
 
 # Packages
 
