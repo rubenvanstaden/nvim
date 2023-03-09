@@ -39,10 +39,21 @@ o.clipboard = "unnamedplus"
 -- Always use clipboard for all operations
 o.tabstop = 4
 
+------------- Mappings -------------
+
+local opt = { noremap = true, silent = true }
+local map = vim.api.nvim_set_keymap
+
+-- Dashboard
+map("n", ";", ":",   opt)
+
+-- Keep visual mode when indenting
+map("v", "<", "<gv", opt)
+map("v", ">", ">gv", opt)
+
 ------------- Plugins -------------
 
 require("plugin")
-require("mappings")
 
 vim.g.nord_contrast = true
 vim.g.nord_borders = true

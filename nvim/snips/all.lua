@@ -28,16 +28,6 @@ local function bash(_, _, command)
     return res
 end
 
---local br = snip({
-  --  trig = "{",
-   -- name = "Date",
-    --dscr = "Date in the form of YYYY/MM/DD",
---}, {
-  --  t"{",
-   -- i(0),
-   -- t"}",
---})
-
 local mdata = snip({
     trig = "date",
     name = "Date",
@@ -71,7 +61,6 @@ local signature = snip({
     i(0),
 })
 
-table.insert(snippets, br)
 table.insert(snippets, mdata)
 table.insert(snippets, pwd)
 table.insert(snippets, mfilename)
