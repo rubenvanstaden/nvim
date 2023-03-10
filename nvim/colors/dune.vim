@@ -1,1 +1,0 @@
-lua require('dune').colorscheme()

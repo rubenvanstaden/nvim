@@ -17,7 +17,6 @@ map("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opt)
 map("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opt)
 map("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opt)
 
-
 ------------------------------------- nvim-lsp ------------------------------------------------
 
 local lsp = require("lspconfig")

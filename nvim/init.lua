@@ -44,9 +44,6 @@ o.tabstop = 4
 local opt = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
 
--- Dashboard
-map("n", ";", ":",   opt)
-
 -- Keep visual mode when indenting
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
@@ -62,5 +59,4 @@ vim.g.nord_uniform_diff_background = true
 vim.g.nord_bold = false
 
 require('nord').set()
-
---vim.cmd("colorscheme melange")
+--require('melange').colorscheme()
