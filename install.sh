@@ -59,9 +59,6 @@ rm -rf cmp-nvim-lsp friendly-snippets cmp_luasnip
 # Themes
 
 git clone https://github.com/shaunsingh/nord.nvim.git
-git clone https://github.com/cocopon/iceberg.vim.git
-git clone https://github.com/catppuccin/nvim.git
-git clone https://github.com/kadekillary/skull-vim.git
 
 # Packages
 
