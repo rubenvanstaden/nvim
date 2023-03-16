@@ -11,16 +11,11 @@ require('nvim-autopairs').setup({})
 
 local lsp = require("lspconfig")
 
---local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 -- https://github.com/rust-lang/rust-analyzer
-lsp.rust_analyzer.setup {
- --   capabilities = capabilities,
-}
+lsp.rust_analyzer.setup {}
 
 -- https://github.com/golang/tools/tree/master/gopls
 lsp.gopls.setup {
-  --  capabilities = capabilities,
     cmd = {"gopls", "serve"},
     filetypes = {"go", "gomod"},
     settings = {
@@ -41,7 +36,6 @@ lsp.gopls.setup {
 
 -- https://github.com/sumneko/lua-language-server
 lsp.sumneko_lua.setup {
-    --capabilities = capabilities,
     settings = {
         Lua = {
             runtime = {

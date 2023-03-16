@@ -30,17 +30,11 @@ VERSION="0.1.4"
 wget "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v${VERSION}.tar.gz"
 tar xvzf "v${VERSION}.tar.gz" -C ${INSTALL_PATH}
 
-# --- nvim-cmp
-VERSION="0.0.1"
-wget "https://github.com/hrsh7th/nvim-cmp/archive/refs/tags/v${VERSION}.tar.gz"
-tar xvzf "v${VERSION}.tar.gz" -C ${INSTALL_PATH}
-
 # --- Installation using Git
 
 cd ${INSTALL_PATH}
 
 git clone https://github.com/windwp/nvim-autopairs.git
 git clone https://github.com/ledger/vim-ledger.git
-git clone https://github.com/hrsh7th/cmp-nvim-lsp.git
 
 cd ${INSTALL_PATH}
