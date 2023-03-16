@@ -1,21 +1,19 @@
-
 local opt = { noremap = true, silent = true }
 
 local map = vim.api.nvim_set_keymap
 
---------------------- Plugins -------------------------
-
-require('nvim-autopairs').setup({})
-
-------------------------------------- nvim-lsp ------------------------------------------------
-
 local lsp = require("lspconfig")
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 -- https://github.com/rust-lang/rust-analyzer
-lsp.rust_analyzer.setup {}
+lsp.rust_analyzer.setup {
+    capabilities = capabilities,
+}
 
 -- https://github.com/golang/tools/tree/master/gopls
 lsp.gopls.setup {
+    capabilities = capabilities,
     cmd = {"gopls", "serve"},
     filetypes = {"go", "gomod"},
     settings = {
@@ -36,6 +34,7 @@ lsp.gopls.setup {
 
 -- https://github.com/sumneko/lua-language-server
 lsp.sumneko_lua.setup {
+    capabilities = capabilities,
     settings = {
         Lua = {
             runtime = {

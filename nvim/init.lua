@@ -29,7 +29,5 @@ o.tabstop = 4
 
 vim.cmd.colorscheme("nord")
 
+require("snip")
 require("lsp")
-
---map("i", "<C-space>", "\<C-x>\<C-o>", opt)
---vim.keymap.set('i', '<Leader>o', '<C-x><C-o>')

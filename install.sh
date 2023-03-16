@@ -30,11 +30,18 @@ VERSION="0.1.4"
 wget "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v${VERSION}.tar.gz"
 tar xvzf "v${VERSION}.tar.gz" -C ${INSTALL_PATH}
 
+# --- LuaSnip
+VERSION="1.1.0"
+wget "https://github.com/L3MON4D3/LuaSnip/archive/refs/tags/v${VERSION}.tar.gz"
+tar xvzf "v${VERSION}.tar.gz" -C ${INSTALL_PATH}
+
 # --- Installation using Git
 
 cd ${INSTALL_PATH}
 
+git clone https://github.com/hrsh7th/nvim-cmp.git
 git clone https://github.com/windwp/nvim-autopairs.git
 git clone https://github.com/ledger/vim-ledger.git
-
-cd ${INSTALL_PATH}
+git clone https://github.com/hrsh7th/cmp-nvim-lsp.git
+git clone https://github.com/rafamadriz/friendly-snippets.git
+git clone https://github.com/saadparwaiz1/cmp_luasnip.git
