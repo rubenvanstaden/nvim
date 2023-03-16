@@ -86,11 +86,17 @@ a.nvim_set_hl(0, "Character", { fg = color.nord14 })
 a.nvim_set_hl(0, "Todo", { fg = color.nord13 })
 
 a.nvim_set_hl(0, "Macro", { fg = color.nord9 })
-a.nvim_set_hl(0, "Error", { fg = color.nord11 })
 a.nvim_set_hl(0, "Delimiter", { fg = color.nord6 })
 a.nvim_set_hl(0, "Comment", { fg = color.nord3, italic = true })
 a.nvim_set_hl(0, "SpecialComment", { fg = color.nord8 })
 
+a.nvim_set_hl(0, "Error", { fg = color.nord11 })
+a.nvim_set_hl(0, "ErrorMsg", { link = "Error" })
+a.nvim_set_hl(0, "Warnings", { fg = color.nord15 })
+a.nvim_set_hl(0, "WarningMsg", { link = "Warnings" })
+
+a.nvim_set_hl(0, "DiagnosticError", { link = "Error" })
+a.nvim_set_hl(0, "DiagnosticWarn", { link = "Warnings" })
 
 
 -- Editor hightlight groups
@@ -105,7 +111,10 @@ a.nvim_set_hl(0, "Title", { fg = color.nord14, bold = true })
 a.nvim_set_hl(0, "Directory", { fg = color.nord7, bg = color.none })
 a.nvim_set_hl(0, "Visual", { fg = color.none, bg = color.nord2 })
 a.nvim_set_hl(0, "VisualMode", { fg = color.nord9, bg = color.none, reverse = true })
-a.nvim_set_hl(0, "ErrorMsg", { link = "Error" })
 a.nvim_set_hl(0, "Search", { fg = color.nord6, bg = color.nord10 })
 a.nvim_set_hl(0, "ModeMsg", { fg = color.nord4 })
 a.nvim_set_hl(0, "MoreMsg", { fg = color.nord4 })
+a.nvim_set_hl(0, "Pmenu", { fg = color.nord4, bg = color.nord2 })
+a.nvim_set_hl(0, "PmenuSel", { fg = color.nord4, bg = color.nord10 })
+a.nvim_set_hl(0, "Substitute", { fg = color.nord0, bg = color.nord12 })
+a.nvim_set_hl(0, "SignColumn", { fg = color.nord4, bg = color.nord0 })

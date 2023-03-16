@@ -1,7 +1,15 @@
+
 local o = vim.opt
 local g = vim.g
 
-g.loadplugins = false
+--------------------- Disable Plugins -------------------------
+
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+
+--------------------- Options ------------------------------
+
+g.mapleader = " "
 -- True color support
 o.termguicolors = true
 -- Always use clipboard for all operations
@@ -16,7 +24,12 @@ o.relativenumber = true
 o.expandtab = true
 -- Number of spaces tabs count for 
 o.shiftwidth = 4
+-- Always use clipboard for all operations
+o.tabstop = 4
 
-require("nord")
-require("git")
-require("cmp")
+vim.cmd.colorscheme("nord")
+
+require("lsp")
+
+--map("i", "<C-space>", "\<C-x>\<C-o>", opt)
+--vim.keymap.set('i', '<Leader>o', '<C-x><C-o>')
