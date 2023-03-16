@@ -1,3 +1,6 @@
+---------------------------------------------------------------
+
+vim.cmd.colorscheme("nord")
 
 local o = vim.opt
 local g = vim.g
@@ -26,8 +29,6 @@ o.expandtab = true
 o.shiftwidth = 4
 -- Always use clipboard for all operations
 o.tabstop = 4
-
-vim.cmd.colorscheme("nord")
 
 require("snip")
 require("lsp")

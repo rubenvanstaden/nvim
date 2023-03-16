@@ -33,7 +33,7 @@ lsp.gopls.setup {
 }
 
 -- https://github.com/sumneko/lua-language-server
-lsp.sumneko_lua.setup {
+lsp.lua_ls.setup {
     capabilities = capabilities,
     settings = {
         Lua = {
