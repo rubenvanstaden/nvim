@@ -15,13 +15,53 @@ ls.config.set_config({
 
 local snippets = {}
 
-local entry = snip({
-    trig = "entry",
-    name = "Entry",
+local add_general = snip({
+    trig = "ageneral",
+    name = "General",
     dscr = "Entry to ledger journal for checking account"
 },
 {
     f(date, {}), t({" * "}), i(1, "<name>"),
+})
+
+local add_coop = snip({
+    trig = "acoop",
+    name = "Co-op",
+    dscr = "Entry to ledger journal for checking account"
+},
+{
+    f(date, {}), t({" * "}), t({"Co-Op"}),
+    t({"", "    Liability:Person:Jason Zhan"}),
+})
+
+local add_tt = snip({
+    trig = "att",
+    name = "T&T",
+    dscr = "Entry to ledger journal for checking account"
+},
+{
+    f(date, {}), t({" * "}), t({"T&T"}),
+    t({"", "    Liability:Person:Jason Zhan"}),
+})
+
+local add_costco = snip({
+    trig = "acostco",
+    name = "Costco",
+    dscr = "Entry to ledger journal for checking account"
+},
+{
+    f(date, {}), t({" * "}), t({"Costco"}),
+    t({"", "    Liability:Person:Jason Zhan"}),
+})
+
+local add_superstore = snip({
+    trig = "ass",
+    name = "Superstore",
+    dscr = "Entry to ledger journal for checking account"
+},
+{
+    f(date, {}), t({" * "}), t({"Superstore"}),
+    t({"", "    Liability:Person:Jason Zhan"}),
 })
 
 local grocery = snip({
@@ -143,7 +183,14 @@ local seafood = snip({
     t({"Expense:Food:Seafood:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
-table.insert(snippets, entry)
+-- Add entry
+table.insert(snippets, add_general)
+table.insert(snippets, add_coop)
+table.insert(snippets, add_tt)
+table.insert(snippets, add_costco)
+table.insert(snippets, add_superstore)
+
+-- Expense
 table.insert(snippets, joint_checking)
 table.insert(snippets, amex)
 table.insert(snippets, snack)
