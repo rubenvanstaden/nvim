@@ -16,18 +16,16 @@ ls.config.set_config({
 local snippets = {}
 
 local entry = snip({
-    trig = "ec",
+    trig = "entry",
     name = "Entry",
     dscr = "Entry to ledger journal for checking account"
 },
 {
     f(date, {}), t({" * "}), i(1, "<name>"),
-    t({"", "    "}), i(2, "To"),
-    t({"", "    "}), i(3, "From"),
 })
 
 local grocery = snip({
-    trig = "grocery",
+    trig = "egrocery",
     name = "Grocery",
     dscr = "Add grocery expense"
 },
@@ -36,16 +34,16 @@ local grocery = snip({
 })
 
 local snack = snip({
-    trig = "snack",
+    trig = "esnack",
     name = "Snack",
     dscr = "Add snack expense"
 },
 {
-    t({"Expense:Food:Snack  "}), i(1, "Value"), t({" CAD"}),
+    t({"Expense:Food:Snack:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
 local coffee = snip({
-    trig = "coffee",
+    trig = "ecoffee",
     name = "Coffee",
     dscr = "Add coffee expense"
 },
@@ -54,7 +52,7 @@ local coffee = snip({
 })
 
 local dining = snip({
-    trig = "dining",
+    trig = "edining",
     name = "Dining",
     dscr = "Add dining expense"
 },
@@ -63,7 +61,7 @@ local dining = snip({
 })
 
 local joint_checking = snip({
-    trig = "jc",
+    trig = "ajoint",
     name = "JointChecking",
     dscr = "Add tangerine joint checking account"
 },
@@ -71,8 +69,17 @@ local joint_checking = snip({
     t({"Assets:Tangerine:Joint:Checking"}),
 })
 
+local tpd = snip({
+    trig = "atpd",
+    name = "TemporaryPriceDiscount",
+    dscr = "Costco temporary price discount"
+},
+{
+    t({"Assets:Discount:Tpd"}),
+})
+
 local amex = snip({
-    trig = "amex",
+    trig = "lamex",
     name = "American Express",
     dscr = "Entry to ledger journal for checking account"
 },
@@ -83,7 +90,7 @@ local amex = snip({
 })
 
 local fruit = snip({
-    trig = "fruit",
+    trig = "efruit",
     name = "Fruit",
     dscr = "Add fruit expense"
 },
@@ -92,7 +99,7 @@ local fruit = snip({
 })
 
 local vegetable = snip({
-    trig = "vegetable",
+    trig = "evegetable",
     name = "Vegetable",
     dscr = "Add vegetable expense"
 },
@@ -101,7 +108,7 @@ local vegetable = snip({
 })
 
 local meat = snip({
-    trig = "meat",
+    trig = "emeat",
     name = "Meat",
     dscr = "Add meat expense"
 },
@@ -110,7 +117,7 @@ local meat = snip({
 })
 
 local diary = snip({
-    trig = "diary",
+    trig = "ediary",
     name = "Diary",
     dscr = "Add diary expense"
 },
@@ -119,7 +126,7 @@ local diary = snip({
 })
 
 local home = snip({
-    trig = "home",
+    trig = "ehome",
     name = "Home",
     dscr = "Add home expense"
 },
@@ -128,21 +135,12 @@ local home = snip({
 })
 
 local seafood = snip({
-    trig = "seafood",
+    trig = "eseafood",
     name = "Seafood",
     dscr = "Add seafood expense"
 },
 {
     t({"Expense:Food:Seafood:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
-})
-
-local produce = snip({
-    trig = "produce",
-    name = "Produce",
-    dscr = "Add produce expense"
-},
-{
-    t({"Expense:Food:Produce:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
 table.insert(snippets, entry)
@@ -158,6 +156,6 @@ table.insert(snippets, meat)
 table.insert(snippets, diary)
 table.insert(snippets, home)
 table.insert(snippets, seafood)
-table.insert(snippets, produce)
+table.insert(snippets, tpd)
 
 return snippets

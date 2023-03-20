@@ -86,6 +86,7 @@ a.nvim_set_hl(0, "Character", { fg = color.nord14 })
 a.nvim_set_hl(0, "Todo", { fg = color.nord13 })
 
 a.nvim_set_hl(0, "Macro", { fg = color.nord9 })
+a.nvim_set_hl(0, "SpecialKey", { fg = color.nord9 })
 a.nvim_set_hl(0, "Delimiter", { fg = color.nord6 })
 a.nvim_set_hl(0, "Comment", { fg = color.nord3, italic = true })
 a.nvim_set_hl(0, "SpecialComment", { fg = color.nord8 })
