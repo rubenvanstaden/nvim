@@ -183,6 +183,15 @@ local seafood = snip({
     t({"Expense:Food:Seafood:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
+local pharmacy = snip({
+    trig = "ephar",
+    name = "Pharmacy",
+    dscr = "Add pharmacy expense"
+},
+{
+    t({"Expense:Medical:Pharmacy:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+})
+
 -- Add entry
 table.insert(snippets, add_general)
 table.insert(snippets, add_coop)
@@ -204,5 +213,6 @@ table.insert(snippets, diary)
 table.insert(snippets, home)
 table.insert(snippets, seafood)
 table.insert(snippets, tpd)
+table.insert(snippets, pharmacy)
 
 return snippets
