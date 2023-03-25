@@ -129,14 +129,58 @@ local amex = snip({
     t({"", "    Assets:Tangerine:Joint:Checking"}),
 })
 
-local fruit = snip({
-    trig = "efruit",
-    name = "Fruit",
-    dscr = "Add fruit expense"
+---------------------------------------------------------------------------------------------------
+-- Fruit
+---------------------------------------------------------------------------------------------------
+
+local apple = snip({
+    trig = "fapple",
+    name = "Apple",
+    dscr = "Add apple expense"
 },
 {
-    t({"Expense:Food:Fruit:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+    t({"Expense:Food:Fruit:Apple"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
+
+local pinapple = snip({
+    trig = "fpinapple",
+    name = "Pinapple",
+    dscr = "Add pinapple expense"
+},
+{
+    t({"Expense:Food:Fruit:Pinapple"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local orange = snip({
+    trig = "forange",
+    name = "Orange",
+    dscr = "Add orange expense"
+},
+{
+    t({"Expense:Food:Fruit:Orange"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local grape = snip({
+    trig = "fgrape",
+    name = "Grape",
+    dscr = "Add grape expense"
+},
+{
+    t({"Expense:Food:Fruit:Grape"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local pear = snip({
+    trig = "fpear",
+    name = "Pear",
+    dscr = "Add pear expense"
+},
+{
+    t({"Expense:Food:Fruit:Pear"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+---------------------------------------------------------------------------------------------------
+-- Vegetable
+---------------------------------------------------------------------------------------------------
 
 local vegetable = snip({
     trig = "evegetable",
@@ -144,8 +188,12 @@ local vegetable = snip({
     dscr = "Add vegetable expense"
 },
 {
-    t({"Expense:Food:Vegetable:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+    t({"Expense:Food:Vegetable:"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
+
+---------------------------------------------------------------------------------------------------
+-- Meat
+---------------------------------------------------------------------------------------------------
 
 local beef = snip({
     trig = "ebeef",
@@ -235,6 +283,13 @@ table.insert(snippets, add_tt)
 table.insert(snippets, add_costco)
 table.insert(snippets, add_superstore)
 
+-- Fruit
+table.insert(snippets, apple)
+table.insert(snippets, pinapple)
+table.insert(snippets, orange)
+table.insert(snippets, grape)
+table.insert(snippets, pear)
+
 -- Expense
 table.insert(snippets, joint_checking)
 table.insert(snippets, amex)
@@ -242,7 +297,6 @@ table.insert(snippets, snack)
 table.insert(snippets, coffee)
 table.insert(snippets, dining)
 table.insert(snippets, grocery)
-table.insert(snippets, fruit)
 table.insert(snippets, vegetable)
 table.insert(snippets, diary)
 table.insert(snippets, home)
