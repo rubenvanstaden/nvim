@@ -182,13 +182,49 @@ local pear = snip({
 -- Vegetable
 ---------------------------------------------------------------------------------------------------
 
-local vegetable = snip({
-    trig = "evegetable",
-    name = "Vegetable",
-    dscr = "Add vegetable expense"
+local carrot_oragne = snip({
+    trig = "vcorange",
+    name = "Carrot Orange",
+    dscr = "Add orange carrot vegetable expense"
 },
 {
-    t({"Expense:Food:Vegetable:"}), t("    "), i(1, "Value"), t({" CAD"}),
+    t({"Expense:Food:Vegetable:Carrot Orange"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local carrot_white = snip({
+    trig = "vcwhite",
+    name = "Carrot White",
+    dscr = "Add white carrot vegetable expense"
+},
+{
+    t({"Expense:Food:Vegetable:Carrot White"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local onion_green = snip({
+    trig = "vogreen",
+    name = "Onion Green",
+    dscr = "Add green onion vegetable expense"
+},
+{
+    t({"Expense:Food:Vegetable:Onion Green"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local onion_yellow = snip({
+    trig = "voyellow",
+    name = "Onion Yellow",
+    dscr = "Add yellow onion vegetable expense"
+},
+{
+    t({"Expense:Food:Vegetable:Onion Yellow"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local pepper = snip({
+    trig = "vpepper",
+    name = "Pepper",
+    dscr = "Add pepper vegetable expense"
+},
+{
+    t({"Expense:Food:Vegetable:Pepper"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
 
 ---------------------------------------------------------------------------------------------------
@@ -290,6 +326,13 @@ table.insert(snippets, orange)
 table.insert(snippets, grape)
 table.insert(snippets, pear)
 
+-- Vegetable
+table.insert(snippets, carrot_white)
+table.insert(snippets, carrot_oragne)
+table.insert(snippets, onion_green)
+table.insert(snippets, onion_yellow)
+table.insert(snippets, pepper)
+
 -- Expense
 table.insert(snippets, joint_checking)
 table.insert(snippets, amex)
@@ -297,7 +340,6 @@ table.insert(snippets, snack)
 table.insert(snippets, coffee)
 table.insert(snippets, dining)
 table.insert(snippets, grocery)
-table.insert(snippets, vegetable)
 table.insert(snippets, diary)
 table.insert(snippets, home)
 table.insert(snippets, seafood)
