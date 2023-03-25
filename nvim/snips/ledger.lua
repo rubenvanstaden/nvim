@@ -147,13 +147,31 @@ local vegetable = snip({
     t({"Expense:Food:Vegetable:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
-local meat = snip({
-    trig = "emeat",
-    name = "Meat",
-    dscr = "Add meat expense"
+local beef = snip({
+    trig = "ebeef",
+    name = "Beef",
+    dscr = "Add beef expense"
 },
 {
-    t({"Expense:Food:Meat:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+    t({"Expense:Food:Meat:Beef"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+})
+
+local chicken = snip({
+    trig = "echicken",
+    name = "Chicken",
+    dscr = "Add chicken expense"
+},
+{
+    t({"Expense:Food:Meat:Chicken"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+})
+
+local pork = snip({
+    trig = "epork",
+    name = "Port",
+    dscr = "Add port expense"
+},
+{
+    t({"Expense:Food:Meat:Pork"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
 local diary = snip({
@@ -171,7 +189,7 @@ local home = snip({
     dscr = "Add home expense"
 },
 {
-    t({"Expense:Food:Home:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+    t({"Expense:Home:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
 local seafood = snip({
@@ -181,6 +199,24 @@ local seafood = snip({
 },
 {
     t({"Expense:Food:Seafood:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+})
+
+local spice = snip({
+    trig = "espice",
+    name = "Spice",
+    dscr = "Add spice expense"
+},
+{
+    t({"Expense:Food:Spice:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+})
+
+local sauce = snip({
+    trig = "esauce",
+    name = "Sauce",
+    dscr = "Add sauce expense"
+},
+{
+    t({"Expense:Food:Sauce:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
 local pharmacy = snip({
@@ -208,11 +244,15 @@ table.insert(snippets, dining)
 table.insert(snippets, grocery)
 table.insert(snippets, fruit)
 table.insert(snippets, vegetable)
-table.insert(snippets, meat)
 table.insert(snippets, diary)
 table.insert(snippets, home)
 table.insert(snippets, seafood)
 table.insert(snippets, tpd)
 table.insert(snippets, pharmacy)
+table.insert(snippets, spice)
+table.insert(snippets, sauce)
+table.insert(snippets, beef)
+table.insert(snippets, chicken)
+table.insert(snippets, pork)
 
 return snippets
