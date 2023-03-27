@@ -312,6 +312,59 @@ local pharmacy = snip({
     t({"Expense:Medical:Pharmacy:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
+---------------------------------------------------------------------------------------------------
+-- Dining
+---------------------------------------------------------------------------------------------------
+
+local resto = snip({
+    trig = "dresto",
+    name = "Restaurant",
+    dscr = "Add restaurant expense"
+},
+{
+    t({"Expense:Dining:Resto"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local uber_eats = snip({
+    trig = "duber",
+    name = "Uber Eats",
+    dscr = "Add Uber Eats expense"
+},
+{
+    t({"Expense:Dining:Uber"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local dining_coffee = snip({
+    trig = "dcoffee",
+    name = "Coffee",
+    dscr = "Add dining coffee expense"
+},
+{
+    t({"Expense:Dining:Coffee"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local bubble_tea = snip({
+    trig = "dbubbletea",
+    name = "Bubble Tea",
+    dscr = "Add dining bubble tea expense"
+},
+{
+    t({"Expense:Dining:Bubble Tea"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+---------------------------------------------------------------------------------------------------
+-- Subscription
+---------------------------------------------------------------------------------------------------
+
+local roam = snip({
+    trig = "sroam",
+    name = "Roam Research",
+    dscr = "Add roam research subscription expense"
+},
+{
+    t({"Expense:Subscription:Roam"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
 -- Add entry
 table.insert(snippets, add_general)
 table.insert(snippets, add_coop)
@@ -332,6 +385,15 @@ table.insert(snippets, carrot_oragne)
 table.insert(snippets, onion_green)
 table.insert(snippets, onion_yellow)
 table.insert(snippets, pepper)
+
+-- Dining
+table.insert(snippets, resto)
+table.insert(snippets, uber_eats)
+table.insert(snippets, dining_coffee)
+table.insert(snippets, bubble_tea)
+
+-- Subscription
+table.insert(snippets, roam)
 
 -- Expense
 table.insert(snippets, joint_checking)
