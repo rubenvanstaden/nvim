@@ -303,7 +303,7 @@ local beef = snip({
     dscr = "Add beef expense"
 },
 {
-    t({"Expense:Food:Meat:Beef"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+    t({"Expense:Food:Meat:Beef:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
 local chicken = snip({
@@ -312,7 +312,7 @@ local chicken = snip({
     dscr = "Add chicken expense"
 },
 {
-    t({"Expense:Food:Meat:Chicken"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+    t({"Expense:Food:Meat:Chicken:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
 local pork = snip({
@@ -321,7 +321,7 @@ local pork = snip({
     dscr = "Add port expense"
 },
 {
-    t({"Expense:Food:Meat:Pork"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+    t({"Expense:Food:Meat:Pork:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
 ---------------------------------------------------------------------------------------------------
@@ -550,6 +550,37 @@ local lululemon = snip({
     t({"Expense:Fashion:Lululemon"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
 
+---------------------------------------------------------------------------------------------------
+-- Course
+---------------------------------------------------------------------------------------------------
+
+local kindle = snip({
+    trig = "eckindle",
+    name = "Kindle",
+    dscr = "Add kindle as a course expense"
+},
+{
+    t({"Expense:Course:Kindle"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local audible = snip({
+    trig = "ecaudible",
+    name = "Audible",
+    dscr = "Add audible as a course expense"
+},
+{
+    t({"Expense:Course:Audible"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local leetcode = snip({
+    trig = "ecleetcode",
+    name = "Leetcode",
+    dscr = "Add leetcode as a course expense"
+},
+{
+    t({"Expense:Course:Leetcode"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
 -- Add entry
 table.insert(snippets, add_general)
 table.insert(snippets, add_coop)
@@ -607,7 +638,6 @@ table.insert(snippets, lululemon)
 table.insert(snippets, rice)
 
 -- Expense
-table.insert(snippets, joint_checking)
 table.insert(snippets, amex)
 table.insert(snippets, snack)
 table.insert(snippets, coffee)
@@ -622,5 +652,12 @@ table.insert(snippets, sauce)
 table.insert(snippets, beef)
 table.insert(snippets, chicken)
 table.insert(snippets, pork)
+
+-- Course
+table.insert(snippets, kindle)
+table.insert(snippets, audible)
+table.insert(snippets, leetcode)
+
+table.insert(snippets, joint_checking)
 
 return snippets
