@@ -64,32 +64,24 @@ local add_superstore = snip({
     t({"", "    Liability:Person:Jason Zhan"}),
 })
 
-local grocery = snip({
-    trig = "egrocery",
-    name = "Grocery",
-    dscr = "Add grocery expense"
+---------------------------------------------------------------------------------------------------
+-- Liability
+---------------------------------------------------------------------------------------------------
+
+local amex = snip({
+    trig = "lamex",
+    name = "American Express",
+    dscr = "Entry to ledger journal for checking account"
 },
 {
-    t({"Expense:Food:Grocery:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+    f(date, {}), t({" * Transfer"}),
+    t({"", "    Liabilities:Amex:Visa  "}), i(1, "Value"), t({ "CAD"}),
+    t({"", "    Assets:Tangerine:Joint:Checking"}),
 })
 
-local snack = snip({
-    trig = "esnack",
-    name = "Snack",
-    dscr = "Add snack expense"
-},
-{
-    t({"Expense:Food:Snack:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
-})
-
-local coffee = snip({
-    trig = "ecoffee",
-    name = "Coffee",
-    dscr = "Add coffee expense"
-},
-{
-    t({"Expense:Food:Coffee  "}), i(1, "Value"), t({" CAD"}),
-})
+---------------------------------------------------------------------------------------------------
+-- Asset
+---------------------------------------------------------------------------------------------------
 
 local joint_checking = snip({
     trig = "ajoint",
@@ -109,15 +101,44 @@ local tpd = snip({
     t({"Assets:Discount:Tpd"}),
 })
 
-local amex = snip({
-    trig = "lamex",
-    name = "American Express",
-    dscr = "Entry to ledger journal for checking account"
+---------------------------------------------------------------------------------------------------
+-- Expenses
+---------------------------------------------------------------------------------------------------
+
+local grocery = snip({
+    trig = "efgrocery",
+    name = "Grocery",
+    dscr = "Add grocery expense"
 },
 {
-    f(date, {}), t({" * Transfer"}),
-    t({"", "    Liabilities:Amex:Visa  "}), i(1, "Value"), t({ "CAD"}),
-    t({"", "    Assets:Tangerine:Joint:Checking"}),
+    t({"Expense:Food:Grocery:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+})
+
+local rice = snip({
+    trig = "efrice",
+    name = "Rice",
+    dscr = "Add rice grocery expense"
+},
+{
+    t({"Expense:Food:Grocery:Rice"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local snack = snip({
+    trig = "efsnack",
+    name = "Snack",
+    dscr = "Add snack expense"
+},
+{
+    t({"Expense:Food:Snack:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+})
+
+local coffee = snip({
+    trig = "efcoffee",
+    name = "Coffee",
+    dscr = "Add coffee expense"
+},
+{
+    t({"Expense:Food:Coffee  "}), i(1, "Value"), t({" CAD"}),
 })
 
 ---------------------------------------------------------------------------------------------------
@@ -125,7 +146,7 @@ local amex = snip({
 ---------------------------------------------------------------------------------------------------
 
 local apple = snip({
-    trig = "fapple",
+    trig = "effapple",
     name = "Apple",
     dscr = "Add apple expense"
 },
@@ -134,7 +155,7 @@ local apple = snip({
 })
 
 local pinapple = snip({
-    trig = "fpinapple",
+    trig = "effpinapple",
     name = "Pinapple",
     dscr = "Add pinapple expense"
 },
@@ -143,7 +164,7 @@ local pinapple = snip({
 })
 
 local orange = snip({
-    trig = "forange",
+    trig = "efforange",
     name = "Orange",
     dscr = "Add orange expense"
 },
@@ -152,7 +173,7 @@ local orange = snip({
 })
 
 local grape = snip({
-    trig = "fgrape",
+    trig = "effgrape",
     name = "Grape",
     dscr = "Add grape expense"
 },
@@ -161,7 +182,7 @@ local grape = snip({
 })
 
 local pear = snip({
-    trig = "fpear",
+    trig = "effpear",
     name = "Pear",
     dscr = "Add pear expense"
 },
@@ -170,7 +191,7 @@ local pear = snip({
 })
 
 local banana = snip({
-    trig = "fbanana",
+    trig = "effbanana",
     name = "Banana",
     dscr = "Add banana expense"
 },
@@ -183,7 +204,7 @@ local banana = snip({
 ---------------------------------------------------------------------------------------------------
 
 local carrot_orange = snip({
-    trig = "vcorange",
+    trig = "efvcorange",
     name = "Carrot Orange",
     dscr = "Add orange carrot vegetable expense"
 },
@@ -192,7 +213,7 @@ local carrot_orange = snip({
 })
 
 local carrot_white = snip({
-    trig = "vcwhite",
+    trig = "efvcwhite",
     name = "Carrot White",
     dscr = "Add white carrot vegetable expense"
 },
@@ -201,7 +222,7 @@ local carrot_white = snip({
 })
 
 local onion_green = snip({
-    trig = "vogreen",
+    trig = "efvogreen",
     name = "Onion Green",
     dscr = "Add green onion vegetable expense"
 },
@@ -210,7 +231,7 @@ local onion_green = snip({
 })
 
 local onion_yellow = snip({
-    trig = "voyellow",
+    trig = "efvoyellow",
     name = "Onion Yellow",
     dscr = "Add yellow onion vegetable expense"
 },
@@ -219,7 +240,7 @@ local onion_yellow = snip({
 })
 
 local pepper = snip({
-    trig = "vpepper",
+    trig = "efvpepper",
     name = "Pepper",
     dscr = "Add pepper vegetable expense"
 },
@@ -228,7 +249,7 @@ local pepper = snip({
 })
 
 local potato_sweet = snip({
-    trig = "vpotatosweet",
+    trig = "efvpotatosweet",
     name = "Sweet Potato",
     dscr = "Add sweet potato vegetable expense"
 },
@@ -237,7 +258,7 @@ local potato_sweet = snip({
 })
 
 local ginger = snip({
-    trig = "vginger",
+    trig = "efvginger",
     name = "Ginger",
     dscr = "Add ginger vegetable expense"
 },
@@ -246,7 +267,7 @@ local ginger = snip({
 })
 
 local lettuce = snip({
-    trig = "vlettuce",
+    trig = "efvlettuce",
     name = "Lettuce",
     dscr = "Add lettuce vegetable expense"
 },
@@ -255,7 +276,7 @@ local lettuce = snip({
 })
 
 local spinach = snip({
-    trig = "vspinach",
+    trig = "efvspinach",
     name = "Spinach",
     dscr = "Add spinach vegetable expense"
 },
@@ -264,7 +285,7 @@ local spinach = snip({
 })
 
 local tomato = snip({
-    trig = "vtomato",
+    trig = "efvtomato",
     name = "Tomato",
     dscr = "Add tomato vegetable expense"
 },
@@ -277,7 +298,7 @@ local tomato = snip({
 ---------------------------------------------------------------------------------------------------
 
 local beef = snip({
-    trig = "ebeef",
+    trig = "efmbeef",
     name = "Beef",
     dscr = "Add beef expense"
 },
@@ -286,7 +307,7 @@ local beef = snip({
 })
 
 local chicken = snip({
-    trig = "echicken",
+    trig = "efmchicken",
     name = "Chicken",
     dscr = "Add chicken expense"
 },
@@ -295,7 +316,7 @@ local chicken = snip({
 })
 
 local pork = snip({
-    trig = "epork",
+    trig = "efmpork",
     name = "Port",
     dscr = "Add port expense"
 },
@@ -303,13 +324,44 @@ local pork = snip({
     t({"Expense:Food:Meat:Pork"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
+---------------------------------------------------------------------------------------------------
+-- Diary
+---------------------------------------------------------------------------------------------------
+
 local diary = snip({
-    trig = "ediary",
+    trig = "efdiary",
     name = "Diary",
     dscr = "Add diary expense"
 },
 {
     t({"Expense:Food:Diary:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
+})
+
+local milk = snip({
+    trig = "efdmilk",
+    name = "Milk",
+    dscr = "Add milk as a diary expense"
+},
+{
+    t({"Expense:Food:Diary:Milk"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local yogurt = snip({
+    trig = "efdyogurt",
+    name = "Milk",
+    dscr = "Add yogurt as a diary expense"
+},
+{
+    t({"Expense:Food:Diary:Yogurt"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local cheese = snip({
+    trig = "efdcheese",
+    name = "Cheese",
+    dscr = "Add cheese as a diary expense"
+},
+{
+    t({"Expense:Food:Diary:Cheese"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
 
 local home = snip({
@@ -321,8 +373,12 @@ local home = snip({
     t({"Expense:Home:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
+---------------------------------------------------------------------------------------------------
+-- Seafood
+---------------------------------------------------------------------------------------------------
+
 local seafood = snip({
-    trig = "eseafood",
+    trig = "efseafood",
     name = "Seafood",
     dscr = "Add seafood expense"
 },
@@ -330,8 +386,12 @@ local seafood = snip({
     t({"Expense:Food:Seafood:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
+---------------------------------------------------------------------------------------------------
+-- Spice
+---------------------------------------------------------------------------------------------------
+
 local spice = snip({
-    trig = "espice",
+    trig = "efspice",
     name = "Spice",
     dscr = "Add spice expense"
 },
@@ -339,8 +399,12 @@ local spice = snip({
     t({"Expense:Food:Spice:"}), i(1, "Produce"), t("    "), i(2, "Value"), t({" CAD"}),
 })
 
+---------------------------------------------------------------------------------------------------
+-- Sauce
+---------------------------------------------------------------------------------------------------
+
 local sauce = snip({
-    trig = "esauce",
+    trig = "efsauce",
     name = "Sauce",
     dscr = "Add sauce expense"
 },
@@ -362,7 +426,7 @@ local pharmacy = snip({
 ---------------------------------------------------------------------------------------------------
 
 local takeout = snip({
-    trig = "dtakeout",
+    trig = "edtakeout",
     name = "Takeout",
     dscr = "Add takeout expense"
 },
@@ -371,7 +435,7 @@ local takeout = snip({
 })
 
 local resto = snip({
-    trig = "dresto",
+    trig = "edresto",
     name = "Restaurant",
     dscr = "Add restaurant expense"
 },
@@ -380,7 +444,7 @@ local resto = snip({
 })
 
 local uber_eats = snip({
-    trig = "duber",
+    trig = "eduber",
     name = "Uber Eats",
     dscr = "Add Uber Eats expense"
 },
@@ -389,7 +453,7 @@ local uber_eats = snip({
 })
 
 local dining_coffee = snip({
-    trig = "dcoffee",
+    trig = "edcoffee",
     name = "Coffee",
     dscr = "Add dining coffee expense"
 },
@@ -398,7 +462,7 @@ local dining_coffee = snip({
 })
 
 local bubble_tea = snip({
-    trig = "dbubbletea",
+    trig = "edbubbletea",
     name = "Bubble Tea",
     dscr = "Add dining bubble tea expense"
 },
@@ -411,7 +475,7 @@ local bubble_tea = snip({
 ---------------------------------------------------------------------------------------------------
 
 local metro = snip({
-    trig = "tmetro",
+    trig = "etmetro",
     name = "Metro",
     dscr = "Add metro transport expense"
 },
@@ -420,7 +484,7 @@ local metro = snip({
 })
 
 local uber_trip = snip({
-    trig = "tuber",
+    trig = "etuber",
     name = "Uber Trip",
     dscr = "Add Uber transport expense"
 },
@@ -429,24 +493,11 @@ local uber_trip = snip({
 })
 
 ---------------------------------------------------------------------------------------------------
--- Grocery
----------------------------------------------------------------------------------------------------
-
-local rice = snip({
-    trig = "erice",
-    name = "Rice",
-    dscr = "Add rice grocery expense"
-},
-{
-    t({"Expense:Food:Grocery:Rice"}), t("    "), i(1, "Value"), t({" CAD"}),
-})
-
----------------------------------------------------------------------------------------------------
 -- Subscription
 ---------------------------------------------------------------------------------------------------
 
 local lifespan = snip({
-    trig = "slifespan",
+    trig = "eslifespan",
     name = "Lifespan",
     dscr = "Add lifespan supplement expense"
 },
@@ -455,7 +506,7 @@ local lifespan = snip({
 })
 
 local protein = snip({
-    trig = "sprotein",
+    trig = "esprotein",
     name = "Protein",
     dscr = "Add protein supplement expense"
 },
@@ -464,7 +515,7 @@ local protein = snip({
 })
 
 local omega = snip({
-    trig = "somega",
+    trig = "esomega",
     name = "Omega",
     dscr = "Add omega supplement expense"
 },
@@ -473,7 +524,7 @@ local omega = snip({
 })
 
 local vitamins = snip({
-    trig = "svitamins",
+    trig = "esvitamins",
     name = "Vitamins",
     dscr = "Add vitamins supplement expense"
 },
@@ -481,13 +532,22 @@ local vitamins = snip({
     t({"Expense:Supplement:Vitamins"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
 
-local roam = snip({
-    trig = "sroam",
-    name = "Roam Research",
-    dscr = "Add roam research subscription expense"
+local subscription = snip({
+    trig = "esubscription",
+    name = "Subscription",
+    dscr = "Add subscription expense"
 },
 {
-    t({"Expense:Subscription:Roam"}), t("    "), i(1, "Value"), t({" CAD"}),
+    t({"Expense:Subscription"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local lululemon = snip({
+    trig = "eflululemon",
+    name = "Lululemon",
+    dscr = "Add lululemon expense"
+},
+{
+    t({"Expense:Fashion:Lululemon"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
 
 -- Add entry
@@ -517,6 +577,11 @@ table.insert(snippets, lettuce)
 table.insert(snippets, spinach)
 table.insert(snippets, tomato)
 
+-- Diary
+table.insert(snippets, milk)
+table.insert(snippets, yogurt)
+table.insert(snippets, cheese)
+
 -- Dining
 table.insert(snippets, resto)
 table.insert(snippets, takeout)
@@ -534,8 +599,9 @@ table.insert(snippets, protein)
 table.insert(snippets, omega)
 table.insert(snippets, vitamins)
 
--- Subscription
-table.insert(snippets, roam)
+-- Expense
+table.insert(snippets, subscription)
+table.insert(snippets, lululemon)
 
 -- Grocery
 table.insert(snippets, rice)
