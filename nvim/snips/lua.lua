@@ -11,14 +11,14 @@ local shebang = snip("shebang", {
     i(0),
 })
 
-local require = snip("myreq", {
+local require = snip("req", {
     t"require('",
     i(1, "Module-name"),
     t"')",
     i(0),
 })
 
-local func = snip("myfunc", {
+local func = snip("fn", {
     t"function(",
     i(1, "Arguments"),
     t{ ")", "\t" },
@@ -27,7 +27,7 @@ local func = snip("myfunc", {
     i(0),
 })
 
-local forp = snip("myforp", {
+local forp = snip("forp", {
     t"for ",
     i(1, "k"),
     t", ",
@@ -40,7 +40,7 @@ local forp = snip("myforp", {
     i(0),
 })
 
-local fori = snip("myfori", {
+local fori = snip("fori", {
     t"for ",
     i(1, "k"),
     t", ",
@@ -53,7 +53,7 @@ local fori = snip("myfori", {
     i(0),
 })
 
-local ifs = snip("myif", {
+local ifs = snip("if", {
     t"if ",
     i(1),
     t{ " then", "\t" },
@@ -62,7 +62,7 @@ local ifs = snip("myif", {
     i(0),
 })
 
-local m = snip("myM", {
+local m = snip("mod", {
     t{ "local M = {}", "", "" },
     i(0),
     t{ "", "", "return M" },

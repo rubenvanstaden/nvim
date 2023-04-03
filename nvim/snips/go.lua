@@ -1,5 +1,5 @@
 -- https://sbulav.github.io/vim/neovim-setting-up-luasnip/
---
+
 local ls = require("luasnip")
 
 local snip = ls.snippet
@@ -13,7 +13,7 @@ local i = ls.insert_node
 local snippets = {}
 
 local ifs = snip({
-    trig = "myif",
+    trig = "if",
 },
 {
     t({"if "}),
@@ -25,7 +25,7 @@ local ifs = snip({
 })
 
 local test = snip({
-    trig = "mytest",
+    trig = "test",
 }, {
     t"func ",
     i(1, "Name"),
@@ -37,7 +37,7 @@ local test = snip({
 })
 
 local typei = snip({
-    trig = "mytypei",
+    trig = "typei",
 },
 {
     t"type ",
@@ -49,7 +49,7 @@ local typei = snip({
 })
 
 local types = snip({
-    trig = "mytypes",
+    trig = "types",
 },
 {
     t"type ",
@@ -61,7 +61,7 @@ local types = snip({
 })
 
 local func = snip({
-    trig = "myfunc",
+    trig = "fn",
 },
 {
     t"func ",
@@ -77,7 +77,7 @@ local func = snip({
 })
 
 local fori = snip({
-    trig = "myfori",
+    trig = "fori",
 },
 {
     t"for ",
@@ -93,7 +93,7 @@ local fori = snip({
 })
 
 local forr = snip({
-    trig = "myforr",
+    trig = "forr",
 },
 {
     t"for ",

@@ -1,4 +1,3 @@
-
 local ls = require("luasnip")
 
 local snip = ls.snippet
@@ -16,7 +15,6 @@ end
 local filename = function()
     return { vim.fn.expand "%:p" }
 end
-
 
 -- Make sure to not pass an invalid command, as io.popen() may write over nvim-text.
 local function bash(_, _, command)
