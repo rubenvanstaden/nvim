@@ -88,16 +88,7 @@ local coffee = snip({
     dscr = "Add coffee expense"
 },
 {
-    t({"Expense:Entertainment:Coffee  "}), i(1, "Value"), t({" CAD"}),
-})
-
-local dining = snip({
-    trig = "edining",
-    name = "Dining",
-    dscr = "Add dining expense"
-},
-{
-    t({"Expense:Entertainment:Dining  "}), i(1, "Value"), t({" CAD"}),
+    t({"Expense:Food:Coffee  "}), i(1, "Value"), t({" CAD"}),
 })
 
 local joint_checking = snip({
@@ -178,11 +169,20 @@ local pear = snip({
     t({"Expense:Food:Fruit:Pear"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
 
+local banana = snip({
+    trig = "fbanana",
+    name = "Banana",
+    dscr = "Add banana expense"
+},
+{
+    t({"Expense:Food:Fruit:Banana"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
 ---------------------------------------------------------------------------------------------------
 -- Vegetable
 ---------------------------------------------------------------------------------------------------
 
-local carrot_oragne = snip({
+local carrot_orange = snip({
     trig = "vcorange",
     name = "Carrot Orange",
     dscr = "Add orange carrot vegetable expense"
@@ -225,6 +225,51 @@ local pepper = snip({
 },
 {
     t({"Expense:Food:Vegetable:Pepper"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local potato_sweet = snip({
+    trig = "vpotatosweet",
+    name = "Sweet Potato",
+    dscr = "Add sweet potato vegetable expense"
+},
+{
+    t({"Expense:Food:Vegetable:Potato Sweet"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local ginger = snip({
+    trig = "vginger",
+    name = "Ginger",
+    dscr = "Add ginger vegetable expense"
+},
+{
+    t({"Expense:Food:Vegetable:Ginger"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local lettuce = snip({
+    trig = "vlettuce",
+    name = "Lettuce",
+    dscr = "Add lettuce vegetable expense"
+},
+{
+    t({"Expense:Food:Vegetable:Lettuce"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local spinach = snip({
+    trig = "vspinach",
+    name = "Spinach",
+    dscr = "Add spinach vegetable expense"
+},
+{
+    t({"Expense:Food:Vegetable:Spinach"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local tomato = snip({
+    trig = "vtomato",
+    name = "Tomato",
+    dscr = "Add tomato vegetable expense"
+},
+{
+    t({"Expense:Food:Vegetable:Tomato"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
 
 ---------------------------------------------------------------------------------------------------
@@ -316,6 +361,15 @@ local pharmacy = snip({
 -- Dining
 ---------------------------------------------------------------------------------------------------
 
+local takeout = snip({
+    trig = "dtakeout",
+    name = "Takeout",
+    dscr = "Add takeout expense"
+},
+{
+    t({"Expense:Dining:Takeout"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
 local resto = snip({
     trig = "dresto",
     name = "Restaurant",
@@ -353,8 +407,79 @@ local bubble_tea = snip({
 })
 
 ---------------------------------------------------------------------------------------------------
+-- Transport
+---------------------------------------------------------------------------------------------------
+
+local metro = snip({
+    trig = "tmetro",
+    name = "Metro",
+    dscr = "Add metro transport expense"
+},
+{
+    t({"Expense:Transport:Metro"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local uber_trip = snip({
+    trig = "tuber",
+    name = "Uber Trip",
+    dscr = "Add Uber transport expense"
+},
+{
+    t({"Expense:Transport:Uber"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+---------------------------------------------------------------------------------------------------
+-- Grocery
+---------------------------------------------------------------------------------------------------
+
+local rice = snip({
+    trig = "erice",
+    name = "Rice",
+    dscr = "Add rice grocery expense"
+},
+{
+    t({"Expense:Food:Grocery:Rice"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+---------------------------------------------------------------------------------------------------
 -- Subscription
 ---------------------------------------------------------------------------------------------------
+
+local lifespan = snip({
+    trig = "slifespan",
+    name = "Lifespan",
+    dscr = "Add lifespan supplement expense"
+},
+{
+    t({"Expense:Supplement:Lifespan"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local protein = snip({
+    trig = "sprotein",
+    name = "Protein",
+    dscr = "Add protein supplement expense"
+},
+{
+    t({"Expense:Supplement:Protein"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local omega = snip({
+    trig = "somega",
+    name = "Omega",
+    dscr = "Add omega supplement expense"
+},
+{
+    t({"Expense:Supplement:Omega"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local vitamins = snip({
+    trig = "svitamins",
+    name = "Vitamins",
+    dscr = "Add vitamins supplement expense"
+},
+{
+    t({"Expense:Supplement:Vitamins"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
 
 local roam = snip({
     trig = "sroam",
@@ -374,6 +499,7 @@ table.insert(snippets, add_superstore)
 
 -- Fruit
 table.insert(snippets, apple)
+table.insert(snippets, banana)
 table.insert(snippets, pinapple)
 table.insert(snippets, orange)
 table.insert(snippets, grape)
@@ -381,26 +507,44 @@ table.insert(snippets, pear)
 
 -- Vegetable
 table.insert(snippets, carrot_white)
-table.insert(snippets, carrot_oragne)
+table.insert(snippets, carrot_orange)
 table.insert(snippets, onion_green)
 table.insert(snippets, onion_yellow)
+table.insert(snippets, potato_sweet)
 table.insert(snippets, pepper)
+table.insert(snippets, ginger)
+table.insert(snippets, lettuce)
+table.insert(snippets, spinach)
+table.insert(snippets, tomato)
 
 -- Dining
 table.insert(snippets, resto)
+table.insert(snippets, takeout)
 table.insert(snippets, uber_eats)
 table.insert(snippets, dining_coffee)
 table.insert(snippets, bubble_tea)
 
+-- Transport
+table.insert(snippets, metro)
+table.insert(snippets, uber_trip)
+
+-- Supplement
+table.insert(snippets, lifespan)
+table.insert(snippets, protein)
+table.insert(snippets, omega)
+table.insert(snippets, vitamins)
+
 -- Subscription
 table.insert(snippets, roam)
+
+-- Grocery
+table.insert(snippets, rice)
 
 -- Expense
 table.insert(snippets, joint_checking)
 table.insert(snippets, amex)
 table.insert(snippets, snack)
 table.insert(snippets, coffee)
-table.insert(snippets, dining)
 table.insert(snippets, grocery)
 table.insert(snippets, diary)
 table.insert(snippets, home)
