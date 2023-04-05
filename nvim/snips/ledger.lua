@@ -15,10 +15,10 @@ ls.config.set_config({
 
 local snippets = {}
 
-local add_general = snip({
-    trig = "ageneral",
-    name = "General",
-    dscr = "Entry to ledger journal for checking account"
+local payee = snip({
+    trig = "payee",
+    name = "Payee",
+    dscr = "Add payee to journal"
 },
 {
     f(date, {}), t({" * "}), i(1, "<name>"),
@@ -541,15 +541,6 @@ local subscription = snip({
     t({"Expense:Subscription"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
 
-local lululemon = snip({
-    trig = "eflululemon",
-    name = "Lululemon",
-    dscr = "Add lululemon expense"
-},
-{
-    t({"Expense:Fashion:Lululemon"}), t("    "), i(1, "Value"), t({" CAD"}),
-})
-
 ---------------------------------------------------------------------------------------------------
 -- Course
 ---------------------------------------------------------------------------------------------------
@@ -581,8 +572,207 @@ local leetcode = snip({
     t({"Expense:Course:Leetcode"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
 
+local payee_uber_trip = snip({
+    trig = "ptuber",
+    name = "Uber Trip",
+    dscr = "Add Uber payee as a transport expense"
+},
+{
+    f(date, {}), t({" * "}), t({"Uber"}),
+    t({"", "    ; City: "}), t("    "), i(1, "Value"),
+    t({"", "    Expense:Transport:Auto"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_uber_eats = snip({
+    trig = "pduber",
+    name = "Uber Eat",
+    dscr = "Add Uber payee as a dining expense"
+},
+{
+    f(date, {}), t({" * "}), t({"Uber"}),
+    t({"", "    Expense:Dining"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_kindle = snip({
+    trig = "pkindle",
+    name = "Kindle",
+    dscr = "Add Kindle payee as a course expense"
+},
+{
+    f(date, {}), t({" * "}), t({"Kindle"}),
+    t({"", "    Expense:Course"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_leetcode = snip({
+    trig = "pleetcode",
+    name = "Leetcode",
+    dscr = "Add Leetcode payee as a course expense"
+},
+{
+    f(date, {}), t({" * "}), t({"Leetcode"}),
+    t({"", "    Expense:Course"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_apple = snip({
+    trig = "payee_apple",
+    name = "Apple",
+    dscr = "Add Apple laptop as a tangible asset"
+},
+{
+    f(date, {}), t({" * "}), t({"Apple"}),
+    t({"", "    Asset:Tangible:Laptop"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_starbucks = snip({
+    trig = "payee_starbucks",
+    name = "Starbucks",
+    dscr = "Add Starbucks as a dining expense"
+},
+{
+    f(date, {}), t({" * "}), t({"Starbucks"}),
+    t({"", "    Expense:Dining:Coffee"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_tim = snip({
+    trig = "payee_tim",
+    name = "Tim Hortons",
+    dscr = "Add Tim Hortons as a dining expense"
+},
+{
+    f(date, {}), t({" * "}), t({"Tim Hortons"}),
+    t({"", "    Expense:Dining:Coffee"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_adonis = snip({
+    trig = "payee_adonis",
+    name = "Adonis",
+    dscr = "Add Adonis as a grocery expense"
+},
+{
+    f(date, {}), t({" * "}), t({"Adonis"}),
+    t({"", "    Expense:Food:Grocery"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_iga = snip({
+    trig = "payee_iga",
+    name = "IGA",
+    dscr = "Add IGA as a grocery expense"
+},
+{
+    f(date, {}), t({" * "}), t({"IGA"}),
+    t({"", "    Expense:Food:Grocery"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_stm = snip({
+    trig = "payee_stm",
+    name = "STM",
+    dscr = "Add STM as a grocery expense"
+},
+{
+    f(date, {}), t({" * "}), t({"STM"}),
+    t({"", "    Expense:Transport:Metro"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_mano = snip({
+    trig = "payee_mano",
+    name = "Mano Cornuto",
+    dscr = "Add Mano Cornuto as a dining expense"
+},
+{
+    f(date, {}), t({" * "}), t({"Cafe Mano Cornuto"}),
+    t({"", "    Expense:Dining:Coffee"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_withdraw = snip({
+    trig = "payee_withdraw",
+    name = "Cash Withdrawal",
+    dscr = "Add cash withdrawal as a dining expense"
+},
+{
+    f(date, {}), t({" * "}), t({"Withdrawal"}),
+    t({"", "    Asset:Cash"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_hydro = snip({
+    trig = "payee_hydro",
+    name = "Hydro Quebec",
+    dscr = "Add Hydro Quebec as a utility expense"
+},
+{
+    f(date, {}), t({" * "}), t({"Hydro Quebec"}),
+    t({"", "    Expense:Utility:Electricity"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_fido = snip({
+    trig = "payee_fido",
+    name = "Fido",
+    dscr = "Add Fido as a utility expense"
+},
+{
+    f(date, {}), t({" * "}), t({"Fido"}),
+    t({"", "    Expense:Utility:Phone"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_rent = snip({
+    trig = "payee_rent",
+    name = "Rent",
+    dscr = "Add rent as a utility expense"
+},
+{
+    f(date, {}), t({" * "}), t({"Adeline"}),
+    t({"", "    Expense:Utility:Rent"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local payee_lululemon = snip({
+    trig = "payee_lululemon",
+    name = "Lululemon",
+    dscr = "Add Lululemon as a fashion expense"
+},
+{
+    f(date, {}), t({" * "}), t({"Lululemon"}),
+    t({"", "    Expense:Fashion:Cloth"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local asset_checking_scotia = snip({
+    trig = "asset_checking_scotia",
+    name = "Scotia Checking Account",
+    dscr = "Add Scotia checking account as an asset"
+},
+{
+    t({"Asset:Checking:Scotia"}),
+})
+
+local liability_cibc_dividend = snip({
+    trig = "liability_cibc_dividend_card",
+    name = "CIBC Dividend Card",
+    dscr = "Add CIBD Dividend Card as a credit card liability"
+},
+{
+    t({"Liability:Credit:Cibc Dividend"}),
+})
+
+table.insert(snippets, asset_checking_scotia)
+table.insert(snippets, liability_cibc_dividend)
+
 -- Add entry
-table.insert(snippets, add_general)
+table.insert(snippets, payee)
+table.insert(snippets, payee_rent)
+table.insert(snippets, payee_hydro)
+table.insert(snippets, payee_lululemon)
+table.insert(snippets, payee_fido)
+table.insert(snippets, payee_mano)
+table.insert(snippets, payee_apple)
+table.insert(snippets, payee_starbucks)
+table.insert(snippets, payee_tim)
+table.insert(snippets, payee_adonis)
+table.insert(snippets, payee_iga)
+table.insert(snippets, payee_stm)
+table.insert(snippets, payee_withdraw)
+
+table.insert(snippets, payee_uber_trip)
+table.insert(snippets, payee_uber_eats)
+table.insert(snippets, payee_kindle)
+table.insert(snippets, payee_leetcode)
 table.insert(snippets, add_coop)
 table.insert(snippets, add_tt)
 table.insert(snippets, add_costco)
