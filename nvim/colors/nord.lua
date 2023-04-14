@@ -93,7 +93,7 @@ a.nvim_set_hl(0, "SpecialComment", { fg = color.nord8 })
 
 a.nvim_set_hl(0, "Error", { fg = color.nord11 })
 a.nvim_set_hl(0, "ErrorMsg", { link = "Error" })
-a.nvim_set_hl(0, "Warnings", { fg = color.nord15 })
+a.nvim_set_hl(0, "Warnings", { fg = color.nord13 })
 a.nvim_set_hl(0, "WarningMsg", { link = "Warnings" })
 
 a.nvim_set_hl(0, "DiagnosticError", { link = "Error" })
