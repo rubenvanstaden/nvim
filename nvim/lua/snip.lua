@@ -1,4 +1,3 @@
-
 local opt = { noremap = true, silent = true }
 
 local map = vim.api.nvim_set_keymap
@@ -13,7 +12,7 @@ require("luasnip.loaders.from_lua").load({
     paths = "~/.config/nvim/snips/"
 })
 
---require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load()
 
 snip.config.set_config({
     store_selection_keys = '<c-s>',
@@ -46,7 +45,7 @@ cmp.setup({
     sources = {
         { name = 'luasnip' },
         { name = 'nvim_lsp' },
-        { name = 'nvim_lua' },
+        --{ name = 'nvim_lua' },
     },
 
     formatting = {
@@ -55,7 +54,7 @@ cmp.setup({
             vim_item.menu = ({
                 luasnip = "[Snip]",
                 nvim_lsp = "[LSP]",
-                nvim_lua = "[Lua]",
+                --nvim_lua = "[Lua]",
             })[entry.source.name]
             return vim_item
         end

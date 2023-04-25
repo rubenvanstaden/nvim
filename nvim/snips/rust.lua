@@ -7,6 +7,55 @@ local i = ls.insert_node
 
 local snippets = {}
 
+-- type 1 = 2;
+local types = snip({
+    trig = "tp",
+},
+{
+    t{"type "}, i(1), t{" = "}, i(2), t{";"},
+})
+
+-- let 1 = 2;
+local let = snip({
+    trig = "ll",
+},
+{
+    t{"let "}, i(1), t{" = "}, i(2), t{";"},
+})
+
+-- let 1 = 2;
+local let_mut = snip({
+    trig = "lm",
+},
+{
+    t{"let mut "}, i(1), t{" = "}, i(2), t{";"},
+})
+
+-- pub fn 1(2) {
+--     3
+-- }
+local pub_fn = snip({
+    trig = "pf",
+},
+{
+    t{"pub fn "}, i(1), t{"("}, i(2), t{")"}, t{" {"},
+    t{"", "\t"}, i(3),
+    t{"", "}"},
+})
+
+-- pub fn 1(2) -> 3 {
+--     4
+-- }
+local pub_fn_result = snip({
+    trig = "pfr",
+},
+{
+    t{"pub fn "}, i(1), t{"("}, i(2), t{")"}, t{" -> "}, i(3), t{" {"},
+    t{"", "\t"}, i(4),
+    t{"", "}"},
+})
+
+
 -- match 1 {
 --     Some(2) => 3,
 --     None => 4,
@@ -16,8 +65,8 @@ local match_option = snip({
 },
 {
     t{"match "}, i(1), t{" {"},
-    t{"", "\t"}, t{"Some("}, i(2), t{") => "}, i(3),
-    t{"", "\t"}, t{"None => "}, i(4),
+    t{"", "\t"}, t{"None => "}, i(2),
+    t{"", "\t"}, t{"Some("}, i(3), t{") => "}, i(4),
     t{"", "}"},
 })
 
@@ -69,8 +118,26 @@ local fn_test = snip({
     t{"", "}"},
 })
 
+-- struct 1 {
+--     2: 3
+-- }
+local struct = snip({
+    trig = "st",
+},
+{
+    t{"struct "}, i(1), t{" {"},
+    t{"", "\t"}, i(2), t{":"}, i(3),
+    t{"", "}"},
+})
+
+table.insert(snippets, types)
+table.insert(snippets, let)
+table.insert(snippets, let_mut)
 table.insert(snippets, match_option)
 table.insert(snippets, match_ordering)
 table.insert(snippets, fn_test)
+table.insert(snippets, pub_fn)
+table.insert(snippets, pub_fn_result)
+table.insert(snippets, struct)
 
 return snippets

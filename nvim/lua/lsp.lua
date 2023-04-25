@@ -1,35 +1,26 @@
 local opt = { noremap = true, silent = true }
-
 local map = vim.api.nvim_set_keymap
-
 local lsp = require("lspconfig")
-
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
---lsp.marksman.setup{
-  --  capabilities = capabilities,
---}
-
 require("zk").setup({
-  -- can be "telescope", "fzf" or "select" (`vim.ui.select`)
-  -- it's recommended to use "telescope" or "fzf"
-  picker = "select",
-
-  lsp = {
-    -- `config` is passed to `vim.lsp.start_client(config)`
-    config = {
-      cmd = { "zk", "lsp" },
-      name = "zk",
-      -- on_attach = ...
-      -- etc, see `:h vim.lsp.start_client()`
+    picker = "fzf",
+    lsp = {
+        config = {
+            cmd = { "zk", "lsp" },
+            name = "zk",
+        },
+        auto_attach = {
+            enabled = true,
+            filetypes = { "markdown" },
+        },
     },
+})
 
-    -- automatically attach buffers in a zk notebook that match the given filetypes
-    auto_attach = {
-      enabled = true,
-      --filetypes = { "markdown" },
-    },
-  },
+-- https://clangd.llvm.org/installation#compile_commandsjson
+lsp.clangd.setup({
+    root_dir = lsp.util.root_pattern('.git', 'compile_commands.json', 'compile_flags.txt', 'bin'),
+    cmd = { 'clangd', '--background-index' },
 })
 
 -- https://github.com/rust-lang/rust-analyzer
@@ -44,16 +35,22 @@ lsp.gopls.setup {
     filetypes = {"go", "gomod"},
     settings = {
         gopls = {
-            staticcheck = true,
             analyses = {
                 unusedparams = true,
+                unkeyedliteral = true,
+                unusedwrite = true,
                 fieldalignment = true,
                 nilness = true,
                 shadow = true,
-                unusedwrite = true,
                 useany = true,
                 unusedvariable = true,
             },
+            staticcheck = true,
+            usePlaceholders = true,
+            completionDocumentation = true,
+            matcher = "CaseInsensitive",
+            linksInHover = false,
+            hoverKind = "NoDocumentation",
         },
     },
 }

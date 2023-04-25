@@ -3,37 +3,67 @@
 local ls = require("luasnip")
 
 local snip = ls.snippet
-local fmt = require("luasnip.extras.fmt").fmt
-local fmta = require("luasnip.extras.fmt").fmta
 
-local f = ls.function_node
 local t = ls.text_node
 local i = ls.insert_node
 
 local snippets = {}
 
+-- func 1(2) {
+--     3
+-- }
+local fn = snip({
+    trig = "fn",
+}, {
+    t"func ", i(1), t{"("}, i(2), t{")"}, t{" {"},
+    t{"", "\t"}, i(3),
+    t{"", "}" },
+})
+
+-- func (s *1) 2(3) {
+--     4
+-- }
+local fn_struct = snip({
+    trig = "fs",
+}, {
+    t"func ", t{"("}, i(1), t{") "}, i(2), t{"("}, i(3), t{")"}, t{" {"},
+    t{"", "\t"}, i(4),
+    t{"", "}" },
+})
+
+-- func 1(t *testing.T) {
+--     2
+-- }
+local fn_test = snip({
+    trig = "ft",
+}, {
+    t"func ", i(1), t{"(t *testing.T)"}, t{" {"},
+    t{"", "\t"}, i(2),
+    t{"", "}" },
+})
+
+-- if 1 {
+--    2
+-- }
 local ifs = snip({
     trig = "if",
 },
 {
-    t({"if "}),
-    i(1, "true"),
-    t{ " {", "" },
-    t"\t",
-    i(0),
-    t{ "", "}" },
+    t({"if "}), i(1), t{ " {"},
+    t{"", "\t"}, i(2),
+    t{"", "}" },
 })
 
-local test = snip({
-    trig = "test",
-}, {
-    t"func ",
-    i(1, "Name"),
-    t"(t *testing.T)",
-    t{ " {", "" },
-    t"\t",
-    i(0),
-    t{ "", "}" },
+-- if 1 {
+--    t.Errorf(2)
+-- }
+local if_test = snip({
+    trig = "ift",
+},
+{
+    t({"if "}), i(1), t{ " {"},
+    t{"", "    t.Errorf("}, i(2), t{")"},
+    t{"", "}" },
 })
 
 local typei = snip({
@@ -55,22 +85,6 @@ local types = snip({
     t"type ",
     i(1, "Name"),
     t{ " struct {", "" },
-    t"\t",
-    i(0),
-    t{ "", "}" },
-})
-
-local func = snip({
-    trig = "fn",
-},
-{
-    t"func ",
-    i(1, "Name"),
-    t"(",
-    i(2),
-    t")",
-    i(3),
-    t{ " {", "" },
     t"\t",
     i(0),
     t{ "", "}" },
@@ -106,9 +120,11 @@ local forr = snip({
     t{ "", "}" },
 })
 
+table.insert(snippets, fn)
+table.insert(snippets, fn_struct)
+table.insert(snippets, fn_test)
 table.insert(snippets, ifs)
-table.insert(snippets, test)
-table.insert(snippets, func)
+table.insert(snippets, if_test)
 table.insert(snippets, typei)
 table.insert(snippets, types)
 table.insert(snippets, fori)
