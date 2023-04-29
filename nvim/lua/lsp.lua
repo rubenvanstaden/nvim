@@ -3,8 +3,9 @@ local map = vim.api.nvim_set_keymap
 local lsp = require("lspconfig")
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+-- https://github.com/mickael-menu/zk/blob/main/docs/editors-integration.md
 require("zk").setup({
-    picker = "fzf",
+    picker = "select",
     lsp = {
         config = {
             cmd = { "zk", "lsp" },
@@ -12,7 +13,7 @@ require("zk").setup({
         },
         auto_attach = {
             enabled = true,
-            filetypes = { "markdown" },
+            --filetypes = { "md" },
         },
     },
 })

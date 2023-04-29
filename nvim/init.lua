@@ -64,10 +64,6 @@ vim.o.laststatus = 2
 -- Set the command line height
 vim.o.cmdheight = 0
 
--- Set the wildmenu, a more friendly command-line completion
-vim.o.wildmenu = true
-vim.o.wildmode = "list:longest,full"
-
 -- Set completeopt for better completion experience
 vim.o.completeopt = "menuone,noselect"
 
