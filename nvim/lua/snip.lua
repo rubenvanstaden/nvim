@@ -12,7 +12,7 @@ require("luasnip.loaders.from_lua").load({
     paths = "~/.config/nvim/snips/"
 })
 
-require("luasnip.loaders.from_vscode").lazy_load()
+-- require("luasnip.loaders.from_vscode").lazy_load()
 
 snip.config.set_config({
     store_selection_keys = '<c-s>',

@@ -11,14 +11,14 @@ local snippets = {}
 local include_external = snip({
     trig = "inc",
 }, {
-    t"#include <", i(1), t{">"},
+    t{"#include <"}, i(1), t{">"},
 })
 
 -- #include "1"
 local include_internal = snip({
     trig = "inci",
 }, {
-    t"#include \"", i(1), t{"\""},
+    t{"#include \""}, i(1), t{"\""},
 })
 
 -- typedef struct 1 {
