@@ -13,7 +13,7 @@ require("zk").setup({
         },
         auto_attach = {
             enabled = true,
-            --filetypes = { "md" },
+            filetypes = { "md" },
         },
     },
 })

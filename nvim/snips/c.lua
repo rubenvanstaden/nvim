@@ -27,9 +27,9 @@ local include_internal = snip({
 local struct_typedef = snip({
     trig = "st",
 }, {
-    t"typedef struct ", i(1), t{" {"},
-    t{"", "\t"}, i(2),
-    t{"", "} "}, i(3), t{";"}
+    t{"typedef struct {"},
+    t{"", "\t"}, i(1),
+    t{"", "} "}, i(2), t{";"}
 })
 
 table.insert(snippets, include_external)
