@@ -1,5 +1,5 @@
 APP_NAME := nvim
-PKG_PATH := $(HOME)/.local/share/$(APP_NAME)/site/pack
+PKG_PATH := $(XDG_DATA_HOME)/$(APP_NAME)/site/pack/_/start
 
 install:
 	git clone https://github.com/neovim/nvim-lspconfig.git ${PKG_PATH}/nvim-lspconfig
@@ -10,7 +10,7 @@ install:
 	git clone https://github.com/hrsh7th/cmp-nvim-lsp.git ${PKG_PATH}/cmp-nvim-lsp
 	git clone https://github.com/rafamadriz/friendly-snippets.git ${PKG_PATH}/friendly-snippets
 	git clone https://github.com/saadparwaiz1/cmp_luasnip.git ${PKG_PATH}/cmp_luasnip
+	git clone https://github.com/mickael-menu/zk-nvim.git ${PKG_PATH}/zk-nvim
 
 clean:
-	rm -rf "$(HOME)/.config/$(APP_NAME)"
-	rm -rf "$(HOME)/.local/share/$(APP_NAME)"
+	rm -rf "$(XDG_DATA_HOME)/$(APP_NAME)"
