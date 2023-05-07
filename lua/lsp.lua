@@ -20,8 +20,9 @@ require("zk").setup({
 
 -- https://clangd.llvm.org/installation#compile_commandsjson
 lsp.clangd.setup({
-    root_dir = lsp.util.root_pattern('.git', 'compile_commands.json', 'compile_flags.txt', 'bin'),
-    cmd = { 'clangd', '--background-index' },
+    cmd = {"clangd", "--background-index", "--clang-tidy"},
+    filetypes = {"c", "cpp"},
+    --root_dir = lsp.util.root_pattern("compile_commands.json", ".git")
 })
 
 -- https://github.com/rust-lang/rust-analyzer

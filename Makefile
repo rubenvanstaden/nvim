@@ -11,6 +11,7 @@ install:
 	git clone https://github.com/rafamadriz/friendly-snippets.git ${PKG_PATH}/friendly-snippets
 	git clone https://github.com/saadparwaiz1/cmp_luasnip.git ${PKG_PATH}/cmp_luasnip
 	git clone https://github.com/mickael-menu/zk-nvim.git ${PKG_PATH}/zk-nvim
+	git clone https://github.com/rust-lang/rust.vim.git ${PKG_PATH}/rust.vim
 
 clean:
 	rm -rf "$(XDG_DATA_HOME)/$(APP_NAME)"
