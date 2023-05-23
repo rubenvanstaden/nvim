@@ -20,7 +20,7 @@ vim.g.loaded_netrwSettings   = 1
 vim.g.loaded_netrwFileHandlers = 1
 
 -------------------------------------------------------------------------------
--- Options 
+-- Options
 -------------------------------------------------------------------------------
 
 vim.g.mapleader = " "
@@ -85,6 +85,11 @@ vim.cmd("filetype plugin on")
 
 -- Enable colorscheme
 vim.cmd.colorscheme("nord")
+
+-- vim.api.nvim_create_autocmd( { "BufWritePre" }, {
+--     pattern = { "*.go" },
+--     command = [[ %!bash ]],
+-- })
 
 -------------------------------------------------------------------------------
 -- Plugins

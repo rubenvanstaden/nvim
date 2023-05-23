@@ -1,11 +1,12 @@
 local color = {
+    none = "NONE",
     nord0 = "#2E3440",
     nord1 = "#3B4252",
     nord2 = "#434C5E",
-    nord3 = "#4C566A",
-    nord4 = "#D8DEE9",
-    nord5 = "#E5E9F0",
-    nord6 = "#ECEFF4",
+    nord3 = "#616E88", -- Out of palette
+    nord4 = "#ABB2BF", -- Out of palette
+    nord5 = "#ABB2BF", -- Out of palette
+    nord6 = "#ABB2BF", -- Out of palette
     nord7 = "#8FBCBB",
     nord8 = "#88C0D0",
     nord9 = "#81A1C1",
@@ -15,26 +16,21 @@ local color = {
     nord13 = "#EBCB8B",
     nord14 = "#A3BE8C",
     nord15 = "#B48EAD",
-
-    -- Custom colors out of palette
-    none = "NONE",
-    nord3_comment = "#616E88",
-    nord4_onedark = "#ABB2BF",
 }
 
 -- Code
+vim.api.nvim_set_hl(0, "Normal", { fg = color.nord4 })
 vim.api.nvim_set_hl(0, "Type", { fg = color.nord9 })
 vim.api.nvim_set_hl(0, "Typedef", { link = "Type" })
-vim.api.nvim_set_hl(0, "Normal", { fg = color.nord4_onedark })
 vim.api.nvim_set_hl(0, "Statement", { fg = color.nord9 })
 vim.api.nvim_set_hl(0, "Structure", { fg = color.nord9 })
 vim.api.nvim_set_hl(0, "StorageClass", { fg = color.nord9 })
 vim.api.nvim_set_hl(0, "Boolean", { fg = color.nord9 })
 vim.api.nvim_set_hl(0, "Constant", { fg = color.nord4 })
-vim.api.nvim_set_hl(0, "Special", { fg = color.nord4 })
+vim.api.nvim_set_hl(0, "Special", { fg = color.nord4, italic = false })
 vim.api.nvim_set_hl(0, "Float", { fg = color.nord15 })
 vim.api.nvim_set_hl(0, "String", { fg = color.nord14 })
-vim.api.nvim_set_hl(0, "Number", { fg = color.nord15 })
+vim.api.nvim_set_hl(0, "Number", { fg = color.nord15, bold = false })
 vim.api.nvim_set_hl(0, "Keyword", { fg = color.nord9 })
 vim.api.nvim_set_hl(0, "Identifier", { fg = color.nord9, italic = true })
 vim.api.nvim_set_hl(0, "Function", { fg = color.nord8, italic = true })
@@ -51,8 +47,8 @@ vim.api.nvim_set_hl(0, "SpecialChar", { fg = color.nord13 })
 vim.api.nvim_set_hl(0, "PreCondit", { fg = color.nord13 })
 vim.api.nvim_set_hl(0, "Character", { fg = color.nord14 })
 vim.api.nvim_set_hl(0, "Macro", { fg = color.nord9 })
-vim.api.nvim_set_hl(0, "Delimiter", { fg = color.nord6 })
-vim.api.nvim_set_hl(0, "Comment", { fg = color.nord3_comment, italic = true })
+vim.api.nvim_set_hl(0, "Delimiter", { fg = color.nord6, bold = true })
+vim.api.nvim_set_hl(0, "Comment", { fg = color.nord3, italic = true })
 vim.api.nvim_set_hl(0, "SpecialComment", { fg = color.nord8 })
 vim.api.nvim_set_hl(0, "SpecialKey", { fg = color.nord9 })
 vim.api.nvim_set_hl(0, "MatchParen", { fg = color.nord15, bg = color.none, bold = true })

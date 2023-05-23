@@ -58,14 +58,16 @@ local while_statement = snip({
     t{"", "}"}
 })
 
--- struct 1 {
---     2
+-- struct Name {
+--     int x;
+--     Name(int x) : x(x) {}
 -- };
 local struct = snip({
     trig = "str",
 }, {
-    t{"struct "}, i(1), t{" {"},
-    t{"", "\t"}, i(2),
+    t{"struct Name"}, i(1), t{" {"},
+    t{"", "\tint x;"},
+    t{"", "\tName(int x) : x(x) {}"},
     t{"", "};"}
 })
 

@@ -7,6 +7,14 @@ local i = ls.insert_node
 
 local snippets = {}
 
+-- pub mod 1;
+local mod = snip({
+    trig = "mod",
+},
+{
+    t{"pub mod "}, i(1), t{";"},
+})
+
 -- type 1 = 2;
 local types = snip({
     trig = "tp",
@@ -130,6 +138,7 @@ local struct = snip({
     t{"", "}"},
 })
 
+table.insert(snippets, mod)
 table.insert(snippets, types)
 table.insert(snippets, let)
 table.insert(snippets, let_mut)
