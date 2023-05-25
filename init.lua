@@ -25,9 +25,6 @@ vim.g.loaded_netrwFileHandlers = 1
 
 vim.g.mapleader = " "
 
--- True color support
-vim.o.termguicolors = true
-
 -- Always use clipboard for all operations
 vim.o.clipboard = "unnamedplus"
 
@@ -85,7 +82,6 @@ vim.cmd("filetype plugin on")
 
 -- Enable colorscheme
 vim.cmd.colorscheme("iceberg")
---vim.cmd.colorscheme("nord")
 
 -- vim.api.nvim_create_autocmd( { "BufWritePre" }, {
 --     pattern = { "*.go" },
