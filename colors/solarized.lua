@@ -46,7 +46,8 @@ vim.api.nvim_set_hl(0, "Typedef", { link = "Identifier" })
 
 vim.api.nvim_set_hl(0, "Function", { fg = color.blue, bold = false })
 vim.api.nvim_set_hl(0, "Include", { link = "Function" })
-vim.api.nvim_set_hl(0, "Operator", { link = "Function" })
+--vim.api.nvim_set_hl(0, "Operator", { link = "Function" })
+vim.api.nvim_set_hl(0, "Operator", { fg = color.base00, bold = false })
 
 vim.api.nvim_set_hl(0, "Special", { fg = color.violet, italic = false, bold = false })
 vim.api.nvim_set_hl(0, "PreProc", { link = "Special" })
@@ -59,12 +60,20 @@ vim.api.nvim_set_hl(0, "Search", { fg = color.none, bg = color.base00 })
 vim.api.nvim_set_hl(0, "MatchParen", { fg = color.cyan, bg = color.none, bold = true })
 
 -- Markdown
+vim.api.nvim_set_hl(0, "markdownBold", { fg = color.base0, bold = true })
+vim.api.nvim_set_hl(0, "markdownItalic", { fg = color.violet, italic = true })
 vim.api.nvim_set_hl(0, "markdownLinkText", { fg = color.cyan, bold = false })
+vim.api.nvim_set_hl(0, "markdownUrl", { fg = color.base00,  bold = false })
+--vim.api.nvim_set_hl(0, "markdownAutomaticLink", { fg = color.violet,  bold = true })
 vim.api.nvim_set_hl(0, "markdownHeadingDelimiter", { fg = color.base0,  bold = true })
 vim.api.nvim_set_hl(0, "shDerefSimple", { fg = color.base0,  bold = true })
+vim.api.nvim_set_hl(0, "ledgerAccount", { fg = color.base00,  bold = false })
+vim.api.nvim_set_hl(0, "ledgerAmount", { fg = color.yellow,  bold = false })
 
 -- Editor
 
+vim.api.nvim_set_hl(0, "LineNr", { bg = color.base03, fg = color.base00, bold = false })
+vim.api.nvim_set_hl(0, "CursorLineNr", { bg = color.base03, fg = color.base00, bold = true })
 vim.api.nvim_set_hl(0, "StatusLine", { bg = color.base00, fg = color.base03, bold = true })
 vim.api.nvim_set_hl(0, "Pmenu", { fg = color.base00, bg = color.base02 })
 vim.api.nvim_set_hl(0, "PmenuSel", { fg = color.base02, bg = color.base2 })
@@ -74,7 +83,7 @@ vim.api.nvim_set_hl(0, "Title", { fg = color.boase00, bold = true })
 vim.api.nvim_set_hl(0, "Visual", { fg = color.none, bg = color.base01 })
 --vim.api.nvim_set_hl(0, "VisualMode", { fg = color.blue, bg = color.base03, reverse = true })
 vim.api.nvim_set_hl(0, "SignColumn", { fg = color.base00, bg = color.base03 })
-vim.api.nvim_set_hl(0, "Cursor", { fg = color.base00, bg = color.blue, reverse = true })
+--vim.api.nvim_set_hl(0, "Cursor", { fg = color.base1, bg = color.green })
 vim.api.nvim_set_hl(0, "CursorLine", { bg = color.base02 })
 
 -- Diagnostics
