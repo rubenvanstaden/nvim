@@ -86,10 +86,10 @@ vim.cmd("filetype plugin on")
 -- Enable colorscheme
 vim.cmd.colorscheme("solarized")
 
--- vim.api.nvim_create_autocmd( { "BufWritePre" }, {
---     pattern = { "*.go" },
---     command = [[ %!bash ]],
--- })
+--vim.api.nvim_create_autocmd( { "BufWritePre" }, {
+--    pattern = { "*.rs" },
+--    command = [[ !cargo fmt ]],
+--})
 
 -------------------------------------------------------------------------------
 -- Plugins
