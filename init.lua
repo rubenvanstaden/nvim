@@ -84,7 +84,7 @@ vim.cmd("filetype indent on")
 vim.cmd("filetype plugin on")
 
 -- Enable colorscheme
-vim.cmd.colorscheme("iceberg")
+vim.cmd.colorscheme("solarized")
 
 -- vim.api.nvim_create_autocmd( { "BufWritePre" }, {
 --     pattern = { "*.go" },
