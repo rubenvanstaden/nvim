@@ -28,6 +28,9 @@ vim.g.mapleader = " "
 -- Always use clipboard for all operations
 vim.o.clipboard = "unnamedplus"
 
+-- True color support
+vim.o.termguicolors = true
+
 -- Highlight current line
 vim.o.cursorline = true
 
