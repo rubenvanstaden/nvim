@@ -84,20 +84,19 @@ vim.cmd("filetype indent on")
 vim.cmd("filetype plugin on")
 
 -- Enable colorscheme
-vim.cmd.colorscheme("solarized")
+vim.cmd.colorscheme("nord")
 
---vim.api.nvim_create_autocmd( { "BufWritePre" }, {
---    pattern = { "*.rs" },
---    command = [[ !cargo fmt ]],
---})
---
+-------------------------------------------------------------------------------
+-- Key Mappings
+-------------------------------------------------------------------------------
+
+-- Disable visual mode.
 vim.api.nvim_set_keymap('n', 'v', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'V', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-v>', '<Nop>', { noremap = true, silent = true })
 
---vim.o.number = true
---vim.o.relativenumber = true
-
+-- Show relative line numbers
+vim.api.nvim_set_keymap('n', '<C-r>', ':set relativenumber!<CR>', {noremap = true, silent = true})
 
 -------------------------------------------------------------------------------
 -- Plugins

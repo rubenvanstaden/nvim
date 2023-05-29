@@ -75,6 +75,8 @@ vim.api.nvim_set_hl(0, "Pmenu", { fg = color.nord4, bg = color.nord2 })
 vim.api.nvim_set_hl(0, "PmenuSel", { fg = color.nord4, bg = color.nord10 })
 vim.api.nvim_set_hl(0, "Substitute", { fg = color.nord0, bg = color.nord12 })
 vim.api.nvim_set_hl(0, "SignColumn", { fg = color.nord4, bg = color.nord0 })
+vim.api.nvim_set_hl(0, "LineNr", { bg = color.nonde, fg = color.nord4_onedark, bold = false })
+vim.api.nvim_set_hl(0, "CursorLineNr", { bg = color.none, fg = color.nord15, bold = true })
 
 -- Diagnostics
 vim.api.nvim_set_hl(0, "Error", { fg = color.nord11 })
