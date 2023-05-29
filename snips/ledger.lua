@@ -858,38 +858,6 @@ local liability_cibc_dividend = snip({
 })
 
 ---------------------------------------------------------------------------------------------------
--- Health
----------------------------------------------------------------------------------------------------
-
-local skin = snip({
-    trig = "skin",
-},
-{
-    t({"Expense:Health:Skin"}), t("    "), i(1, "Value"), t({" CAD"}),
-})
-
-local acupuncture = snip({
-    trig = "acupuncture",
-},
-{
-    t({"Expense:Health:Acupuncture"}), t("    "), i(1, "Value"), t({" CAD"}),
-})
-
-local supplement = snip({
-    trig = "supplement",
-},
-{
-    t({"Expense:Health:Supplement"}), t("    "), i(1, "Value"), t({" CAD"}),
-})
-
-local dental = snip({
-    trig = "dental",
-},
-{
-    t({"Expense:Health:Dental"}), t("    "), i(1, "Value"), t({" CAD"}),
-})
-
----------------------------------------------------------------------------------------------------
 
 table.insert(snippets, asset_checking_scotia)
 table.insert(snippets, liability_cibc_dividend)
