@@ -1,5 +1,4 @@
 local opt = { noremap = true, silent = true }
-local map = vim.api.nvim_set_keymap
 local lsp = require("lspconfig")
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -8,26 +7,25 @@ require("zk").setup({
     picker = "select",
     lsp = {
         config = {
-            cmd = { "zk", "lsp" },
             name = "zk",
+            cmd = { "zk", "lsp" },
         },
         auto_attach = {
             enabled = true,
-            --filetypes = { "md" },
         },
     },
 })
 
 -- https://clangd.llvm.org/installation#compile_commandsjson
 lsp.clangd.setup({
-    root_dir = lsp.util.root_pattern('.git', 'compile_commands.json', 'compile_flags.txt', 'bin'),
-    cmd = { 'clangd', '--background-index' },
+    filetypes = {"c", "cpp"},
+    cmd = {"clangd", "--background-index", "--clang-tidy"},
 })
 
 -- https://github.com/rust-lang/rust-analyzer
-lsp.rust_analyzer.setup {
+lsp.rust_analyzer.setup({
     capabilities = capabilities,
-}
+})
 
 -- https://github.com/golang/tools/tree/master/gopls
 lsp.gopls.setup {
@@ -40,9 +38,9 @@ lsp.gopls.setup {
                 unusedparams = true,
                 unkeyedliteral = true,
                 unusedwrite = true,
-                fieldalignment = true,
+                fieldalignment = false,
                 nilness = true,
-                shadow = true,
+                shadow = false,
                 useany = true,
                 unusedvariable = true,
             },
@@ -81,8 +79,6 @@ lsp.lua_ls.setup {
     },
 }
 
-map('n', 'gd',        "<cmd> lua vim.lsp.buf.definition() <cr>",  opt)
-map('n', '<Leader>a', "<cmd> lua vim.lsp.buf.code_action() <cr>", opt)
-map('n', '<Leader>h', "<cmd> lua vim.lsp.buf.hover() <cr>",       opt)
-map('n', '<Leader>m', "<cmd> lua vim.lsp.buf.rename() <cr>",      opt)
-map('n', '<Leader>r', "<cmd> lua vim.lsp.buf.references() <cr>",  opt)
+vim.api.nvim_set_keymap('n', 'gd',        "<cmd> lua vim.lsp.buf.definition() <cr>",  opt)
+vim.api.nvim_set_keymap('n', '<Leader>a', "<cmd> lua vim.lsp.buf.code_action() <cr>", opt)
+vim.api.nvim_set_keymap('n', '<Leader>r', "<cmd> lua vim.lsp.buf.references() <cr>",  opt)
