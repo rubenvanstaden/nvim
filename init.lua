@@ -25,11 +25,11 @@ vim.g.loaded_netrwFileHandlers = 1
 
 vim.g.mapleader = " "
 
--- True color support
-vim.o.termguicolors = true
-
 -- Always use clipboard for all operations
 vim.o.clipboard = "unnamedplus"
+
+-- True color support
+vim.o.termguicolors = true
 
 -- Highlight current line
 vim.o.cursorline = true
@@ -86,10 +86,17 @@ vim.cmd("filetype plugin on")
 -- Enable colorscheme
 vim.cmd.colorscheme("nord")
 
--- vim.api.nvim_create_autocmd( { "BufWritePre" }, {
---     pattern = { "*.go" },
---     command = [[ %!bash ]],
--- })
+-------------------------------------------------------------------------------
+-- Key Mappings
+-------------------------------------------------------------------------------
+
+-- Disable visual mode.
+vim.api.nvim_set_keymap('n', 'v', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'V', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-v>', '<Nop>', { noremap = true, silent = true })
+
+-- Show relative line numbers
+vim.api.nvim_set_keymap('n', '<C-r>', ':set relativenumber!<CR>', {noremap = true, silent = true})
 
 -------------------------------------------------------------------------------
 -- Plugins

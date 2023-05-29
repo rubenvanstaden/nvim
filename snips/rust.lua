@@ -51,7 +51,7 @@ local pub_fn = snip({
     t{"", "}"},
 })
 
--- pub fn 1(2) -> 3 {
+-- fn 1(2) -> 3 {
 --     4
 -- }
 local pub_fn_result = snip({

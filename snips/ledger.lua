@@ -104,6 +104,14 @@ local amex_cobalt = snip({
     t({"Liability:Amex:Cobalt"}),
 })
 
+local amex_gold = snip({
+    trig = "amex_gold",
+    dscr = "Add tangerine joint checking account"
+},
+{
+    t({"Liability:Amex:Gold"}),
+})
+
 local tpd = snip({
     trig = "tpd",
     name = "TemporaryPriceDiscount",
@@ -192,11 +200,18 @@ local orange = snip({
 
 local grape = snip({
     trig = "grape",
-    name = "Grape",
     dscr = "Add grape expense"
 },
 {
     t({"Expense:Food:Fruit:Grape"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local jackfruit = snip({
+    trig = "jackfuit",
+    dscr = "Add grape expense"
+},
+{
+    t({"Expense:Food:Fruit:Jackfruit"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
 
 local pear = snip({
@@ -314,6 +329,14 @@ local tomato = snip({
 },
 {
     t({"Expense:Food:Vegetable:Tomato"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local edamame = snip({
+    trig = "edamame",
+    dscr = "Add tomato vegetable expense"
+},
+{
+    t({"Expense:Food:Vegetable:Edamame"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
 
 local mushroom = snip({
@@ -543,6 +566,14 @@ local bubble_tea = snip({
 },
 {
     t({"Expense:Dining:Bubble Tea"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local oats = snip({
+    trig = "oats",
+    dscr = "Add dining bubble tea expense"
+},
+{
+    t({"Expense:Food:Grocery:Oats"}), t("    "), i(1, "Value"), t({" CAD"}),
 })
 
 ---------------------------------------------------------------------------------------------------
@@ -826,6 +857,40 @@ local liability_cibc_dividend = snip({
     t({"Liability:Credit:Cibc Dividend"}),
 })
 
+---------------------------------------------------------------------------------------------------
+-- Health
+---------------------------------------------------------------------------------------------------
+
+local skin = snip({
+    trig = "skin",
+},
+{
+    t({"Expense:Health:Skin"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local acupuncture = snip({
+    trig = "acupuncture",
+},
+{
+    t({"Expense:Health:Acupuncture"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local supplement = snip({
+    trig = "supplement",
+},
+{
+    t({"Expense:Health:Supplement"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+local dental = snip({
+    trig = "dental",
+},
+{
+    t({"Expense:Health:Dental"}), t("    "), i(1, "Value"), t({" CAD"}),
+})
+
+---------------------------------------------------------------------------------------------------
+
 table.insert(snippets, asset_checking_scotia)
 table.insert(snippets, liability_cibc_dividend)
 
@@ -860,6 +925,7 @@ table.insert(snippets, pinapple)
 table.insert(snippets, orange)
 table.insert(snippets, grape)
 table.insert(snippets, pear)
+table.insert(snippets, jackfruit)
 
 -- Vegetable
 table.insert(snippets, carrot_white)
@@ -877,6 +943,7 @@ table.insert(snippets, mushroom)
 table.insert(snippets, corn)
 table.insert(snippets, cucumber)
 table.insert(snippets, asparagus)
+table.insert(snippets, edamame)
 table.insert(snippets, other)
 
 -- Diary
@@ -912,6 +979,7 @@ table.insert(snippets, fee_enviro)
 
 -- Grocery
 table.insert(snippets, rice)
+table.insert(snippets, oats)
 
 -- Expense
 table.insert(snippets, amex)
@@ -934,8 +1002,16 @@ table.insert(snippets, kindle)
 table.insert(snippets, audible)
 table.insert(snippets, leetcode)
 
+-- Accounts
 table.insert(snippets, entry)
 table.insert(snippets, joint_checking)
 table.insert(snippets, amex_cobalt)
+table.insert(snippets, amex_gold)
+
+-- Health
+table.insert(snippets, skin)
+table.insert(snippets, dental)
+table.insert(snippets, supplement)
+table.insert(snippets, acupuncture)
 
 return snippets
