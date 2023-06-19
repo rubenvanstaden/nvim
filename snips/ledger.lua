@@ -682,34 +682,6 @@ table.insert(snippets, add_tt)
 table.insert(snippets, add_costco)
 table.insert(snippets, add_superstore)
 
--- Fruit
-table.insert(snippets, apple)
-table.insert(snippets, banana)
-table.insert(snippets, pinapple)
-table.insert(snippets, orange)
-table.insert(snippets, grape)
-table.insert(snippets, pear)
-table.insert(snippets, jackfruit)
-
--- Vegetable
-table.insert(snippets, carrot_white)
-table.insert(snippets, carrot_orange)
-table.insert(snippets, onion_green)
-table.insert(snippets, onion_yellow)
-table.insert(snippets, potato_sweet)
-table.insert(snippets, potato_yellow)
-table.insert(snippets, pepper)
-table.insert(snippets, ginger)
-table.insert(snippets, lettuce)
-table.insert(snippets, spinach)
-table.insert(snippets, tomato)
-table.insert(snippets, mushroom)
-table.insert(snippets, corn)
-table.insert(snippets, cucumber)
-table.insert(snippets, asparagus)
-table.insert(snippets, edamame)
-table.insert(snippets, other)
-
 -- Diary
 table.insert(snippets, egg)
 table.insert(snippets, milk)
@@ -771,11 +743,5 @@ table.insert(snippets, entry)
 table.insert(snippets, joint_checking)
 table.insert(snippets, amex_cobalt)
 table.insert(snippets, amex_gold)
-
--- Health
-table.insert(snippets, skin)
-table.insert(snippets, dental)
-table.insert(snippets, supplement)
-table.insert(snippets, acupuncture)
 
 return snippets
