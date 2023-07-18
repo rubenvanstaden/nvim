@@ -84,7 +84,7 @@ vim.cmd("filetype indent on")
 vim.cmd("filetype plugin on")
 
 -- Enable colorscheme
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("nord")
 
 -------------------------------------------------------------------------------
 -- Key Mappings
