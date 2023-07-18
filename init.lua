@@ -98,9 +98,14 @@ vim.api.nvim_set_keymap('n', '<C-v>', '<Nop>', { noremap = true, silent = true }
 -- Show relative line numbers
 vim.api.nvim_set_keymap('n', '<C-w>', ':set relativenumber!<CR>', {noremap = true, silent = true})
 
+-- Remap default completion to TAB
+vim.api.nvim_set_keymap('i', '<Tab>', '<C-n>', { noremap = true })
+
 -------------------------------------------------------------------------------
 -- Plugins
 -------------------------------------------------------------------------------
+
+require('nvim-autopairs').setup({})
 
 require("lsp")
 
