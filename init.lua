@@ -96,7 +96,7 @@ vim.api.nvim_set_keymap('n', 'V', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-v>', '<Nop>', { noremap = true, silent = true })
 
 -- Show relative line numbers
-vim.api.nvim_set_keymap('n', '<C-r>', ':set relativenumber!<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-w>', ':set relativenumber!<CR>', {noremap = true, silent = true})
 
 -------------------------------------------------------------------------------
 -- Plugins
