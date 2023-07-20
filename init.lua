@@ -113,8 +113,33 @@ lsp.omnifunc.setup({
     update_on_delete = true,
 })
 
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-require('lspconfig').rust_analyzer.setup({})
+lsp.new_server({
+    name = 'lua_ls',
+    cmd = { 'lua-language-server' },
+    filetypes = { 'lua' },
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" } -- Add "vim" to recognized globals
+            }
+        }
+    },
+    root_dir = function()
+        return lsp.dir.find_first({ '.luarc.json', 'nvim', '.git' })
+    end,
+})
+
+lsp.new_server({
+    name = 'rust',
+    cmd = { 'rust-analyzer' },
+    filetypes = { 'rust' },
+    root_dir = function()
+        return lsp.dir.find_first({ "Cargo.toml", "rust-project.json" })
+    end,
+})
+
+--require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+--require('lspconfig').rust_analyzer.setup({})
 
 lsp.setup()
 
