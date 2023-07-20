@@ -1,5 +1,6 @@
 local opt = { noremap = true, silent = true }
 local lsp = require("lspconfig")
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- https://github.com/mickael-menu/zk/blob/main/docs/editors-integration.md
 require("zk").setup({
@@ -23,14 +24,12 @@ lsp.clangd.setup({
 
 -- https://github.com/rust-lang/rust-analyzer
 lsp.rust_analyzer.setup({
-    -- Server-specific settings. See `:help lspconfig-setup`
-    settings = {
-        ['rust-analyzer'] = {},
-    },
+    capabilities = capabilities,
 })
 
 -- https://github.com/golang/tools/tree/master/gopls
 lsp.gopls.setup {
+    capabilities = capabilities,
     cmd = {"gopls", "serve"},
     filetypes = {"go", "gomod"},
     settings = {
@@ -57,6 +56,7 @@ lsp.gopls.setup {
 
 -- https://github.com/sumneko/lua-language-server
 lsp.lua_ls.setup {
+    capabilities = capabilities,
     settings = {
         Lua = {
             runtime = {

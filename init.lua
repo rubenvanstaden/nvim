@@ -85,6 +85,7 @@ vim.api.nvim_set_keymap('i', '<Tab>', '<C-n>', { noremap = true })
 
 require('nvim-autopairs').setup({})
 
+require("snip")
 require("lsp")
 
 -------------------------------------------------------------------------------
