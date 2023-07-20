@@ -11,6 +11,8 @@ install:
 	git clone https://github.com/rust-lang/rust.vim.git ${PKG_PATH}/rust.vim
 	git clone https://github.com/L3MON4D3/LuaSnip.git ${PKG_PATH}/LuaSnip
 	git clone https://github.com/saadparwaiz1/cmp_luasnip.git ${PKG_PATH}/cmp_luasnip
+	git clone https://github.com/williamboman/mason.nvim.git ${PKG_PATH}/mason.nvim
+	git clone https://github.com/VonHeikemen/lsp-zero.nvim.git ${PKG_PATH}/lsp-zero.nvim
 
 clean:
 	rm -rf "$(XDG_DATA_HOME)/$(APP_NAME)"

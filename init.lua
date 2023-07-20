@@ -85,8 +85,29 @@ vim.api.nvim_set_keymap('i', '<Tab>', '<C-n>', { noremap = true })
 
 require('nvim-autopairs').setup({})
 
-require("snip")
-require("lsp")
+require("mason").setup({})
+
+--require("snip")
+--require("lsp")
+
+local lsp = require('lsp-zero')
+
+lsp.on_attach(function(client, bufnr)
+  lsp.default_keymaps({buffer = bufnr})
+end)
+
+lsp.omnifunc.setup({
+  tabcomplete = true,
+  use_fallback = true,
+  update_on_delete = true,
+})
+
+-- (Optional) Configure lua language server for neovim
+--require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+-- https://github.com/rust-lang/rust-analyzer
+require('lspconfig').rust_analyzer.setup({})
+
+lsp.setup()
 
 -------------------------------------------------------------------------------
 -- Colorscheme
