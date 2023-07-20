@@ -2,67 +2,67 @@
 -- Disable Plugins
 -------------------------------------------------------------------------------
 
-vim.g.loaded_2html_plugin    = 1
-vim.g.loaded_getscriptPlugin = 1
-vim.g.loaded_gzip            = 1
-vim.g.loaded_logiPat         = 1
-vim.g.loaded_rrhelper        = 1
-vim.g.loaded_spec            = 1
-vim.g.loaded_tar             = 1
-vim.g.loaded_tarPlugin       = 1
-vim.g.loaded_vimball         = 1
-vim.g.loaded_vimballPlugin   = 1
-vim.g.loaded_zip             = 1
-vim.g.loaded_zipPlugin       = 1
-vim.g.loaded_netrw           = 1
-vim.g.loaded_netrwPlugin     = 1
-vim.g.loaded_netrwSettings   = 1
+vim.g.loaded_2html_plugin      = 1
+vim.g.loaded_getscriptPlugin   = 1
+vim.g.loaded_gzip              = 1
+vim.g.loaded_logiPat           = 1
+vim.g.loaded_rrhelper          = 1
+vim.g.loaded_spec              = 1
+vim.g.loaded_tar               = 1
+vim.g.loaded_tarPlugin         = 1
+vim.g.loaded_vimball           = 1
+vim.g.loaded_vimballPlugin     = 1
+vim.g.loaded_zip               = 1
+vim.g.loaded_zipPlugin         = 1
+vim.g.loaded_netrw             = 1
+vim.g.loaded_netrwPlugin       = 1
+vim.g.loaded_netrwSettings     = 1
 vim.g.loaded_netrwFileHandlers = 1
 
 -------------------------------------------------------------------------------
 -- Options
 -------------------------------------------------------------------------------
 
-vim.g.mapleader = " "
+vim.g.mapleader                = " "
 
 -- Always use clipboard for all operations
-vim.o.clipboard = "unnamedplus"
+vim.o.clipboard                = "unnamedplus"
 
 -- Highlight current line
-vim.o.cursorline = true
+vim.o.cursorline               = true
 
 -- Use spaces instead of tabs
-vim.o.expandtab = true
+vim.o.expandtab                = true
 
--- Number of spaces tabs count for 
-vim.o.shiftwidth = 4
+-- Number of spaces tabs count for
+vim.o.shiftwidth               = 4
 
 -- Always use clipboard for all operations
-vim.o.tabstop = 4
+vim.o.tabstop                  = 4
 
 -- Enable line wrapping
-vim.o.linebreak = true
+vim.o.linebreak                = true
 
 -- Auto-indent new lines
-vim.o.autoindent = true
+vim.o.autoindent               = true
 
 -- Highlight matching parentheses. Maybe remove autobracket plugin
-vim.o.showmatch = true
+vim.o.showmatch                = true
 
 -- Show the current mode in the command line
-vim.o.showmode = false
+vim.o.showmode                 = false
 
 -- Show partial commands in the command line while typing
-vim.o.showcmd = true
+vim.o.showcmd                  = true
 
 -- Set the status line to always be visible
-vim.o.laststatus = 2
+vim.o.laststatus               = 2
 
 -- Set the command line height
-vim.o.cmdheight = 0
+vim.o.cmdheight                = 0
 
 -- Set completeopt for better completion experience
-vim.o.completeopt = "menuone,noselect"
+vim.o.completeopt              = "menuone,noselect"
 
 -------------------------------------------------------------------------------
 -- Key Mappings
@@ -74,7 +74,7 @@ vim.api.nvim_set_keymap('n', 'V', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-v>', '<Nop>', { noremap = true, silent = true })
 
 -- Show relative line numbers
-vim.api.nvim_set_keymap('n', '<C-w>', ':set relativenumber!<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-w>', ':set number!<CR> | :set relativenumber!<CR>', { noremap = true, silent = true })
 
 -- Remap default completion to TAB
 vim.api.nvim_set_keymap('i', '<Tab>', '<C-n>', { noremap = true })
@@ -83,9 +83,65 @@ vim.api.nvim_set_keymap('i', '<Tab>', '<C-n>', { noremap = true })
 -- Plugins
 -------------------------------------------------------------------------------
 
-require('nvim-autopairs').setup({})
+--require('nvim-autopairs').setup({})
+--require("mason").setup({})
 
-require("lsp")
+local lsp = require('lsp-zero')
+
+lsp.on_attach(function(client, bufnr)
+    local opts = { buffer = bufnr }
+
+    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+    vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+    vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+    vim.keymap.set('n', 'gc', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+    vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
+    vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
+    vim.keymap.set({ 'n', 'x' }, 'gf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+
+    print(client.name .. ': attached')
+end)
+
+lsp.omnifunc.setup({
+    tabcomplete = true,
+    use_fallback = true,
+    update_on_delete = true,
+})
+
+lsp.new_server({
+    name = 'lua_ls',
+    cmd = { 'lua-language-server' },
+    filetypes = { 'lua' },
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" } -- Add "vim" to recognized globals
+            }
+        }
+    },
+    root_dir = function()
+        return lsp.dir.find_first({ '.luarc.json', 'nvim', '.git' })
+    end,
+})
+
+lsp.new_server({
+    name = 'rust',
+    cmd = { 'rust-analyzer' },
+    filetypes = { 'rust' },
+    root_dir = function()
+        return lsp.dir.find_first({ "Cargo.toml", "rust-project.json" })
+    end,
+})
+
+--require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+--require('lspconfig').rust_analyzer.setup({})
+
+lsp.setup()
 
 -------------------------------------------------------------------------------
 -- Colorscheme
@@ -170,7 +226,7 @@ vim.api.nvim_set_hl(0, "Pmenu", { fg = color.nord4, bg = color.nord2 })
 vim.api.nvim_set_hl(0, "PmenuSel", { fg = color.nord4, bg = color.nord10 })
 vim.api.nvim_set_hl(0, "Substitute", { fg = color.nord0, bg = color.nord12 })
 vim.api.nvim_set_hl(0, "SignColumn", { fg = color.nord4, bg = color.nord0 })
-vim.api.nvim_set_hl(0, "LineNr", { fg = color.nord16, bold = false })
+vim.api.nvim_set_hl(0, "LineNr", { fg = color.nord3, bold = false })
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = color.nord15, bold = true })
 
 -- Diagnostics
@@ -182,10 +238,10 @@ vim.api.nvim_set_hl(0, "DiagnosticError", { link = "Error" })
 vim.api.nvim_set_hl(0, "DiagnosticWarn", { link = "Warnings" })
 
 -- Filetype
-vim.api.nvim_set_hl(0, "ledgerTransactionDate", { fg = color.nord16,  bold = true })
-vim.api.nvim_set_hl(0, "ledgerTransactionMetadata", { fg = color.nord3,  bold = false })
-vim.api.nvim_set_hl(0, "shDerefSimple", { fg = color.nord16,  bold = true })
-vim.api.nvim_set_hl(0, "markdownCode", { fg = color.nord7,  bold = false })
-vim.api.nvim_set_hl(0, "markdownItalic", { fg = color.nord8,  italic = true })
+vim.api.nvim_set_hl(0, "ledgerTransactionDate", { fg = color.nord16, bold = true })
+vim.api.nvim_set_hl(0, "ledgerTransactionMetadata", { fg = color.nord3, bold = false })
+vim.api.nvim_set_hl(0, "shDerefSimple", { fg = color.nord16, bold = true })
+vim.api.nvim_set_hl(0, "markdownCode", { fg = color.nord7, bold = false })
+vim.api.nvim_set_hl(0, "markdownItalic", { fg = color.nord8, italic = true })
 
 -------------------------------------------------------------------------------
