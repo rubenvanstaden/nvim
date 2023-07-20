@@ -28,9 +28,6 @@ vim.g.mapleader = " "
 -- Always use clipboard for all operations
 vim.o.clipboard = "unnamedplus"
 
--- True color support
-vim.o.termguicolors = true
-
 -- Highlight current line
 vim.o.cursorline = true
 
@@ -68,22 +65,6 @@ vim.o.cmdheight = 0
 vim.o.completeopt = "menuone,noselect"
 
 -------------------------------------------------------------------------------
--- Enables
--------------------------------------------------------------------------------
-
--- Enable syntax highlighting
-vim.cmd("syntax on")
-
--- Enable file type detection
-vim.cmd("filetype on")
-
--- Enable file type based indentation
-vim.cmd("filetype indent on")
-
--- Enable file type based plugins
-vim.cmd("filetype plugin on")
-
--------------------------------------------------------------------------------
 -- Key Mappings
 -------------------------------------------------------------------------------
 
@@ -109,6 +90,12 @@ require("lsp")
 -------------------------------------------------------------------------------
 -- Colorscheme
 -------------------------------------------------------------------------------
+
+-- True color support
+vim.o.termguicolors = true
+
+-- Enable syntax highlighting
+vim.cmd("syntax on")
 
 local color = {
     nord0 = "#2E3440",
