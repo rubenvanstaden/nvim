@@ -77,18 +77,17 @@ vim.api.nvim_set_keymap('n', '<C-v>', '<Nop>', { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<C-w>', ':set number!<CR> | :set relativenumber!<CR>', { noremap = true, silent = true })
 
 -- Remap default completion to TAB
-vim.api.nvim_set_keymap('i', '<Tab>', '<C-n>', { noremap = true })
+--vim.api.nvim_set_keymap('i', '<Tab>', '<C-n>', { noremap = true })
 
 -------------------------------------------------------------------------------
 -- Plugins
 -------------------------------------------------------------------------------
 
---require('nvim-autopairs').setup({})
---require("mason").setup({})
+require('nvim-autopairs').setup({})
 
 local lsp = require('lsp-zero')
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr }
 
     vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
@@ -102,15 +101,25 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
     vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
     vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
-    vim.keymap.set({ 'n', 'x' }, 'gf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-
-    print(client.name .. ': attached')
 end)
 
 lsp.omnifunc.setup({
     tabcomplete = true,
     use_fallback = true,
     update_on_delete = true,
+})
+
+require("zk").setup({
+    picker = "select",
+    lsp = {
+        config = {
+            name = "zk",
+            cmd = { "zk", "lsp" },
+        },
+        auto_attach = {
+            enabled = true,
+        },
+    },
 })
 
 lsp.new_server({
