@@ -23,46 +23,20 @@ vim.g.loaded_netrwFileHandlers = 1
 -- Options
 -------------------------------------------------------------------------------
 
-vim.g.mapleader                = " "
-
--- Always use clipboard for all operations
-vim.o.clipboard                = "unnamedplus"
-
--- Highlight current line
-vim.o.cursorline               = true
-
--- Use spaces instead of tabs
-vim.o.expandtab                = true
-
--- Number of spaces tabs count for
-vim.o.shiftwidth               = 4
-
--- Always use clipboard for all operations
-vim.o.tabstop                  = 4
-
--- Enable line wrapping
-vim.o.linebreak                = true
-
--- Auto-indent new lines
-vim.o.autoindent               = true
-
--- Highlight matching parentheses. Maybe remove autobracket plugin
-vim.o.showmatch                = true
-
--- Show the current mode in the command line
-vim.o.showmode                 = false
-
--- Show partial commands in the command line while typing
-vim.o.showcmd                  = true
-
--- Set the status line to always be visible
-vim.o.laststatus               = 2
-
--- Set the command line height
-vim.o.cmdheight                = 0
-
--- Set completeopt for better completion experience
-vim.o.completeopt              = "menuone,noselect"
+vim.g.mapleader   = " "
+vim.o.shiftwidth  = 4             -- Number of spaces tabs count for
+vim.o.tabstop     = 4             -- Always use clipboard for all operations
+vim.o.laststatus  = 2             -- Set the status line to always be visible
+vim.o.cmdheight   = 0             -- Set the command line height
+vim.o.cursorline  = true          -- Highlight current line
+vim.o.expandtab   = true          -- Use spaces instead of tabs
+vim.o.linebreak   = true          -- Enable line wrapping
+vim.o.autoindent  = true          -- Auto-indent new lines
+vim.o.showmatch   = true          -- Highlight matching parentheses. Maybe remove autobracket plugin
+vim.o.showmode    = false         -- Show the current mode in the command line
+vim.o.showcmd     = true          -- Show partial commands in the command line while typing
+vim.o.clipboard   = "unnamedplus" -- Always use clipboard for all operations
+vim.o.completeopt = "menuone,noselect" -- Set completeopt for better completion experience
 
 -------------------------------------------------------------------------------
 -- Key Mappings
@@ -146,9 +120,6 @@ lsp.new_server({
         return lsp.dir.find_first({ "Cargo.toml", "rust-project.json" })
     end,
 })
-
---require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
---require('lspconfig').rust_analyzer.setup({})
 
 lsp.setup()
 
@@ -251,6 +222,6 @@ vim.api.nvim_set_hl(0, "ledgerTransactionDate", { fg = color.nord16, bold = true
 vim.api.nvim_set_hl(0, "ledgerTransactionMetadata", { fg = color.nord3, bold = false })
 vim.api.nvim_set_hl(0, "shDerefSimple", { fg = color.nord16, bold = true })
 vim.api.nvim_set_hl(0, "markdownCode", { fg = color.nord7, bold = false })
-vim.api.nvim_set_hl(0, "markdownItalic", { fg = color.nord8, italic = true })
+vim.api.nvim_set_hl(0, "markdownItalic", { fg = color.nord9, italic = true })
 
 -------------------------------------------------------------------------------
