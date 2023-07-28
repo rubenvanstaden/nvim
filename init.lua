@@ -23,35 +23,32 @@ vim.g.loaded_netrwFileHandlers = 1
 -- Options
 -------------------------------------------------------------------------------
 
-vim.g.mapleader   = " "
-vim.o.shiftwidth  = 4             -- Number of spaces tabs count for
-vim.o.tabstop     = 4             -- Always use clipboard for all operations
-vim.o.laststatus  = 2             -- Set the status line to always be visible
-vim.o.cmdheight   = 0             -- Set the command line height
-vim.o.cursorline  = true          -- Highlight current line
-vim.o.expandtab   = true          -- Use spaces instead of tabs
-vim.o.linebreak   = true          -- Enable line wrapping
-vim.o.autoindent  = true          -- Auto-indent new lines
-vim.o.showmatch   = true          -- Highlight matching parentheses. Maybe remove autobracket plugin
-vim.o.showmode    = false         -- Show the current mode in the command line
-vim.o.showcmd     = true          -- Show partial commands in the command line while typing
-vim.o.clipboard   = "unnamedplus" -- Always use clipboard for all operations
+vim.g.mapleader   = " "                -- Remap leader to spacebar
+vim.o.mouse       = "a"                -- Enable mouse completely (default), make "" to disable
+vim.o.shiftwidth  = 4                  -- Number of spaces tabs count for
+vim.o.tabstop     = 4                  -- Always use clipboard for all operations
+vim.o.laststatus  = 2                  -- Set the status line to always be visible
+vim.o.cmdheight   = 0                  -- Set the command line height
+vim.o.cursorline  = true               -- Highlight current line
+vim.o.expandtab   = true               -- Use spaces instead of tabs
+vim.o.wrap        = true               -- Enable line wrapping
+vim.o.linebreak   = true               -- Break words cleanly at line wrapping
+vim.o.autoindent  = true               -- Auto-indent new lines
+vim.o.showmatch   = true               -- Highlight matching parentheses. Maybe remove autobracket plugin
+vim.o.showcmd     = true               -- Show partial commands in the command line while typing
+vim.o.showmode    = false              -- Show the current mode in the command line
+vim.o.clipboard   = "unnamedplus"      -- Always use clipboard for all operations
 vim.o.completeopt = "menuone,noselect" -- Set completeopt for better completion experience
 
 -------------------------------------------------------------------------------
 -- Key Mappings
 -------------------------------------------------------------------------------
 
--- Disable visual mode.
-vim.api.nvim_set_keymap('n', 'v', '<Nop>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'V', '<Nop>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-v>', '<Nop>', { noremap = true, silent = true })
-
--- Show relative line numbers
-vim.api.nvim_set_keymap('n', '<C-w>', ':set number!<CR> | :set relativenumber!<CR>', { noremap = true, silent = true })
-
--- Remap default completion to TAB
---vim.api.nvim_set_keymap('i', '<Tab>', '<C-n>', { noremap = true })
+vim.api.nvim_set_keymap(
+    'n', '<C-w>',
+    ':set number!<CR> | :set relativenumber!<CR>',
+    { noremap = true, silent = true, }
+)
 
 -------------------------------------------------------------------------------
 -- Plugins
@@ -94,6 +91,15 @@ require("zk").setup({
             enabled = true,
         },
     },
+})
+
+lsp.new_server({
+    name = 'gopls',
+    cmd = { 'gopls' },
+    filetypes = { 'go' },
+    root_dir = function()
+        return lsp.dir.find_first({ 'go.mod', '.git' })
+    end,
 })
 
 lsp.new_server({
