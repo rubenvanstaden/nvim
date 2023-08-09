@@ -23,10 +23,19 @@ vim.o.completeopt = "menuone,noselect" -- Set completeopt for better completion 
 -- Key Mappings
 -------------------------------------------------------------------------------
 
+vim.opt.dictionary = "~/.config/nvim/dictionary"
+vim.opt.thesaurus  = "~/.config/nvim/thesaurus"
+
 vim.api.nvim_set_keymap(
     'n', '<C-w>',
     ':set number!<CR> | :set relativenumber!<CR>',
     { noremap = true, silent = true, }
+)
+
+vim.api.nvim_set_keymap(
+    'i', '<Tab>',
+    'pumvisible() ? "\\<C-n>" : "\\<C-x>\\<C-o>"',
+    { noremap = true, silent = true, expr = true }
 )
 
 -------------------------------------------------------------------------------
@@ -145,11 +154,11 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
 end)
 
-lsp.omnifunc.setup({
-    tabcomplete = true,
-    use_fallback = true,
-    update_on_delete = true,
-})
+-- lsp.omnifunc.setup({
+--     tabcomplete = true,
+--     use_fallback = true,
+--     update_on_delete = true,
+-- })
 
 require("zk").setup({
     picker = "select",
