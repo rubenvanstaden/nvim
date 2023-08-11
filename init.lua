@@ -32,11 +32,11 @@ vim.api.nvim_set_keymap(
     { noremap = true, silent = true, }
 )
 
-vim.api.nvim_set_keymap(
-    'i', '<Tab>',
-    'pumvisible() ? "\\<C-n>" : "\\<C-x>\\<C-o>"',
-    { noremap = true, silent = true, expr = true }
-)
+-- vim.api.nvim_set_keymap(
+--     'i', '<Tab>',
+--     'pumvisible() ? "\\<C-n>" : "\\<C-x>\\<C-o>"',
+--     { noremap = true, silent = true, expr = true }
+-- )
 
 -------------------------------------------------------------------------------
 -- Colorscheme
@@ -69,18 +69,18 @@ local color = {
 }
 
 -- Code
+vim.api.nvim_set_hl(0, "Normal",         { fg = color.nord16, bg = color.nord00 })
 vim.api.nvim_set_hl(0, "Type",           { fg = color.nord09 })
 vim.api.nvim_set_hl(0, "Typedef",        { link = "Type" })
 vim.api.nvim_set_hl(0, "Statement",      { link = "Type" })
 vim.api.nvim_set_hl(0, "Structure",      { link = "Type" })
 vim.api.nvim_set_hl(0, "StorageClass",   { link = "Type" })
 vim.api.nvim_set_hl(0, "Boolean",        { link = "Type" })
-vim.api.nvim_set_hl(0, "Normal",         { fg = color.nord16 })
 vim.api.nvim_set_hl(0, "Constant",       { fg = color.nord07 })
 vim.api.nvim_set_hl(0, "Special",        { fg = color.nord16, bold = true })
 vim.api.nvim_set_hl(0, "Float",          { fg = color.nord15 })
 vim.api.nvim_set_hl(0, "String",         { fg = color.nord14 })
-vim.api.nvim_set_hl(0, "Number",         { fg = color.nord15 })
+vim.api.nvim_set_hl(0, "Number",         { fg = color.nord15, italic = true })
 vim.api.nvim_set_hl(0, "Identifier",     { fg = color.nord09, italic = true })
 vim.api.nvim_set_hl(0, "Function",       { fg = color.nord08, italic = true })
 vim.api.nvim_set_hl(0, "Keyword",        { fg = color.nord09 })
@@ -92,7 +92,6 @@ vim.api.nvim_set_hl(0, "Define",         { link = "PreProc" })
 vim.api.nvim_set_hl(0, "Repeat",         { fg = color.nord09 })
 vim.api.nvim_set_hl(0, "Operator",       { fg = color.nord09 })
 vim.api.nvim_set_hl(0, "SpecialKey",     { fg = color.nord09 })
-vim.api.nvim_set_hl(0, "Identifier",     { fg = color.nord09, italic = true })
 vim.api.nvim_set_hl(0, "SpecialChar",    { fg = color.nord13 })
 vim.api.nvim_set_hl(0, "PreCondit",      { fg = color.nord13 })
 vim.api.nvim_set_hl(0, "Character",      { fg = color.nord14 })
@@ -128,6 +127,9 @@ vim.api.nvim_set_hl(0, "DiagnosticWarn",  { link = "Warnings" })
 vim.api.nvim_set_hl(0, "shDerefSimple",             { fg = color.nord16, bold = true })
 vim.api.nvim_set_hl(0, "ledgerTransactionDate",     { fg = color.nord16 })
 vim.api.nvim_set_hl(0, "ledgerTransactionMetadata", { fg = color.nord03 })
+vim.api.nvim_set_hl(0, "markdownH1",                { fg = color.nord14, bold = true })
+vim.api.nvim_set_hl(0, "markdownH2",                { fg = color.nord14, bold = true })
+vim.api.nvim_set_hl(0, "markdownH3",                { fg = color.nord14, italic = true })
 vim.api.nvim_set_hl(0, "markdownCode",              { fg = color.nord07 })
 vim.api.nvim_set_hl(0, "markdownItalic",            { fg = color.nord09, italic = true })
 
@@ -141,24 +143,24 @@ local lsp = require('lsp-zero')
 
 lsp.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr }
-    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-    vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+    vim.keymap.set('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<cr>',           opts)
+    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>',      opts)
+    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>',     opts)
+    vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>',  opts)
     vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-    vim.keymap.set('n', 'gc', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-    vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
-    vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
-    vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
+    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>',      opts)
+    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>',  opts)
+    vim.keymap.set('n', 'gc', '<cmd>lua vim.lsp.buf.code_action()<cr>',     opts)
+    vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>',   opts)
+    vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>',    opts)
+    vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>',    opts)
 end)
 
--- lsp.omnifunc.setup({
---     tabcomplete = true,
---     use_fallback = true,
---     update_on_delete = true,
--- })
+lsp.omnifunc.setup({
+    tabcomplete = true,
+    use_fallback = true,
+    update_on_delete = true,
+})
 
 require("zk").setup({
     picker = "select",
