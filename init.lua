@@ -7,7 +7,6 @@ vim.o.mouse       = "a"                -- Enable mouse completely (default), mak
 vim.o.shiftwidth  = 4                  -- Number of spaces tabs count for
 vim.o.tabstop     = 4                  -- Always use clipboard for all operations
 vim.o.laststatus  = 2                  -- Set the status line to always be visible
-vim.o.cmdheight   = 0                  -- Set the command line height
 vim.o.cursorline  = true               -- Highlight current line
 vim.o.expandtab   = true               -- Use spaces instead of tabs
 vim.o.wrap        = true               -- Enable line wrapping
@@ -49,89 +48,99 @@ vim.o.termguicolors = true
 vim.cmd("syntax on")
 
 local color = {
-    nord00 = "#2E3440",
-    nord01 = "#3B4252",
-    nord02 = "#434C5E",
-    nord03 = "#616E88", -- Out of pallette
-    nord04 = "#D8DEE9",
-    nord05 = "#E5E9F0",
-    nord06 = "#ECEFF4",
-    nord07 = "#8FBCBB",
-    nord08 = "#88C0D0",
-    nord09 = "#81A1C1",
-    nord10 = "#5E81AC",
-    nord11 = "#BF616A",
-    nord12 = "#D08770",
-    nord13 = "#EBCB8B",
-    nord14 = "#A3BE8C",
-    nord15 = "#B48EAD",
-    nord16 = "#ABB2BF", -- Out of palette
+
+    none = 'NONE',
+
+    base03 = "#002b36",
+    base02 = "#073642",
+    base01 = "#586e75",
+    base00 = "#657b83",
+
+    base0 = "#839496",
+    base1 = "#93a1a1",
+    base2 = "#eee8d5",
+
+    yellow = "#b58900",
+    orange = "#cb4b16",
+    red = "#dc322f",
+    magenta = "#d33682",
+    violet = "#6c71c4",
+    blue = "#268bd2",
+    cyan = "#2aa198",
+    green = "#859900",
 }
 
--- Code
-vim.api.nvim_set_hl(0, "Normal",         { fg = color.nord16, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "Comment",        { fg = color.nord03, bg = color.nord00, italic = true })
-vim.api.nvim_set_hl(0, "Type",           { fg = color.nord09, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "Typedef",        { link = "Type" })
-vim.api.nvim_set_hl(0, "Statement",      { link = "Type" })
-vim.api.nvim_set_hl(0, "Structure",      { link = "Type" })
-vim.api.nvim_set_hl(0, "StorageClass",   { link = "Type" })
-vim.api.nvim_set_hl(0, "Boolean",        { link = "Type" })
-vim.api.nvim_set_hl(0, "Keyword",        { fg = color.nord09, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "Conditional",    { link = "Keyword" })
-vim.api.nvim_set_hl(0, "Label",          { link = "Keyword" })
-vim.api.nvim_set_hl(0, "PreProc",        { link = "Keyword" })
-vim.api.nvim_set_hl(0, "Include",        { link = "PreProc" })
-vim.api.nvim_set_hl(0, "Define",         { link = "PreProc" })
-vim.api.nvim_set_hl(0, "Constant",       { fg = color.nord07, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "Float",          { fg = color.nord15, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "String",         { fg = color.nord14, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "Repeat",         { fg = color.nord09, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "Operator",       { fg = color.nord09, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "SpecialKey",     { fg = color.nord09, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "SpecialChar",    { fg = color.nord13, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "PreCondit",      { fg = color.nord13, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "Character",      { fg = color.nord14, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "Delimiter",      { fg = color.nord16, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "SpecialComment", { fg = color.nord08, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "Todo",           { fg = color.nord13, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "Search",         { fg = color.nord06, bg = color.nord10 })
-vim.api.nvim_set_hl(0, "MatchParen",     { fg = color.nord15, bg = color.nord00, bold = true })
-vim.api.nvim_set_hl(0, "Special",        { fg = color.nord16, bg = color.nord00, bold = true })
-vim.api.nvim_set_hl(0, "Number",         { fg = color.nord15, bg = color.nord00, italic = true })
-vim.api.nvim_set_hl(0, "Identifier",     { fg = color.nord09, bg = color.nord00, italic = true })
-vim.api.nvim_set_hl(0, "Function",       { fg = color.nord08, bg = color.nord00, italic = true })
+vim.api.nvim_set_hl(0, "Normal", { fg = color.base0, bg = color.base03 })
+
+vim.api.nvim_set_hl(0, "Statement", { fg = color.green, bold = false, italic = false })
+vim.api.nvim_set_hl(0, "Repeat", { link = "Statement" })
+vim.api.nvim_set_hl(0, "Structure", { link = "Statement" })
+vim.api.nvim_set_hl(0, "StorageClass", { link = "Statement" })
+vim.api.nvim_set_hl(0, "Keyword", { link = "Statement" })
+vim.api.nvim_set_hl(0, "Exception", { link = "Statement" })
+vim.api.nvim_set_hl(0, "Conditional", { link = "Statement" })
+vim.api.nvim_set_hl(0, "Define", { link = "Statement" })
+
+--vim.api.nvim_set_hl(0, "Constant", { fg = color.yellow, bold = false })
+vim.api.nvim_set_hl(0, "Constant", { fg = color.base0, bold = true })
+vim.api.nvim_set_hl(0, "Boolean", { link = "Constant" })
+vim.api.nvim_set_hl(0, "Character", { link = "Constant" })
+vim.api.nvim_set_hl(0, "Number", { link = "Constant" })
+vim.api.nvim_set_hl(0, "Float", { link = "Constant" })
+
+vim.api.nvim_set_hl(0, "Identifier", { fg = color.cyan, italic = false })
+vim.api.nvim_set_hl(0, "String", { link = "Identifier", italic = true })
+vim.api.nvim_set_hl(0, "Type", { link = "Identifier" })
+vim.api.nvim_set_hl(0, "Typedef", { link = "Identifier" })
+
+vim.api.nvim_set_hl(0, "Function", { fg = color.blue, bold = false, italic = true })
+vim.api.nvim_set_hl(0, "Include", { link = "Function" })
+--vim.api.nvim_set_hl(0, "Operator", { link = "Function" })
+vim.api.nvim_set_hl(0, "Operator", { fg = color.base00, bold = false })
+
+vim.api.nvim_set_hl(0, "Special", { fg = color.violet, italic = true, bold = false })
+vim.api.nvim_set_hl(0, "PreProc", { link = "Special" })
+vim.api.nvim_set_hl(0, "Question", { link = "Special" })
+vim.api.nvim_set_hl(0, "Todo", { link = "Special" })
+vim.api.nvim_set_hl(0, "Label", { link = "Special" })
+
+vim.api.nvim_set_hl(0, "Comment", { fg = color.base01, italic = true })
+vim.api.nvim_set_hl(0, "Search", { fg = color.none, bg = color.base00 })
+vim.api.nvim_set_hl(0, "MatchParen", { fg = color.cyan, bg = color.none, bold = true })
+
+-- Markdown
+vim.api.nvim_set_hl(0, "markdownBold", { fg = color.base0, bold = true })
+vim.api.nvim_set_hl(0, "markdownItalic", { fg = color.violet, italic = true })
+vim.api.nvim_set_hl(0, "markdownLinkText", { fg = color.cyan, bold = false })
+vim.api.nvim_set_hl(0, "markdownUrl", { fg = color.base00,  bold = false })
+vim.api.nvim_set_hl(0, "markdownHeadingDelimiter", { fg = color.base0,  bold = true })
+vim.api.nvim_set_hl(0, "shDerefSimple", { fg = color.base0,  bold = true })
+vim.api.nvim_set_hl(0, "ledgerAccount", { fg = color.base00,  bold = false })
+vim.api.nvim_set_hl(0, "ledgerAmount", { fg = color.yellow,  bold = false })
 
 -- Editor
-vim.api.nvim_set_hl(0, "Title",        { fg = color.nord14, bg = color.nord00, bold = true })
-vim.api.nvim_set_hl(0, "StatusLine",   { bg = color.nord02, fg = color.nord04 })
-vim.api.nvim_set_hl(0, "Cursor",       { fg = color.nord04, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "CursorLine",   { bg = color.nord01 })
-vim.api.nvim_set_hl(0, "CursorLineNr", { fg = color.nord15, bold = true })
-vim.api.nvim_set_hl(0, "NonText",      { fg = color.nord03, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "Visual",       { bg = color.nord02 })
-vim.api.nvim_set_hl(0, "Pmenu",        { fg = color.nord04, bg = color.nord02 })
-vim.api.nvim_set_hl(0, "PmenuSel",     { fg = color.nord04, bg = color.nord10 })
-vim.api.nvim_set_hl(0, "SignColumn",   { fg = color.nord04, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "LineNr",       { fg = color.nord03 })
+
+vim.api.nvim_set_hl(0, "LineNr", { bg = color.base03, fg = color.base00, bold = false })
+vim.api.nvim_set_hl(0, "CursorLineNr", { bg = color.base03, fg = color.base00, bold = true })
+vim.api.nvim_set_hl(0, "StatusLine", { bg = color.base00, fg = color.base03, bold = true })
+vim.api.nvim_set_hl(0, "Pmenu", { fg = color.base00, bg = color.base02, bold = false })
+vim.api.nvim_set_hl(0, "PmenuSel", { fg = color.base03, bg = color.base01 })
+vim.api.nvim_set_hl(0, "NonText", { fg = color.base01 })
+vim.api.nvim_set_hl(0, "VertSplit", { link = "NonText" })
+vim.api.nvim_set_hl(0, "Title", { fg = color.base00, bold = true })
+vim.api.nvim_set_hl(0, "Visual", { fg = color.base03, bg = color.base01, bold = false })
+--vim.api.nvim_set_hl(0, "VisualMode", { fg = color.blue, bg = color.base03, reverse = true })
+vim.api.nvim_set_hl(0, "SignColumn", { fg = color.base00, bg = color.base03 })
+--vim.api.nvim_set_hl(0, "Cursor", { fg = color.base1, bg = color.green })
+vim.api.nvim_set_hl(0, "CursorLine", { bg = color.base02 })
 
 -- Diagnostics
-vim.api.nvim_set_hl(0, "Error",           { fg = color.nord11, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "ErrorMsg",        { link = "Error" })
+vim.api.nvim_set_hl(0, "Error", { fg = color.red })
+vim.api.nvim_set_hl(0, "ErrorMsg", { link = "Error" })
+vim.api.nvim_set_hl(0, "Warnings", { fg = color.yellow })
+vim.api.nvim_set_hl(0, "WarningMsg", { link = "Warnings" })
 vim.api.nvim_set_hl(0, "DiagnosticError", { link = "Error" })
-vim.api.nvim_set_hl(0, "Warnings",        { fg = color.nord13, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "WarningMsg",      { link = "Warnings" })
-vim.api.nvim_set_hl(0, "DiagnosticWarn",  { link = "Warnings" })
-
--- Filetype
-vim.api.nvim_set_hl(0, "shDerefSimple",             { fg = color.nord16, bg = color.nord00, bold = true })
-vim.api.nvim_set_hl(0, "ledgerTransactionDate",     { fg = color.nord16, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "ledgerTransactionMetadata", { fg = color.nord03, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "markdownCode",              { fg = color.nord07, bg = color.nord00 })
-vim.api.nvim_set_hl(0, "markdownH1",                { fg = color.nord14, bg = color.nord00, bold = true })
-vim.api.nvim_set_hl(0, "markdownH2",                { fg = color.nord14, bg = color.nord00, bold = true })
-vim.api.nvim_set_hl(0, "markdownH3",                { fg = color.nord14, bg = color.nord00, italic = true })
-vim.api.nvim_set_hl(0, "markdownItalic",            { fg = color.nord09, bg = color.nord00, italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticWarn", { link = "Warnings" })
 
 -------------------------------------------------------------------------------
 -- Plugins
