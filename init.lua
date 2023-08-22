@@ -31,11 +31,11 @@ vim.api.nvim_set_keymap(
     { noremap = true, silent = true, }
 )
 
--- vim.api.nvim_set_keymap(
---     'i', '<Tab>',
---     'pumvisible() ? "\\<C-n>" : "\\<C-x>\\<C-o>"',
---     { noremap = true, silent = true, expr = true }
--- )
+vim.api.nvim_set_keymap(
+    'i', '<Tab>',
+    'pumvisible() ? "\\<C-n>" : "\\<C-x>\\<C-o>"',
+    { noremap = true, silent = true, expr = true }
+)
 
 -------------------------------------------------------------------------------
 -- Colorscheme
@@ -48,31 +48,50 @@ vim.o.termguicolors = true
 vim.cmd("syntax on")
 
 local color = {
-
-    none = 'NONE',
-
-    base03 = "#002b36",
-    base02 = "#073642",
-    base01 = "#586e75",
-    base00 = "#657b83",
-
-    base0 = "#839496",
-    base1 = "#93a1a1",
-    base2 = "#eee8d5",
-
-    yellow = "#b58900",
-    orange = "#cb4b16",
-    red = "#dc322f",
-    magenta = "#d33682",
-    violet = "#6c71c4",
-    blue = "#268bd2",
-    cyan = "#2aa198",
-    green = "#859900",
+    sumiInk0  = "#16161D",
+    sumiInk1b = "#181820",
+    sumiInk1c = "#1a1a22",
+    sumiInk1  = "#1F1F28",
+    sumiInk2  = "#2A2A37",
+    sumiInk3  = "#363646",
+    sumiInk4  = "#54546D",
+    waveBlue1 = "#223249",
+    waveBlue2 = "#2D4F67",
+    winterGreen   = "#2B3328",
+    winterYellow  = "#49443C",
+    winterRed     = "#43242B",
+    winterBlue    = "#252535",
+    autumnGreen   = "#76946A",
+    autumnRed     = "#C34043",
+    autumnYellow  = "#DCA561",
+    samuraiRed    = "#E82424",
+    roninYellow   = "#FF9E3B",
+    waveAqua1     = "#6A9589",
+    dragonBlue    = "#658594",
+    oldWhite      = "#C8C093",
+    fujiWhite     = "#DCD7BA",
+    fujiGray      = "#727169",
+    springViolet1 = "#938AA9",
+    oniViolet     = "#957FB8",
+    crystalBlue   = "#7E9CD8",
+    springViolet2 = "#9CABCA",
+    springBlue    = "#7FB4CA",
+    waveAqua2     = "#7AA89F",
+    waveAqua4     = "#7AA880",
+    waveAqua5     = "#6CAF95",
+    waveAqua3     = "#68AD99",
+    springGreen   = "#98BB6C",
+    boatYellow2   = "#C0A36E",
+    carpYellow    = "#E6C384",
+    sakuraPink    = "#D27E99",
+    waveRed       = "#E46876",
+    peachRed      = "#FF5D62",
+    surimiOrange  = "#FFA066",
+    katanaGray    = "#717C7C"
 }
 
-vim.api.nvim_set_hl(0, "Normal", { fg = color.base0, bg = color.base03 })
-
-vim.api.nvim_set_hl(0, "Statement", { fg = color.green, bold = false, italic = false })
+vim.api.nvim_set_hl(0, "Normal", { fg = color.fujiWhite, bg = color.sumiInk1 })
+vim.api.nvim_set_hl(0, "Statement", { fg = color.oniViolet, bg = nil })
 vim.api.nvim_set_hl(0, "Repeat", { link = "Statement" })
 vim.api.nvim_set_hl(0, "Structure", { link = "Statement" })
 vim.api.nvim_set_hl(0, "StorageClass", { link = "Statement" })
@@ -81,65 +100,56 @@ vim.api.nvim_set_hl(0, "Exception", { link = "Statement" })
 vim.api.nvim_set_hl(0, "Conditional", { link = "Statement" })
 vim.api.nvim_set_hl(0, "Define", { link = "Statement" })
 
---vim.api.nvim_set_hl(0, "Constant", { fg = color.yellow, bold = false })
-vim.api.nvim_set_hl(0, "Constant", { fg = color.base0, bold = true })
+vim.api.nvim_set_hl(0, "Constant", { fg = color.sutimiOrange, bold = true })
 vim.api.nvim_set_hl(0, "Boolean", { link = "Constant" })
 vim.api.nvim_set_hl(0, "Character", { link = "Constant" })
-vim.api.nvim_set_hl(0, "Number", { link = "Constant" })
-vim.api.nvim_set_hl(0, "Float", { link = "Constant" })
 
-vim.api.nvim_set_hl(0, "Identifier", { fg = color.cyan, italic = false })
-vim.api.nvim_set_hl(0, "String", { link = "Identifier", italic = true })
-vim.api.nvim_set_hl(0, "Type", { link = "Identifier" })
-vim.api.nvim_set_hl(0, "Typedef", { link = "Identifier" })
+vim.api.nvim_set_hl(0, "Number", { fg = color.sakuraPink, bg = nil })
+vim.api.nvim_set_hl(0, "Float", { link = "Number" })
 
-vim.api.nvim_set_hl(0, "Function", { fg = color.blue, bold = false, italic = true })
+vim.api.nvim_set_hl(0, "Identifier", { fg = color.carpYellow, bg = nil })
+vim.api.nvim_set_hl(0, "String", { fg = color.springGreen, bg = nil })
+vim.api.nvim_set_hl(0, "Type", { fg = color.waveAqua2 })
+vim.api.nvim_set_hl(0, "Typedef", { link = "Type" })
+
+vim.api.nvim_set_hl(0, "Function", { fg = color.crystalBlue, bg = nil, italic = true })
 vim.api.nvim_set_hl(0, "Include", { link = "Function" })
---vim.api.nvim_set_hl(0, "Operator", { link = "Function" })
-vim.api.nvim_set_hl(0, "Operator", { fg = color.base00, bold = false })
+vim.api.nvim_set_hl(0, "Operator", { link = "Function" })
 
-vim.api.nvim_set_hl(0, "Special", { fg = color.violet, italic = true, bold = false })
+vim.api.nvim_set_hl(0, "Special", { fg = color.springBlue, bg = nil})
 vim.api.nvim_set_hl(0, "PreProc", { link = "Special" })
-vim.api.nvim_set_hl(0, "Question", { link = "Special" })
-vim.api.nvim_set_hl(0, "Todo", { link = "Special" })
+--vim.api.nvim_set_hl(0, "Question", { link = "Special" })
 vim.api.nvim_set_hl(0, "Label", { link = "Special" })
 
-vim.api.nvim_set_hl(0, "Comment", { fg = color.base01, italic = true })
-vim.api.nvim_set_hl(0, "Search", { fg = color.none, bg = color.base00 })
-vim.api.nvim_set_hl(0, "MatchParen", { fg = color.cyan, bg = color.none, bold = true })
+vim.api.nvim_set_hl(0, "Todo", { fg = color.waveRed, bg = nil })
 
--- Markdown
-vim.api.nvim_set_hl(0, "markdownBold", { fg = color.base0, bold = true })
-vim.api.nvim_set_hl(0, "markdownItalic", { fg = color.violet, italic = true })
-vim.api.nvim_set_hl(0, "markdownLinkText", { fg = color.cyan, bold = false })
-vim.api.nvim_set_hl(0, "markdownUrl", { fg = color.base00,  bold = false })
-vim.api.nvim_set_hl(0, "markdownHeadingDelimiter", { fg = color.base0,  bold = true })
-vim.api.nvim_set_hl(0, "shDerefSimple", { fg = color.base0,  bold = true })
-vim.api.nvim_set_hl(0, "ledgerAccount", { fg = color.base00,  bold = false })
-vim.api.nvim_set_hl(0, "ledgerAmount", { fg = color.yellow,  bold = false })
+vim.api.nvim_set_hl(0, "Comment", { fg = color.fujiGray, italic = true })
+vim.api.nvim_set_hl(0, "Search", { fg = color.none, bg = color.base00 })
+vim.api.nvim_set_hl(0, "MatchParen", { fg = color.springViolet2, bg = color.none, bold = true })
 
 -- Editor
 
-vim.api.nvim_set_hl(0, "LineNr", { bg = color.base03, fg = color.base00, bold = false })
-vim.api.nvim_set_hl(0, "CursorLineNr", { bg = color.base03, fg = color.base00, bold = true })
-vim.api.nvim_set_hl(0, "StatusLine", { bg = color.base00, fg = color.base03, bold = true })
-vim.api.nvim_set_hl(0, "Pmenu", { fg = color.base00, bg = color.base02, bold = false })
-vim.api.nvim_set_hl(0, "PmenuSel", { fg = color.base03, bg = color.base01 })
-vim.api.nvim_set_hl(0, "NonText", { fg = color.base01 })
-vim.api.nvim_set_hl(0, "VertSplit", { link = "NonText" })
-vim.api.nvim_set_hl(0, "Title", { fg = color.base00, bold = true })
-vim.api.nvim_set_hl(0, "Visual", { fg = color.base03, bg = color.base01, bold = false })
---vim.api.nvim_set_hl(0, "VisualMode", { fg = color.blue, bg = color.base03, reverse = true })
-vim.api.nvim_set_hl(0, "SignColumn", { fg = color.base00, bg = color.base03 })
+vim.api.nvim_set_hl(0, "LineNr", { bg = color.sumiInk4, fg = nil, bold = false })
+--vim.api.nvim_set_hl(0, "CursorLineNr", { bg = color.base03, fg = color.base00, bold = true })
+vim.api.nvim_set_hl(0, "StatusLine", { bg = color.sumiInk0, fg = nil })
+--vim.api.nvim_set_hl(0, "Pmenu", { fg = color.base00, bg = color.base02, bold = false })
+--vim.api.nvim_set_hl(0, "PmenuSel", { fg = color.base03, bg = color.base01 })
+vim.api.nvim_set_hl(0, "NonText", { fg = color.sumiInk4, bg = nil})
+--vim.api.nvim_set_hl(0, "Title", { fg = color.base00, bold = true })
+vim.api.nvim_set_hl(0, "Visual", { bg = color.sumiInk4, fg = nil })
+vim.api.nvim_set_hl(0, "SignColumn", { fg = color.sumiInk0 , bg = nil })
+vim.api.nvim_set_hl(0, "CursorLine", { bg = color.sumiInk2, bg = nil })
+--vim.api.nvim_set_hl(0, "VertSplit", { fg = color.base02 })
 --vim.api.nvim_set_hl(0, "Cursor", { fg = color.base1, bg = color.green })
-vim.api.nvim_set_hl(0, "CursorLine", { bg = color.base02 })
+--vim.api.nvim_set_hl(0, "VisualMode", { fg = color.blue, bg = color.base03, reverse = true })
 
 -- Diagnostics
-vim.api.nvim_set_hl(0, "Error", { fg = color.red })
+vim.api.nvim_set_hl(0, "Error", { fg = color.peachRed, bg = nil})
 vim.api.nvim_set_hl(0, "ErrorMsg", { link = "Error" })
-vim.api.nvim_set_hl(0, "Warnings", { fg = color.yellow })
-vim.api.nvim_set_hl(0, "WarningMsg", { link = "Warnings" })
 vim.api.nvim_set_hl(0, "DiagnosticError", { link = "Error" })
+
+vim.api.nvim_set_hl(0, "Warnings", { fg = color.roninYellow, bg = nil })
+vim.api.nvim_set_hl(0, "WarningMsg", { link = "Warnings" })
 vim.api.nvim_set_hl(0, "DiagnosticWarn", { link = "Warnings" })
 
 -------------------------------------------------------------------------------
@@ -148,28 +158,10 @@ vim.api.nvim_set_hl(0, "DiagnosticWarn", { link = "Warnings" })
 
 require('nvim-autopairs').setup({})
 
-local lsp = require('lsp-zero')
+local lsp = require('lspconfig')
 
-lsp.on_attach(function(_, bufnr)
-    local opts = { buffer = bufnr }
-    vim.keymap.set('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<cr>',           opts)
-    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>',      opts)
-    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>',     opts)
-    vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>',  opts)
-    vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>',      opts)
-    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>',  opts)
-    vim.keymap.set('n', 'gc', '<cmd>lua vim.lsp.buf.code_action()<cr>',     opts)
-    vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>',   opts)
-    vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>',    opts)
-    vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>',    opts)
-end)
-
-lsp.omnifunc.setup({
-    tabcomplete = true,
-    use_fallback = true,
-    update_on_delete = true,
-})
+lsp.rust_analyzer.setup{}
+lsp.gopls.setup{}
 
 require("zk").setup({
     picker = "select",
@@ -180,45 +172,37 @@ require("zk").setup({
         },
         auto_attach = {
             enabled = true,
+            filetypes = { "markdown" },
         },
     },
 })
 
-lsp.new_server({
-    name = 'gopls',
-    cmd = { 'gopls' },
-    filetypes = { 'go' },
-    root_dir = function()
-        return lsp.dir.find_first({ 'go.mod', '.git' })
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+
+    callback = function(ev)
+
+        -- Enable completion triggered by <c-x><c-o>
+        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+        -- Buffer local mappings.
+        -- See `:help vim.lsp.*` for documentation on any of the below functions
+        local opts = { buffer = ev.buf }
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set({ 'n', 'v' }, 'gc', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        vim.keymap.set('n', '<space>f', function()
+            vim.lsp.buf.format { async = true }
+        end, opts)
     end,
 })
-
-lsp.new_server({
-    name = 'lua_ls',
-    cmd = { 'lua-language-server' },
-    filetypes = { 'lua' },
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { "vim" } -- Add "vim" to recognized globals
-            }
-        }
-    },
-    root_dir = function()
-        return lsp.dir.find_first({ '.luarc.json', 'nvim', '.git' })
-    end,
-})
-
-lsp.new_server({
-    name = 'rust',
-    cmd = { 'rust-analyzer' },
-    filetypes = { 'rust' },
-    root_dir = function()
-        return lsp.dir.find_first({ "Cargo.toml", "rust-project.json" })
-    end,
-})
-
-lsp.setup()
 
 -------------------------------------------------------------------------------
 -- Disable Plugins
