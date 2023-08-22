@@ -41,22 +41,20 @@ vim.api.nvim_set_keymap(
 -- Colorscheme
 -------------------------------------------------------------------------------
 
--- True color support
 vim.o.termguicolors = true
 
--- Enable syntax highlighting
 vim.cmd("syntax on")
 
 local color = {
-    sumiInk0  = "#16161D",
-    sumiInk1b = "#181820",
-    sumiInk1c = "#1a1a22",
-    sumiInk1  = "#1F1F28",
-    sumiInk2  = "#2A2A37",
-    sumiInk3  = "#363646",
-    sumiInk4  = "#54546D",
-    waveBlue1 = "#223249",
-    waveBlue2 = "#2D4F67",
+    sumiInk0      = "#16161D",
+    sumiInk1b     = "#181820",
+    sumiInk1c     = "#1a1a22",
+    sumiInk1      = "#1F1F28",
+    sumiInk2      = "#2A2A37",
+    sumiInk3      = "#363646",
+    sumiInk4      = "#54546D",
+    waveBlue1     = "#223249",
+    waveBlue2     = "#2D4F67",
     winterGreen   = "#2B3328",
     winterYellow  = "#49443C",
     winterRed     = "#43242B",
@@ -104,7 +102,7 @@ vim.api.nvim_set_hl(0, "Constant", { fg = color.sutimiOrange, bold = true })
 vim.api.nvim_set_hl(0, "Boolean", { link = "Constant" })
 vim.api.nvim_set_hl(0, "Character", { link = "Constant" })
 
-vim.api.nvim_set_hl(0, "Number", { fg = color.sakuraPink, bg = nil })
+vim.api.nvim_set_hl(0, "Number", { fg = color.sakuraPink, bg = nil, italic = true })
 vim.api.nvim_set_hl(0, "Float", { link = "Number" })
 
 vim.api.nvim_set_hl(0, "Identifier", { fg = color.carpYellow, bg = nil })
