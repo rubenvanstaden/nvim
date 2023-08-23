@@ -7,7 +7,7 @@ vim.o.mouse       = "a"                -- Enable mouse completely (default), mak
 vim.o.shiftwidth  = 4                  -- Number of spaces tabs count for
 vim.o.tabstop     = 4                  -- Always use clipboard for all operations
 vim.o.laststatus  = 2                  -- Set the status line to always be visible
-vim.o.cursorline  = true               -- Highlight current line
+vim.o.cursorline  = false               -- Highlight current line
 vim.o.expandtab   = true               -- Use spaces instead of tabs
 vim.o.wrap        = true               -- Enable line wrapping
 vim.o.linebreak   = true               -- Break words cleanly at line wrapping
@@ -113,6 +113,7 @@ vim.api.nvim_set_hl(0, "Typedef", { link = "Type" })
 vim.api.nvim_set_hl(0, "Function", { fg = color.crystalBlue, bg = nil, italic = true })
 vim.api.nvim_set_hl(0, "Include", { link = "Function" })
 vim.api.nvim_set_hl(0, "Operator", { link = "Function" })
+vim.api.nvim_set_hl(0, "Title", { link = "Function" })
 
 vim.api.nvim_set_hl(0, "Special", { fg = color.springBlue, bg = nil})
 vim.api.nvim_set_hl(0, "PreProc", { link = "Special" })
@@ -123,17 +124,16 @@ vim.api.nvim_set_hl(0, "Todo", { fg = color.waveRed, bg = nil })
 
 vim.api.nvim_set_hl(0, "Comment", { fg = color.fujiGray, italic = true })
 vim.api.nvim_set_hl(0, "Search", { fg = color.none, bg = color.base00 })
-vim.api.nvim_set_hl(0, "MatchParen", { fg = color.springViolet2, bg = color.none, bold = true })
+vim.api.nvim_set_hl(0, "MatchParen", { fg = color.sakuraPink, bg = color.none, bold = true })
 
 -- Editor
 
 vim.api.nvim_set_hl(0, "LineNr", { bg = color.sumiInk4, fg = nil, bold = false })
 --vim.api.nvim_set_hl(0, "CursorLineNr", { bg = color.base03, fg = color.base00, bold = true })
 vim.api.nvim_set_hl(0, "StatusLine", { bg = color.sumiInk0, fg = nil })
---vim.api.nvim_set_hl(0, "Pmenu", { fg = color.base00, bg = color.base02, bold = false })
---vim.api.nvim_set_hl(0, "PmenuSel", { fg = color.base03, bg = color.base01 })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = color.waveBlue1, fg = nil })
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = color.waveBlue1, fg = nil, bold = true })
 vim.api.nvim_set_hl(0, "NonText", { fg = color.sumiInk4, bg = nil})
---vim.api.nvim_set_hl(0, "Title", { fg = color.base00, bold = true })
 vim.api.nvim_set_hl(0, "Visual", { bg = color.sumiInk4, fg = nil })
 vim.api.nvim_set_hl(0, "SignColumn", { fg = color.sumiInk0 , bg = nil })
 vim.api.nvim_set_hl(0, "CursorLine", { bg = color.sumiInk2, bg = nil })
@@ -151,29 +151,16 @@ vim.api.nvim_set_hl(0, "WarningMsg", { link = "Warnings" })
 vim.api.nvim_set_hl(0, "DiagnosticWarn", { link = "Warnings" })
 
 -------------------------------------------------------------------------------
--- Plugins
+-- LSP
 -------------------------------------------------------------------------------
 
 require('nvim-autopairs').setup({})
 
 local lsp = require('lspconfig')
 
+require("zk").setup({})
 lsp.rust_analyzer.setup{}
 lsp.gopls.setup{}
-
-require("zk").setup({
-    picker = "select",
-    lsp = {
-        config = {
-            name = "zk",
-            cmd = { "zk", "lsp" },
-        },
-        auto_attach = {
-            enabled = true,
-            filetypes = { "markdown" },
-        },
-    },
-})
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -182,9 +169,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
 
     callback = function(ev)
-
-        -- Enable completion triggered by <c-x><c-o>
-        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
