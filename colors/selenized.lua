@@ -1,9 +1,9 @@
 local color = {
-    base03  = "#002d38",
-    base02  = "#093946",
-    base01  = "#5b7279",
+    base03  = "#112e38",
+    base02  = "#163945",
+    base01  = "#254a57",
     base00  = "#657377",
-    base0   = "#839496",
+    base0   = "#9faeae",
     base1   = "#93a1a1",
     base2   = "#eee8d5",
     yellow  = "#ac8300",
@@ -13,7 +13,7 @@ local color = {
     violet  = "#7d80d1",
     blue    = "#2b90d8",
     cyan    = "#259d94",
-    green   = "#819500",
+    green   = "#69ad21",
 }
 
 -- Syntax

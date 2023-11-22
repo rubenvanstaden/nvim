@@ -2,7 +2,7 @@
 -- Colorscheme
 -------------------------------------------------------------------------------
 
-vim.cmd("colorscheme solarized")
+vim.cmd("colorscheme cat")
 vim.o.termguicolors = true
 vim.cmd("syntax on")
 
