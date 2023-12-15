@@ -27,7 +27,7 @@ local color = {
     fg4 = "#a89984",
 }
 
-vim.api.nvim_set_hl(0, "Normal", { fg = color.fg1, bg = color.bg0 })
+vim.api.nvim_set_hl(0, "Normal", { fg = color.fg1, bg = nil })
 vim.api.nvim_set_hl(0, "Comment", { fg = color.gray, italic = true })
 
 vim.api.nvim_set_hl(0, "Statement", { fg = color.red })

@@ -4,6 +4,7 @@ local color = {
     overlay = "#393552",
     muted   = "#6e6a86",
     subtle  = "#908caa",
+    --text    = "#e0def4", // original
     text    = "#f2e9e1",
     love    = "#eb6f92",
     gold    = "#f6c177",
@@ -56,7 +57,7 @@ vim.api.nvim_set_hl(0, "NonText", { fg = color.muted, bg = nil})
 vim.api.nvim_set_hl(0, "Pmenu", { bg = color.overlay, fg = nil })
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = color.overlay, fg = nil, bold = true })
 vim.api.nvim_set_hl(0, "SignColumn", { fg = nil, bg = nil })
-vim.api.nvim_set_hl(0, "Cursor", { fg = nil, bg = color.subtle })
+vim.api.nvim_set_hl(0, "Cursor", { fg = nil, bg = color.overlay })
 vim.api.nvim_set_hl(0, "Error", { fg = color.love, bg = nil})
 vim.api.nvim_set_hl(0, "ErrorMsg", { link = "Error" })
 vim.api.nvim_set_hl(0, "DiagnosticError", { link = "Error" })
