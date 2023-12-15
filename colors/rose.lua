@@ -17,7 +17,7 @@ local color = {
     highlight_high = "#524f67",
 }
 
-vim.api.nvim_set_hl(0, "Normal", { fg = color.text, bg = color.base })
+vim.api.nvim_set_hl(0, "Normal", { fg = color.text, bg = nil })
 vim.api.nvim_set_hl(0, "Comment", { fg = color.muted, bg = nil, italic = true })
 vim.api.nvim_set_hl(0, "Statement", { fg = color.pine, bg = nil })
 vim.api.nvim_set_hl(0, "Repeat", { link = "Statement" })
