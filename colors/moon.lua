@@ -1,20 +1,20 @@
 local color = {
-    base    = "#191724",
-    surface = "#1f1d2e",
-    overlay = "#26233a",
+    base    = "#232136",
+    surface = "#2a273f",
+    overlay = "#393552",
     muted   = "#6e6a86",
     subtle  = "#908caa",
-    text    = "#e0def4",
-    --text    = "#f2e9e1",
+    --text    = "#e0def4", // original
+    text    = "#f2e9e1",
     love    = "#eb6f92",
     gold    = "#f6c177",
-    rose    = "#ebbcba",
-    pine    = "#31748f",
+    rose    = "#ea9a97",
+    pine    = "#3e8fb0",
     foam    = "#9ccfd8",
     iris    = "#c4a7e7",
-    highlight_low  = "#21202e",
-    highlight_med  = "#403d52",
-    highlight_high = "#524f67",
+    highlight_low  = "#2a283e",
+    highlight_med  = "#44415a",
+    highlight_high = "#56526e",
 }
 
 vim.api.nvim_set_hl(0, "Normal", { fg = color.text, bg = color.base })

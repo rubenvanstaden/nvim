@@ -40,8 +40,7 @@ local color = {
      violet  = "#9b72e9",
      blue    = "#3a82f8",
     cyan    = "#42bdaa",
---     green   = "#69ad21",
-
+     green   = "#69ad21",
 
     yellow  = "#ac8300",
 --    orange  = "#cb4b16",

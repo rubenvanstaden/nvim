@@ -1,46 +1,32 @@
 local color = {
-    rosewater = "#f5e0dc",
-	flamingo  = "#f2cdcd",
-	pink      = "#f5c2e7",
-	mauve     = "#cba6f7",
-	red       = "#f38ba8",
-	maroon    = "#eba0ac",
-	peach     = "#fab387",
-	yellow    = "#f9e2af",
-	green     = "#a6e3a1",
-	teal      = "#94e2d5",
-	sky       = "#89dceb",
-	sapphire  = "#74c7ec",
-	blue      = "#89b4fa",
-	lavender  = "#b4befe",
-	text      = "#cdd6f4",
-	subtext1  = "#bac2de",
-	subtext0  = "#a6adc8",
-	overlay2  = "#9399b2",
-	overlay1  = "#7f849c",
-	overlay0  = "#6c7086",
-	surface2  = "#585b70",
-	surface1  = "#45475a",
-	surface0  = "#313244",
-	base      = "#1e1e2e",
-	mantle    = "#181825",
-	crust     = "#11111b",
+    bg = "#02091F",
+	text  = "#abb2bf",
+    darkblue = "#182A5A",
+    lightblue = "#0F1F4A",
+    red = "#E2545D",
+    yellow = "#F8D27B",
+    pink = "#F1AEDB",
+    cyan = "#8AEAFA",
+    purple = "#9370DB",
+    green        = "#98C379",
+    plum = "#DDA0DD",
+    orange = "#EEA28C"
 }
 
 -- Constants
 
-vim.api.nvim_set_hl(0, "Normal", { bg = nil, fg = color.text })
-vim.api.nvim_set_hl(0, "Keyword", { fg = color.mauve, bg = nil })
+vim.api.nvim_set_hl(0, "Normal", { bg = color.bg, fg = color.text })
+vim.api.nvim_set_hl(0, "Keyword", { fg = color.cyan, bg = nil })
 vim.api.nvim_set_hl(0, "Statement", { link = "Keyword" })
-vim.api.nvim_set_hl(0, "String", { bg = nil, fg = color.green })
-vim.api.nvim_set_hl(0, "Comment", { bg = nil, fg = color.overlay0 })
-vim.api.nvim_set_hl(0, "Constant", { bg = nil, fg = color.peach })
+vim.api.nvim_set_hl(0, "String", { bg = nil, fg = color.plum })
+vim.api.nvim_set_hl(0, "Comment", { bg = nil, fg = color.lightblue })
+vim.api.nvim_set_hl(0, "Constant", { bg = nil, fg = color.orange })
 vim.api.nvim_set_hl(0, "Number", { link = "Constant" }) --  if, then, else, endif, switch, etc.
 vim.api.nvim_set_hl(0, "Operator", { fg = color.sky, bold = false })
 vim.api.nvim_set_hl(0, "Function", { fg = color.blue, bg = nil })
 
 vim.api.nvim_set_hl(0, "Todo", { fg = color.red, bg = color.none })
-vim.api.nvim_set_hl(0, "MatchParen", { bg = nil, fg = color.peach, bold = true })
+vim.api.nvim_set_hl(0, "MatchParen", { bg = nil, fg = color.pink, bold = true })
 vim.api.nvim_set_hl(0, "Repeat", { fg = color.yellow, bg = nil }) -- for, do, while, etc.
 vim.api.nvim_set_hl(0, "Structure", { fg = color.yellow, bg = nil }) -- struct, union, enum, etc.
 vim.api.nvim_set_hl(0, "StorageClass", { fg = color.yellow, bg = nil }) -- static, register, volatile, etc.
@@ -48,7 +34,6 @@ vim.api.nvim_set_hl(0, "Exception", { link = "Statement" })
 vim.api.nvim_set_hl(0, "Conditional", { link = "Statement" }) --  if, then, else, endif, switch, etc.
 vim.api.nvim_set_hl(0, "Define", { link = "Statement" })
 
-vim.api.nvim_set_hl(0, "Constant", { fg = color.peach, bg = nil })
 vim.api.nvim_set_hl(0, "Special",     { fg = color.pink, bg = nil})
 vim.api.nvim_set_hl(0, "Boolean", { link = "Constant" })
 vim.api.nvim_set_hl(0, "Character", { fg = color.teal, bg = nil })
