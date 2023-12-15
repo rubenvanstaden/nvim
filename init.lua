@@ -1,34 +1,30 @@
-vim.cmd("colorscheme osaka")
+vim.cmd("colorscheme kanagawa")
 vim.cmd("syntax on")
 
 -------------------------------------------------------------------------------
 -- Options
 -------------------------------------------------------------------------------
 
-vim.g.mapleader   = " "                -- Remap leader to spacebar
-vim.o.mouse       = "a"                -- Enable mouse completely (default), make "" to disable
-vim.o.shiftwidth  = 4                  -- Number of spaces tabs count for
-vim.o.tabstop     = 4                  -- Always use clipboard for all operations
-vim.o.laststatus  = 2                  -- Set the status line to always be visible
-vim.o.termguicolors = true
-vim.o.cursorline  = true               -- Highlight current line
-vim.o.expandtab   = true               -- Use spaces instead of tabs
-vim.o.wrap        = true               -- Enable line wrapping
-vim.o.linebreak   = true               -- Break words cleanly at line wrapping
-vim.o.autoindent  = true               -- Auto-indent new lines
-vim.o.showmatch   = true               -- Highlight matching parentheses. Maybe remove autobracket plugin
-vim.o.showcmd     = true               -- Show partial commands in the command line while typing
-vim.o.showmode    = false              -- Show the current mode in the command line
-vim.o.clipboard   = "unnamedplus"      -- Always use clipboard for all operations
-vim.o.completeopt = "menuone,noselect" -- Set completeopt for better completion experience
---vim.o.number = true
---vim.o.relativenumber = true
-
-vim.o.foldenable = true       -- Enable folding
-vim.o.foldmethod = 'indent'   -- Set fold method (e.g., 'indent', 'syntax', or 'marker')
-vim.o.foldlevel = 1          -- Open most folds by default
-vim.o.foldlevelstart = 99     -- Start editing with all folds open
-
+vim.g.mapleader      = " "                -- Remap leader to spacebar
+vim.o.mouse          = "a"                -- Enable mouse completely (default), make "" to disable
+vim.o.shiftwidth     = 4                  -- Number of spaces tabs count for
+vim.o.tabstop        = 4                  -- Always use clipboard for all operations
+vim.o.laststatus     = 2                  -- Set the status line to always be visible
+vim.o.termguicolors  = true               -- Enable true terminal colors
+vim.o.cursorline     = true               -- Highlight current line
+vim.o.expandtab      = true               -- Use spaces instead of tabs
+vim.o.wrap           = true               -- Enable line wrapping
+vim.o.linebreak      = true               -- Break words cleanly at line wrapping
+vim.o.autoindent     = true               -- Auto-indent new lines
+vim.o.showmatch      = true               -- Highlight matching parentheses. Maybe remove autobracket plugin
+vim.o.showcmd        = true               -- Show partial commands in the command line while typing
+vim.o.showmode       = false              -- Show the current mode in the command line
+vim.o.clipboard      = "unnamedplus"      -- Always use clipboard for all operations
+vim.o.completeopt    = "menuone,noselect" -- Set completeopt for better completion experience
+vim.o.foldenable     = true               -- Enable folding
+vim.o.foldmethod     = 'indent'           -- Set fold method (e.g., 'indent', 'syntax', or 'marker')
+vim.o.foldlevel      = 1                  -- Open most folds by default
+vim.o.foldlevelstart = 99                 -- Start editing with all folds open
 
 -------------------------------------------------------------------------------
 -- Key Mappings
@@ -61,25 +57,7 @@ local utils = require 'lspconfig.util'
 require("zk").setup({})
 lsp.rust_analyzer.setup{}
 lsp.gopls.setup{}
---lsp.clangd.setup{}
---
-lsp.clangd.setup{
-    on_attach = on_attach,
-    cmd = {
-        "clangd",
-         "--background-index",
-         "--suggest-missing-includes",
-         "--all-scopes-completion",
---         "–clang-tidy",
---         "–pch-storage=memory",
---         "–log=verbose",
---         "–pretty",
---         "–header-insertion=never"
-    },
-    filetypes = {"c", "cpp"},
-    root_dir = utils.root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
-    --init_option = { fallbackFlags = { "-std=c++2a" } }
-}
+lsp.clangd.setup{}
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
