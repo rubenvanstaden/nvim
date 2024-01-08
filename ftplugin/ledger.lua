@@ -1,4 +1,34 @@
-vim.cmd('abb beef Expense:Food:Meat:Beef   ')
+vim.cmd('abb coffee Expense:Social:Coffee  ')
+vim.cmd('abb apple Expense:Food:Fruit:Apple  ')
+vim.cmd('abb avocado Expense:Food:Fruit:Avocado  ')
+vim.cmd('abb banana Expense:Food:Fruit:Banana  ')
+vim.cmd('abb beans Expense:Food:Fruit:Beans ')
+vim.cmd('abb orange Expense:Food:Fruit:Orange  ')
+
+vim.cmd('abb celery Expense:Food:Vegetable:Celery  ')
+vim.cmd('abb potato Expense:Food:Vegetable:Potato  ')
+vim.cmd('abb corn Expense:Food:Vegetable:Corn  ')
+
+vim.cmd('abb beef Expense:Food:Meat:Beef  ')
+vim.cmd('abb chicken Expense:Food:Meat:Chicken  ')
+vim.cmd('abb pork Expense:Food:Meat:Pork  ')
+vim.cmd('abb biltong Expense:Food:Meat:Biltong  ')
+
+vim.cmd('abb spice Expense:Food:Spice  ')
+vim.cmd('abb grain Expense:Food:Grain  ')
+vim.cmd('abb snack Expense:Food:Snack  ')
+
+vim.cmd('abb gas Expense:Transport:Gas  ')
+vim.cmd('abb metro Expense:Transport:Metro  ')
+vim.cmd('abb rental Expense:Transport:Rental  ')
+vim.cmd('abb taxi Expense:Transport:Taxi  ')
+
+vim.cmd('abb vat Expense:Fee:VAT  ')
+vim.cmd('abb gst Expense:Fee:GST  ')
+vim.cmd('abb qst Expense:Fee:QST  ')
+vim.cmd('abb bag Expense:Fee:Bag  ')
+vim.cmd('abb tip Expense:Fee:Tip  ')
+
 vim.cmd('abb z ZAR')
 vim.cmd('abb c CAD')
 vim.cmd('abb u USD')
