@@ -160,6 +160,7 @@ vim.api.nvim_set_hl(0, "Visual",       { fg = color.bg, bg = color.base0 })
 vim.api.nvim_set_hl(0, "CursorLine",       { fg = nil, bg = color.base03 })
 vim.api.nvim_set_hl(0, "StatusLine",       { fg = color.base1, bg = color.base03 })
 vim.api.nvim_set_hl(0, "NonText",       { fg = color.base00, bg = nil })
+vim.api.nvim_set_hl(0, "SignColumn",   { fg = color.base0 , bg = nil })
 
 -- Markdown
 vim.api.nvim_set_hl(0, "markdownH1",     { fg = color.magenta500, bg = nil, bold = true }) -- int, long, char, etc.
@@ -168,3 +169,11 @@ vim.api.nvim_set_hl(0, "markdownLinkText",     { fg = color.blue500, bg = nil })
 vim.api.nvim_set_hl(0, "markdownCode",     { fg = color.yellow500, bg = color.green900 })
 vim.api.nvim_set_hl(0, "markdownCodeBlock",     { fg = color.yellow500, bg = color.green900 })
 vim.api.nvim_set_hl(0, "markdownHeadingDelimiter",     { fg = color.base0, bg = nil, bold = true })
+
+-- Diagnostics
+vim.api.nvim_set_hl(0, "Error",           { fg = color.red500, bg = nil})
+vim.api.nvim_set_hl(0, "ErrorMsg",        { link = "Error" })
+vim.api.nvim_set_hl(0, "DiagnosticError", { link = "Error" })
+vim.api.nvim_set_hl(0, "Warnings",        { fg = color.yellow500, bg = nil })
+vim.api.nvim_set_hl(0, "WarningMsg",      { link = "Warnings" })
+vim.api.nvim_set_hl(0, "DiagnosticWarn",  { link = "Warnings" })

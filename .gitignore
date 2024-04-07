@@ -1,3 +1,4 @@
 nvim/plugin/
 test/cpp/
 test/python/
+pack/

@@ -6,7 +6,7 @@ vim.cmd("syntax on")
 -------------------------------------------------------------------------------
 
 vim.g.mapleader      = " "                -- Remap leader to spacebar
-vim.o.mouse          = "a"                -- Enable mouse completely (default), make "" to disable
+vim.o.mouse          = ""                -- Enable mouse completely (default), make "" to disable
 vim.o.shiftwidth     = 4                  -- Number of spaces tabs count for
 vim.o.tabstop        = 4                  -- Always use clipboard for all operations
 vim.o.laststatus     = 2                  -- Set the status line to always be visible
@@ -32,6 +32,9 @@ vim.o.foldlevelstart = 99                 -- Start editing with all folds open
 
 vim.opt.dictionary = "~/.config/nvim/dictionary"
 vim.opt.thesaurus  = "~/.config/nvim/thesaurus"
+
+vim.api.nvim_set_keymap('n', '<leader>sh', [[:.!sh<CR>]], {noremap = true, silent = false})
+vim.api.nvim_set_keymap('n', '<C-p>', ':<C-u>FZF<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap(
     'n', '<C-w>',
@@ -81,12 +84,12 @@ lsp.gopls.setup {
     settings = {
         gopls = {
             analyses = {
+                shadow = false,
                 unusedparams = true,
                 unkeyedliteral = true,
                 unusedwrite = true,
                 fieldalignment = true,
                 nilness = true,
-                shadow = true,
                 useany = true,
                 unusedvariable = true,
             },
@@ -122,7 +125,7 @@ lsp.lua_ls.setup {
 }
 
 map('n', 'gd',        "<cmd> lua vim.lsp.buf.definition() <cr>",  opt)
-map('n', '<Leader>a', "<cmd> lua vim.lsp.buf.code_action() <cr>", opt)
+map('n', 'gc',        "<cmd> lua vim.lsp.buf.code_action() <cr>",  opt)
 map('n', '<Leader>h', "<cmd> lua vim.lsp.buf.hover() <cr>",       opt)
 map('n', '<Leader>m', "<cmd> lua vim.lsp.buf.rename() <cr>",      opt)
 map('n', '<Leader>r', "<cmd> lua vim.lsp.buf.references() <cr>",  opt)
